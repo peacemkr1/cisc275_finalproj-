@@ -44,6 +44,11 @@ function App() {
         </a>
         
       </header>
+
+      <div>
+        <p>This button would lead to the more detailed answer</p>
+        <button onClick={ () => {}}>detailed answer</button>
+      </div>
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>

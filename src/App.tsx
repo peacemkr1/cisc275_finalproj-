@@ -13,7 +13,8 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  
+  //const [showQuestions, setShowQuestions] = useState<boolean>(false);
+
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -24,6 +25,11 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  //function flipVisibility() {
+    //setShowQuestions(prev => !prev);
+  //}
+
   return (
     <div className="App">
       <header className="App-header">
@@ -33,6 +39,10 @@ function App() {
         <div>David Cardenas</div>
         <div>Rahul Davu</div>
         <div>Ayman Tayeb</div>
+        <div>
+        <span>
+        <Button onClick={() => alert("Basic Questions clicked!")}>Basic Questions</Button>        </span>
+        </div>
         </p>
         
         <a

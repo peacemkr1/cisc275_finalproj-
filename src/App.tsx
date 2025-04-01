@@ -14,6 +14,8 @@ if (prevKey !== null) {
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   //const [showQuestions, setShowQuestions] = useState<boolean>(false);
+  const [showBasicQuestions, setShowBasicQuestions] = useState(false);
+  const [showDetailedQuestions, setShowDetailedQuestions] = useState(false);
 
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -30,20 +32,48 @@ function App() {
     //setShowQuestions(prev => !prev);
   //}
 
+  function goToBasicQuestions() {
+    setShowBasicQuestions(true);
+  }
+
+  function goToDetailedQuestions() {
+    setShowDetailedQuestions(true);
+  }
+
+  function goBackHome() {
+    setShowBasicQuestions(false);
+    setShowDetailedQuestions(false);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
+      {!showBasicQuestions && !showDetailedQuestions ? (
+        <>
+     <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload. 
-        <div>David Cardenas</div>
-        <div>Rahul Davu</div>
-        <div>Ayman Tayeb</div>
-        <div>
-        <span>
-        <Button onClick={() => alert("Basic Questions clicked!")}>Basic Questions</Button>        </span>
-        </div>
+          <div>David Cardenas</div>
+          <div>Rahul Davu</div>
+          <div>Ayman Tayeb</div>
+          <br />
         </p>
+
+        <div>
+            <h2>Basic Questions</h2>
+            <p>***Write Description***</p>
+            <Button onClick={goToBasicQuestions}>Go to Basic Questions</Button>
+            <br />
+            <br />
+        </div>
+        
+        <div>
+          <h2>Detailed Questions</h2>
+          <p>***Write Description***</p>
+          <Button onClick={goToDetailedQuestions}>Go to Detailed Questions</Button>
+          <br />
+          <br />
+        </div>
         
         <a
           className="App-link"
@@ -61,6 +91,20 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
+      </> 
+      ) : showBasicQuestions ? (
+        <div className="App-header">
+          <h1>Basic Questions Page</h1>
+          <p>***Questions will go here***</p>
+          <Button onClick={goBackHome}>Back to Home</Button>
+        </div>
+      ) : (
+        <div className="App-header">
+          <h1>Detailed Questions Page</h1>
+          <p>***Questions will go here***</p>
+          <Button onClick={goBackHome}>Back to Home</Button>
+        </div>
+      )}
     </div>
   );
 }

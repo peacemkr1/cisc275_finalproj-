@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 
@@ -65,9 +65,9 @@ function App() {
       {!showBasicQuestions && !showDetailedQuestions ? (
         <>
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+            {/*<img src={logo} className="App-logo" alt="logo" />*/}
             <p>
-              Edit <code>src/App.tsx</code> and save to reload.
+              {/*Edit <code>src/App.tsx</code> and save to reload.*/}
               <div>David Cardenas</div>
               <div>Rahul Davu</div>
               <div>Ayman Tayeb</div>
@@ -88,6 +88,7 @@ function App() {
               <br /><br />
             </div>
 
+{/*
             <a
               className="App-link"
               href="https://reactjs.org"
@@ -96,6 +97,7 @@ function App() {
             >
               Learn React
             </a>
+            */}
           </header>
 
           <Form>

@@ -117,11 +117,29 @@ function App() {
         <div className="App-header">
           <h1>Basic Questions Page</h1>
           <p>***Questions will go here***</p>
+          <ol>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+          </ol>
         </div>
       ) : (
         <div className="App-header">
           <h1>Detailed Questions Page</h1>
           <p>***Questions will go here***</p>
+          <ol>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+            <li>Question</li>
+          </ol>
         </div>
       )}
     </div>

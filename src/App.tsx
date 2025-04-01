@@ -3,34 +3,27 @@ import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 
-//local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
+// Local storage key logic
 let keyData = "";
 const saveKeyData = "MYKEY";
-const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+const prevKey = localStorage.getItem(saveKeyData);
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
 function App() {
-  const [key, setKey] = useState<string>(keyData); //for api key input
-  //const [showQuestions, setShowQuestions] = useState<boolean>(false);
+  const [key, setKey] = useState<string>(keyData);
   const [showBasicQuestions, setShowBasicQuestions] = useState(false);
   const [showDetailedQuestions, setShowDetailedQuestions] = useState(false);
 
-  //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+    window.location.reload();
   }
 
-  //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
-
-  //function flipVisibility() {
-    //setShowQuestions(prev => !prev);
-  //}
 
   function goToBasicQuestions() {
     setShowBasicQuestions(true);
@@ -47,62 +40,86 @@ function App() {
 
   return (
     <div className="App">
+      {/* Top Header with Home Button */}
+      {(showBasicQuestions || showDetailedQuestions) && (
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "1rem 2rem",
+          backgroundColor: "#282c34",
+          color: "blue"
+        }}>
+          <h2 style={{ margin: 0 }}>Q&A App</h2>
+          <Button
+            variant="light"
+            onClick={goBackHome}
+            style={{ fontSize: "1rem", padding: "0.4rem 1rem" }}
+          >
+            Home
+          </Button>
+        </div>
+      )}
+
+      {/* Home Page */}
       {!showBasicQuestions && !showDetailedQuestions ? (
         <>
-     <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload. 
-          <div>David Cardenas</div>
-          <div>Rahul Davu</div>
-          <div>Ayman Tayeb</div>
-          <br />
-        </p>
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload.
+              <div>David Cardenas</div>
+              <div>Rahul Davu</div>
+              <div>Ayman Tayeb</div>
+              <br />
+            </p>
 
-        <div>
-            <h2>Basic Questions</h2>
-            <p>***Write Description***</p>
-            <Button onClick={goToBasicQuestions}>Go to Basic Questions</Button>
+            <div>
+              <h2>Basic Questions</h2>
+              <p>***Write Description***</p>
+              <Button onClick={goToBasicQuestions}>Go to Basic Questions</Button>
+              <br /><br />
+            </div>
+
+            <div>
+              <h2>Detailed Questions</h2>
+              <p>***Write Description***</p>
+              <Button onClick={goToDetailedQuestions}>Go to Detailed Questions</Button>
+              <br /><br />
+            </div>
+
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn React
+            </a>
+          </header>
+
+          <Form>
+            <Form.Label>API Key:</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Insert API Key Here"
+              onChange={changeKey}
+            />
             <br />
-            <br />
-        </div>
-        
-        <div>
-          <h2>Detailed Questions</h2>
-          <p>***Write Description***</p>
-          <Button onClick={goToDetailedQuestions}>Go to Detailed Questions</Button>
-          <br />
-          <br />
-        </div>
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        
-      </header>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
-      </> 
+            <Button className="Submit-Button" onClick={handleSubmit}>
+              Submit
+            </Button>
+          </Form>
+        </>
       ) : showBasicQuestions ? (
         <div className="App-header">
           <h1>Basic Questions Page</h1>
           <p>***Questions will go here***</p>
-          <Button onClick={goBackHome}>Back to Home</Button>
         </div>
       ) : (
         <div className="App-header">
           <h1>Detailed Questions Page</h1>
           <p>***Questions will go here***</p>
-          <Button onClick={goBackHome}>Back to Home</Button>
         </div>
       )}
     </div>

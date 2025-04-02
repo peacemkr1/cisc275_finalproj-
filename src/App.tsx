@@ -48,13 +48,14 @@ function App() {
           alignItems: "center",
           padding: "1rem 2rem",
           backgroundColor: "#282c34",
-          color: "blue"
+          color: "pink"
         }}>
           <h2 style={{ margin: 0 }}>Q&A App</h2>
           <Button
             variant="light"
             onClick={goBackHome}
-            style={{ fontSize: "1rem", padding: "0.4rem 1rem" }}
+            style={{ fontSize: "1rem", padding: "0.4rem 1rem", color: "black",backgroundColor: ""}}
+            
           >
             Home
           </Button>
@@ -77,14 +78,31 @@ function App() {
             <div>
               <h2>Basic Questions</h2>
               <p>***Write Description***</p>
-              <Button onClick={goToBasicQuestions}>Go to Basic Questions</Button>
+              <Button 
+                onClick={goToBasicQuestions} 
+                style={{ backgroundColor: "purple" }}
+              >
+                Go to Basic Questions
+              </Button>
+
+              
               <br /><br />
             </div>
 
             <div>
               <h2>Detailed Questions</h2>
               <p>***Write Description***</p>
-              <Button onClick={goToDetailedQuestions}>Go to Detailed Questions</Button>
+              <Button 
+                onClick={goToDetailedQuestions}
+                style={{ backgroundColor: "teal" }}
+                >
+                  Go to Detailed Questions
+              
+              </Button>
+
+              
+
+
               <br /><br />
             </div>
 

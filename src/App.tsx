@@ -66,13 +66,20 @@ function App() {
         <>
           <header className="App-header">
             {/*<img src={logo} className="App-logo" alt="logo" />*/}
-            <p>
-              {/*Edit <code>src/App.tsx</code> and save to reload.*/}
-              <div>David Cardenas</div>
-              <div>Rahul Davu</div>
-              <div>Ayman Tayeb</div>
-              <br />
-            </p>
+            <div style={{
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  padding: "1rem",
+  position: "absolute", // if you still want it overlaying everything
+  top: 0,
+  left: 0,
+  color: "white"
+}}>
+  <div>David Cardenas</div>
+  <div>Rahul Davu</div>
+  <div>Ayman Tayeb</div>
+</div>
 
             <div>
               <h2>Basic Questions</h2>

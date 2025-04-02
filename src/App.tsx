@@ -67,20 +67,30 @@ function App() {
         <>
           <header className="App-header">
             {/*<img src={logo} className="App-logo" alt="logo" />*/}
-            <p>
-              {/*Edit <code>src/App.tsx</code> and save to reload.*/}
-              <div>David Cardenas</div>
-              <div>Rahul Davu</div>
-              <div>Ayman Tayeb</div>
-              <br />
-            </p>
-
+            <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            padding: "1rem",
+            position: "absolute", 
+            top: 0,
+            left: 0,
+            color: "white"
+            }}>
+            <div>David Cardenas</div>
+            <div>Rahul Davu</div>
+            <div>Ayman Tayeb</div>
+            </div>
+            <div style={{
+            position: "absolute",
+            color: "gold"
+            }}>
             <div>
-              <h2>Basic Questions</h2>
-              <p>***Write Description***</p>
+            <h2 style={{ fontFamily: "Arial", fontSize: "4rem" }}>Basic Questions</h2>              
+            <p>***Write Description***</p>
               <Button 
                 onClick={goToBasicQuestions} 
-                style={{ backgroundColor: "purple" }}
+                style={{ backgroundColor: "blue" }}
               >
                 Go to Basic Questions
               </Button>
@@ -90,11 +100,12 @@ function App() {
             </div>
 
             <div>
-              <h2>Detailed Questions</h2>
+            <h2 style={{ fontFamily: "Arial", fontSize: "4rem" }}>Detailed Questions</h2>              
               <p>***Write Description***</p>
+            </div>
               <Button 
                 onClick={goToDetailedQuestions}
-                style={{ backgroundColor: "teal" }}
+                style={{ backgroundColor: "blue" }}
                 >
                   Go to Detailed Questions
               

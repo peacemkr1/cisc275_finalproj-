@@ -46,7 +46,7 @@ FAIL src/App.test.tsx
                 [36m</p>[39m
                 [36m<button[39m
                   [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mstyle[39m=[32m"background-color: blue;"[39m
+                  [33mstyle[39m=[32m"background-color: teal;"[39m
                   [33mtype[39m=[32m"button"[39m
                 [36m>[39m
                   [0mGo to Basic Questions[0m
@@ -65,7 +65,7 @@ FAIL src/App.test.tsx
                 [36m</p>[39m
                 [36m<button[39m
                   [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mstyle[39m=[32m"background-color: blue;"[39m
+                  [33mstyle[39m=[32m"background-color: orange;"[39m
                   [33mtype[39m=[32m"button"[39m
                 [36m>[39m
                   [0mGo to Detailed Questions[0m
@@ -119,13 +119,13 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   26.66 |       40 |      10 |   26.66 |                   
+All files               |   28.12 |       40 |    9.09 |   28.12 |                   
  src                    |   29.62 |       40 |    12.5 |   29.62 |                   
-  App.tsx               |      50 |    54.54 |   16.66 |      50 | 11,20-38          
+  App.tsx               |      50 |    54.54 |   16.66 |      50 | 12,21-39          
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |       0 |      100 |       0 |       0 |                   
-  BasicQuestions.tsx    |       0 |        0 |       0 |       0 |                   
+ src/components         |      20 |      100 |       0 |      20 |                   
+  BasicQuestions.tsx    |      50 |      100 |       0 |      50 | 5                 
   ChatGBT.tsx           |       0 |        0 |       0 |       0 |                   
   DetailedQuestions.tsx |       0 |        0 |       0 |       0 |                   
   Navbar.tsx            |       0 |      100 |       0 |       0 | 6-12              
@@ -133,7 +133,7 @@ All files               |   26.66 |       40 |      10 |   26.66 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.829 s
+Time:        2.876 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without

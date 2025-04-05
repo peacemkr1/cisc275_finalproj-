@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+import BasicQuestions from './components/BasicQuestions'; // ✅ Imported
 
 // Local storage key logic
 let keyData = "";
@@ -104,7 +105,7 @@ function App() {
               <div style={{ width: "45%", textAlign: "center" }}>
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Basic Questions</h2>
                 <p>***Write Description***</p>
-                <Button onClick={goToBasicQuestions} style={{ backgroundColor: "blue" }}>
+                <Button onClick={goToBasicQuestions} style={{ backgroundColor: "teal", border: "none" }}>
                   Go to Basic Questions
                 </Button>
               </div>
@@ -112,7 +113,7 @@ function App() {
               <div style={{ width: "45%", textAlign: "center" }}>
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
                 <p>***Write Description***</p>
-                <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "blue" }}>
+                <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "orange", border: "none" }}>
                   Go to Detailed Questions
                 </Button>
               </div>
@@ -133,19 +134,7 @@ function App() {
           </Form>
         </>
       ) : showBasicQuestions ? (
-        <div className="App-header">
-          <h1>Basic Questions Page</h1>
-          <p>***Questions will go here***</p>
-          <ol>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-          </ol>
-        </div>
+        <BasicQuestions />
       ) : (
         <div className="App-header">
           <h1>Detailed Questions Page</h1>

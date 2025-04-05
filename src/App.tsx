@@ -40,93 +40,83 @@ function App() {
 
   return (
     <div className="App">
-      {/* Top Header with Home Button */}
-      {(showBasicQuestions || showDetailedQuestions) && (
-        <div style={{
+      {/* Always visible top header */}
+      <div
+        style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           padding: "1rem 2rem",
-          backgroundColor: "#282c34",
-          color: "pink"
-        }}>
-          <h2 style={{ margin: 0 }}>Q&A App</h2>
+          backgroundColor: "white",
+          color: "black",
+        }}
+      >
+        <h2 style={{ margin: 0 }}>Q&A App</h2>
+        {(showBasicQuestions || showDetailedQuestions) && (
           <Button
             variant="light"
             onClick={goBackHome}
-            style={{ fontSize: "1rem", padding: "0.4rem 1rem", color: "black",backgroundColor: ""}}
-            
+            style={{
+              fontSize: "1rem",
+              padding: "0.4rem 1rem",
+              color: "white",
+              backgroundColor: "black",
+            }}
           >
             Home
           </Button>
-        </div>
-      )}
+        )}
+      </div>
 
       {/* Home Page */}
       {!showBasicQuestions && !showDetailedQuestions ? (
         <>
           <header className="App-header">
-            {/*<img src={logo} className="App-logo" alt="logo" />*/}
-            <div style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            padding: "1rem",
-            position: "absolute", 
-            top: 0,
-            left: 0,
-            color: "white"
-            }}>
-            <div>David Cardenas</div>
-            <div>Rahul Davu</div>
-            <div>Ayman Tayeb</div>
-            </div>
-            <div style={{
-            position: "absolute",
-            color: "gold"
-            }}>
-            <div>
-            <h2 style={{ fontFamily: "Arial", fontSize: "4rem" }}>Basic Questions</h2>              
-            <p>***Write Description***</p>
-              <Button 
-                onClick={goToBasicQuestions} 
-                style={{ backgroundColor: "blue" }}
-              >
-                Go to Basic Questions
-              </Button>
-
-              
-              <br /><br />
-            </div>
-
-            <div>
-            <h2 style={{ fontFamily: "Arial", fontSize: "4rem" }}>Detailed Questions</h2>              
-              <p>***Write Description***</p>
-            </div>
-              <Button 
-                onClick={goToDetailedQuestions}
-                style={{ backgroundColor: "blue" }}
-                >
-                  Go to Detailed Questions
-              
-              </Button>
-
-              
-
-
-              <br /><br />
-            </div>
-
-{/*
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                padding: "1rem",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                color: "black",
+              }}
             >
-              Learn React
-            </a>
-            */}
+              {/* Optional author section */}
+              {/* <div>David Cardenas</div>
+              <div>Rahul Davu</div>
+              <div>Ayman Tayeb</div> */}
+            </div>
+
+            <div
+              style={{
+                position: "absolute",
+                display: "flex",
+                justifyContent: "center",
+                gap: "4rem",
+                color: "white",
+                width: "100%",
+                top: "55%",
+              }}
+            >
+              <div style={{ width: "45%", textAlign: "center" }}>
+                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Basic Questions</h2>
+                <p>***Write Description***</p>
+                <Button onClick={goToBasicQuestions} style={{ backgroundColor: "blue" }}>
+                  Go to Basic Questions
+                </Button>
+              </div>
+
+              <div style={{ width: "45%", textAlign: "center" }}>
+                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
+                <p>***Write Description***</p>
+                <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "blue" }}>
+                  Go to Detailed Questions
+                </Button>
+              </div>
+            </div>
           </header>
 
           <Form>

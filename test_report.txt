@@ -15,28 +15,29 @@ FAIL src/App.test.tsx
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
         [36m>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: white; color: black;"[39m
+          [36m>[39m
+            [36m<h2[39m
+              [33mstyle[39m=[32m"margin: 0px;"[39m
+            [36m>[39m
+              [0mQ&A App[0m
+            [36m</h2>[39m
+          [36m</div>[39m
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
           [36m>[39m
             [36m<div[39m
-              [33mstyle[39m=[32m"display: flex; flex-direction: column; align-items: flex-start; padding: 1rem; position: absolute; top: 0px; left: 0px; color: white;"[39m
-            [36m>[39m
-              [36m<div>[39m
-                [0mDavid Cardenas[0m
-              [36m</div>[39m
-              [36m<div>[39m
-                [0mRahul Davu[0m
-              [36m</div>[39m
-              [36m<div>[39m
-                [0mAyman Tayeb[0m
-              [36m</div>[39m
-            [36m</div>[39m
+              [33mstyle[39m=[32m"display: flex; flex-direction: column; align-items: flex-start; padding: 1rem; position: absolute; top: 0px; left: 0px; color: black;"[39m
+            [36m/>[39m
             [36m<div[39m
-              [33mstyle[39m=[32m"position: absolute; color: gold;"[39m
+              [33mstyle[39m=[32m"position: absolute; display: flex; justify-content: center; gap: 4rem; color: white; width: 100%; top: 55%;"[39m
             [36m>[39m
-              [36m<div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"width: 45%; text-align: center;"[39m
+              [36m>[39m
                 [36m<h2[39m
-                  [33mstyle[39m=[32m"font-family: Arial; font-size: 4rem;"[39m
+                  [33mstyle[39m=[32m"font-family: Arial; font-size: 2.5rem;"[39m
                 [36m>[39m
                   [0mBasic Questions[0m
                 [36m</h2>[39m
@@ -50,28 +51,26 @@ FAIL src/App.test.tsx
                 [36m>[39m
                   [0mGo to Basic Questions[0m
                 [36m</button>[39m
-                [36m<br />[39m
-                [36m<br />[39m
               [36m</div>[39m
-              [36m<div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"width: 45%; text-align: center;"[39m
+              [36m>[39m
                 [36m<h2[39m
-                  [33mstyle[39m=[32m"font-family: Arial; font-size: 4rem;"[39m
+                  [33mstyle[39m=[32m"font-family: Arial; font-size: 2.5rem;"[39m
                 [36m>[39m
                   [0mDetailed Questions[0m
                 [36m</h2>[39m
                 [36m<p>[39m
                   [0m***Write Description***[0m
                 [36m</p>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mstyle[39m=[32m"background-color: blue;"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mGo to Detailed Questions[0m
+                [36m</button>[39m
               [36m</div>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mstyle[39m=[32m"background-color: blue;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mGo to Detailed Questions[0m
-              [36m</button>[39m
-              [36m<br />[39m
-              [36m<br />[39m
             [36m</div>[39m
           [36m</header>[39m
           [36m<form[39m
@@ -134,7 +133,7 @@ All files               |   26.66 |       40 |      10 |   26.66 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.813 s
+Time:        2.829 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without

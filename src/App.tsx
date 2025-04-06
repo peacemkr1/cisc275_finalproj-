@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import BasicQuestions from './components/BasicQuestions'; // ✅ Imported
+import DetailedQuestions from './components/DetailedQuestions'; // ✅ New Import
 
 // Local storage key logic
 let keyData = "";
@@ -102,7 +103,17 @@ function App() {
                 top: "55%",
               }}
             >
-              <div style={{ width: "45%", textAlign: "center" }}>
+              {/* Box around Basic Questions */}
+              <div
+                style={{
+                  width: "45%",
+                  textAlign: "center",
+                  border: "3px solid white",
+                  borderRadius: "10px",
+                  padding: "2rem",
+                  backgroundColor: "rgba(255,255,255,0.05)",
+                }}
+              >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Basic Questions</h2>
                 <p>***Write Description***</p>
                 <Button onClick={goToBasicQuestions} style={{ backgroundColor: "teal", border: "none" }}>
@@ -110,7 +121,17 @@ function App() {
                 </Button>
               </div>
 
-              <div style={{ width: "45%", textAlign: "center" }}>
+              {/* Box around Detailed Questions */}
+              <div
+                style={{
+                  width: "45%",
+                  textAlign: "center",
+                  border: "3px solid white",
+                  borderRadius: "10px",
+                  padding: "2rem",
+                  backgroundColor: "rgba(255,255,255,0.05)",
+                }}
+              >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
                 <p>***Write Description***</p>
                 <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "orange", border: "none" }}>
@@ -136,19 +157,7 @@ function App() {
       ) : showBasicQuestions ? (
         <BasicQuestions />
       ) : (
-        <div className="App-header">
-          <h1>Detailed Questions Page</h1>
-          <p>***Questions will go here***</p>
-          <ol>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-            <li>Question</li>
-          </ol>
-        </div>
+        <DetailedQuestions />
       )}
     </div>
   );

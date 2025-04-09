@@ -1,9 +1,15 @@
+// to import use "Copy Path"
+// don't use "relative path"
+
+
 import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
-import BasicQuestions from './components/BasicQuestions';
-import DetailedQuestions from './components/DetailedQuestions'; 
+import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/BasicQuestions.tsx
+import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
+
+
 
 // Local storage key logic
 let keyData = "";

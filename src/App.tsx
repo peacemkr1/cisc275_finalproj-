@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
-import BasicQuestions from './components/BasicQuestions'; // ✅ Imported
-import DetailedQuestions from './components/DetailedQuestions'; // ✅ New Import
+import BasicQuestions from './components/BasicQuestions';
+import DetailedQuestions from './components/DetailedQuestions'; 
 
 // Local storage key logic
 let keyData = "";

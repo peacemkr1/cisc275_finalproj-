@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, ProgressBar, Button } from 'react-bootstrap';
+import { Form, ProgressBar, Button, Alert } from 'react-bootstrap';
 
 const BasicQuestions = (): JSX.Element => {
   const totalQuestions = 7;
@@ -9,13 +9,13 @@ const BasicQuestions = (): JSX.Element => {
     setAnswers((prev) => ({ ...prev, [question]: value }));
   };
 
-  const answeredCount: number = Object.keys(answers).length;
-  const progress: number = Math.round((answeredCount / totalQuestions) * 100);
-  const allAnswered: boolean = answeredCount === totalQuestions;
+  const answeredCount = Object.keys(answers).length;
+  const progress = Math.round((answeredCount / totalQuestions) * 100);
+  const allAnswered = answeredCount === totalQuestions;
 
   return (
     <div style={{ backgroundColor: 'lightgray', minHeight: '100vh', padding: '2rem' }}>
-      {/* Centered heading section */}
+      {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <h1>Basic Questions Page</h1>
         <p>***Please answer the questions below***</p>
@@ -27,9 +27,9 @@ const BasicQuestions = (): JSX.Element => {
         />
       </div>
 
-      {/* Centered container, left-aligned content */}
+      {/* Question Form - Left aligned */}
       <div style={{ display: 'flex', justifyContent: 'left' }}>
-        <div style={{ textAlign: 'left', width: '100%', maxWidth: '700px' }}>
+        <div style={{ width: '100%', maxWidth: '700px', textAlign: 'left' }}>
           <Form>
             <Form.Group className="mb-4">
               <Form.Label style={{ fontWeight: 'bold' }}>
@@ -104,10 +104,13 @@ const BasicQuestions = (): JSX.Element => {
         </div>
       </div>
 
-      {/* Conditionally show button only if all questions are answered */}
+      {/* Centered Feedback and Button */}
       {allAnswered && (
-        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-          <Button variant="success">
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <Alert variant="info" style={{ maxWidth: '600px', margin: '0 auto', backgroundColor: "white", border: "none" }}>
+            Thank you for answering all the questions! Please click "Get Answer" to view your career results.
+          </Alert>
+          <Button variant="success" style={{ marginTop: '1rem' }}>
             Get Answer
           </Button>
         </div>

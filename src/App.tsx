@@ -8,6 +8,7 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/BasicQuestions.tsx
 import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
+//import ChatGPT from './components/ChatGPT';
 
 
 

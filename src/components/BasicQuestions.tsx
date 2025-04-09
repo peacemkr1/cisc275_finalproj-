@@ -21,9 +21,9 @@ const BasicQuestions = (): JSX.Element => {
         <p>***Please answer the questions below***</p>
         <ProgressBar
           now={progress}
-          label={`${progress}%`}
-          variant="success"
-          style={{ height: '20px', marginTop: '1rem' }}
+          label={`${progress}%`} // displays percentage
+          variant="success" // this makes the progress bar green 
+          style={{ height: '25px', marginTop: '1rem' }}
         />
       </div>
 
@@ -107,7 +107,7 @@ const BasicQuestions = (): JSX.Element => {
       {/* Centered Feedback and Button */}
       {allAnswered && (
         <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <Alert variant="info" style={{ maxWidth: '600px', margin: '0 auto', backgroundColor: "white", border: "none" }}>
+          <Alert variant="info" style={{ maxWidth: '600px', margin: '0 auto', backgroundColor: "white", borderColor: "green" }}>
             Thank you for answering all the questions! Please click "Get Answer" to view your career results.
           </Alert>
           <Button variant="success" style={{ marginTop: '1rem' }}>

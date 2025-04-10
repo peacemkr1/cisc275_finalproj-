@@ -16,7 +16,7 @@ const BasicQuestions = (): JSX.Element => {
             Radio = 1 Multiple Choice Option
             Checkbox = Select All that Apply
             
-            Reference Site Used: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
+            React Radio Information: https://primereact.org/radiobutton/
           
           */}
 
@@ -25,7 +25,9 @@ const BasicQuestions = (): JSX.Element => {
               <Form.Label style={{ fontWeight: 'bold' }}>
                 1. What was your favorite subject in school?
               </Form.Label>
-              <Form.Check type="radio"  />
+              <Form.Check 
+                type="radio"
+                  />
               <Form.Check type="radio"  />
               <Form.Check type="radio" />
               <Form.Check type="radio" />

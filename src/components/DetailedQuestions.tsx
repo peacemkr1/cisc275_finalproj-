@@ -14,37 +14,37 @@ const DetailedQuestions = (): JSX.Element => {
           <Form>
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>1. *** Question #1 ***</Form.Label>
-                <Form.Control placeholder="Answer Here" /> 
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>2. *** Question #2 ***</Form.Label>
-              <Form.Control placeholder="Answer Here" /> 
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>3. *** Question #3 ***</Form.Label>
-              <Form.Control placeholder="Answer Here" /> 
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>4. *** Question #4 ***</Form.Label>
-              <Form.Control placeholder="Answer Here" /> 
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>5. *** Question #5 ***</Form.Label>
-              <Form.Control placeholder="Answer Here" /> 
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>6. *** Question #6 ***</Form.Label>
-              <Form.Control placeholder="Answer Here" /> 
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>7. *** Question #7 ***</Form.Label>
-              <Form.Control placeholder="Answer Here" /> 
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
           </Form>
         </div>

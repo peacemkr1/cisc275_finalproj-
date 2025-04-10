@@ -11,8 +11,22 @@ import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymant
 //import ChatGPT from './components/ChatGPT';
 
 
+      /* 
+      Note: We created a Components Folder containing:
+        -BasicQuestions.tsx
+        -ChatGPT.tsx
+        -DetailedQuestions.tsx
+        -Navbar.tsx
 
-// Local storage key logic
+      We used imports (above) to reference those elements of code into our App.tsx file.
+      This allows the App.tsx file to be more organized and more efficient.
+      I was initally writing my code in the App.tsx file so I moved my code to the 
+      components folder and I used ChatGPT to help me import the 
+      BasicQuestions.tsx & DetailedQuestions.tsx files. 
+      */
+
+
+
 let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData);
@@ -163,8 +177,10 @@ function App() {
         </>
       ) : showBasicQuestions ? (
         <BasicQuestions />
+        //leads to Basic Questions Page (in components folder)
       ) : (
         <DetailedQuestions />
+        //leads to Detailed Questions Page (in components folder)
       )}
     </div>
   );

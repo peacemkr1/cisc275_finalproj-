@@ -3,6 +3,10 @@ import { Form} from 'react-bootstrap';
 
 const DetailedQuestions = (): JSX.Element => {
 
+  /*
+    Referencing the TOME: https://frontend-fun.github.io/react-hooks-typescript-tome/4-state/forms.html#multiline-textarea
+  */
+
   return (
     <div style={{ backgroundColor: 'lightgray', minHeight: '100vh', padding: '2rem' }}>
       {/* Centered heading section */}

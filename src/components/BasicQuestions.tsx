@@ -10,6 +10,16 @@ const BasicQuestions = (): JSX.Element => {
       {/* 7 Questions */}
       <div style={{ display: 'flex', justifyContent: 'left' }}>
         <div style={{ width: '100%', maxWidth: '700px', textAlign: 'left' }}>
+
+        {/* 
+          Note: 
+            Radio = 1 Multiple Choice Option
+            Checkbox = Select All that Apply
+            
+            Reference Site Used: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
+          
+          */}
+
           <Form>
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>

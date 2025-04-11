@@ -35,9 +35,9 @@ if (prevKey !== null) {
 }
 
 function App() {
-  const [key, setKey] = useState<string>(keyData);
-  const [showBasicQuestions, setShowBasicQuestions] = useState(false);
-  const [showDetailedQuestions, setShowDetailedQuestions] = useState(false);
+  const [key, setKey] = useState<string>(keyData); // API key
+  const [showBasicQuestions, setShowBasicQuestions] = useState(false); // determines whether or not you are on this given page
+  const [showDetailedQuestions, setShowDetailedQuestions] = useState(false); // determines whether or not you are on this given page
 
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -45,20 +45,28 @@ function App() {
   }
 
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
-    setKey(event.target.value);
+    setKey(event.target.value); // API key 
   }
 
   function goToBasicQuestions() {
-    setShowBasicQuestions(true);
+    setShowBasicQuestions(true); // changes to true when you click on Basic Ques. button
   }
 
   function goToDetailedQuestions() {
-    setShowDetailedQuestions(true);
+    setShowDetailedQuestions(true); // changes to true when you click on Detailed Ques. button
   }
 
   function goBackHome() {
     setShowBasicQuestions(false);
     setShowDetailedQuestions(false);
+    /*
+      when clicking the "Home" button at the top right, 
+      both values are set to false to determine that 
+      you are no  longer on those pages and you are 
+      back to the main page. values remain false while
+      on the home page, and values remain true while 
+      on the given page
+    */
   }
 
   return (
@@ -155,6 +163,7 @@ function App() {
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
                 <p>***Write Description***</p>
+                <p>^rahul complete the descriptions^</p>
                 <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "orange", border: "none" }}>
                   Go to Detailed Questions
                 </Button>

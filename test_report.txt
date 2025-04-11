@@ -63,6 +63,9 @@ FAIL src/App.test.tsx
                 [36m<p>[39m
                   [0m***Write Description***[0m
                 [36m</p>[39m
+                [36m<p>[39m
+                  [0m^rahul complete the descriptions^[0m
+                [36m</p>[39m
                 [36m<button[39m
                   [33mclass[39m=[32m"btn btn-primary"[39m
                   [33mstyle[39m=[32m"background-color: orange;"[39m
@@ -119,21 +122,21 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   29.41 |       40 |    8.33 |   29.41 |                   
+All files               |   19.14 |       40 |    5.26 |   19.14 |                   
  src                    |   29.62 |       40 |    12.5 |   29.62 |                   
   App.tsx               |      50 |    54.54 |   16.66 |      50 | 34,43-61          
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |   28.57 |      100 |       0 |   28.57 |                   
-  BasicQuestions.tsx    |      50 |      100 |       0 |      50 | 5                 
+ src/components         |       5 |      100 |       0 |       5 |                   
+  BasicQuestions.tsx    |       0 |      100 |       0 |       0 | 18-54             
   ChatGPT.tsx           |       0 |        0 |       0 |       0 |                   
-  DetailedQuestions.tsx |      50 |      100 |       0 |      50 | 6                 
+  DetailedQuestions.tsx |      50 |      100 |       0 |      50 | 10                
   Navbar.tsx            |       0 |      100 |       0 |       0 | 6-12              
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.07 s
+Time:        3.069 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without

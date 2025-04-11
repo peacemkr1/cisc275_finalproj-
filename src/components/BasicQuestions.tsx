@@ -158,51 +158,211 @@ export function BasicQuestions(): JSX.Element {
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>
                 3. How comfortable are you with public speaking?
-              </Form.Label>
-              <Form.Check type="radio"  />
-              <Form.Check type="radio"  />
-              <Form.Check type="radio"  />
-              <Form.Check type="radio"  />
+                </Form.Label>
+              <Form.Check 
+                type="radio" 
+                name="q3" 
+                onChange={updateQuestion3} 
+                id="q3-very" 
+                label="Very Comfortable" 
+                value="Very Comfortable" 
+                checked={Question3 === "Very Comfortable"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q3" 
+                onChange={updateQuestion3} 
+                id="q3-somewhat" 
+                label="Somewhat Comfortable" 
+                value="Somewhat Comfortable" 
+                checked={Question3 === "Somewhat Comfortable"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q3" 
+                onChange={updateQuestion3} 
+                id="q3-uncomfortable" 
+                label="Uncomfortable" 
+                value="Uncomfortable" 
+                checked={Question3 === "Uncomfortable"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q3" 
+                onChange={updateQuestion3} 
+                id="q3-terrified" 
+                label="Terrified" 
+                value="Terrified" 
+                checked={Question3 === "Terrified"} 
+              />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>
                 4. What is your preferred way of communicating?
-              </Form.Label>
-              <Form.Check type="radio"  />
-              <Form.Check type="radio"   />
-              <Form.Check type="radio"   />
-              <Form.Check type="radio"   />
+                </Form.Label>
+              <Form.Check 
+                type="radio" 
+                name="q4" 
+                onChange={updateQuestion4} 
+                id="q4-person" 
+                label="In Person" 
+                value="In Person" 
+                checked={Question4 === "In Person"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q4" 
+                onChange={updateQuestion4} 
+                id="q4-phone" 
+                label="Phone Call" 
+                value="Phone Call" 
+                checked={Question4 === "Phone Call"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q4" 
+                onChange={updateQuestion4} 
+                id="q4-text" 
+                label="Text" 
+                value="Text" 
+                checked={Question4 === "Text"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q4" 
+                onChange={updateQuestion4} 
+                id="q4-email" 
+                label="Email" 
+                value="Email" 
+                checked={Question4 === "Email"} 
+              />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>
                 5. What equipment do you like to work with?
-              </Form.Label>
-              <Form.Check type="radio"   />
-              <Form.Check type="radio"   />
-              <Form.Check type="radio"  />
-              <Form.Check type="radio" />
+                </Form.Label>
+              <Form.Check 
+                type="radio" 
+                name="q5" 
+                onChange={updateQuestion5} 
+                id="q5-computers" 
+                label="Computers" 
+                value="Computers" 
+                checked={Question5 === "Computers"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q5" 
+                onChange={updateQuestion5} 
+                id="q5-tools" 
+                label="Tools" 
+                value="Tools" 
+                checked={Question5 === "Tools"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q5" 
+                onChange={updateQuestion5} 
+                id="q5-instruments" 
+                label="Instruments" 
+                value="Instruments" 
+                checked={Question5 === "Instruments"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q5" 
+                onChange={updateQuestion5} 
+                id="q5-art" 
+                label="Art Supplies" 
+                value="Art Supplies" 
+                checked={Question5 === "Art Supplies"} 
+              />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>
                 6. How would you describe yourself when dealing with stress or pressure?
-              </Form.Label>
-              <Form.Check type="radio"  />
-              <Form.Check type="radio"  />
-              <Form.Check type="radio"  />
-              <Form.Check type="radio"   />
+                </Form.Label>
+              <Form.Check 
+                type="radio" 
+                name="q6" 
+                onChange={updateQuestion6} 
+                id="q6-calm" 
+                label="Stay Calm" 
+                value="Stay Calm" 
+                checked={Question6 === "Stay Calm"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q6" 
+                onChange={updateQuestion6} 
+                id="q6-focused" 
+                label="Get Focused" 
+                value="Get Focused" 
+                checked={Question6 === "Get Focused"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q6" 
+                onChange={updateQuestion6} 
+                id="q6-overwhelmed" 
+                label="Feel Overwhelmed" 
+                value="Feel Overwhelmed" 
+                checked={Question6 === "Feel Overwhelmed"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q6" 
+                onChange={updateQuestion6} 
+                id="q6-avoid" 
+                label="Avoid the Situation" 
+                value="Avoid the Situation" 
+                checked={Question6 === "Avoid the Situation"} 
+              />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
               <Form.Label style={{ fontWeight: 'bold' }}>
                 7. When working in a group, what role do you take?
-              </Form.Label>
-                <Form.Check type="radio"   />
-                <Form.Check type="radio"  />
-                <Form.Check type="radio"   />
-                <Form.Check type="radio" />
+                </Form.Label>
+              <Form.Check 
+                type="radio" 
+                name="q7" 
+                onChange={updateQuestion7} 
+                id="q7-leader" 
+                label="Leader" 
+                value="Leader" 
+                checked={Question7 === "Leader"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q7" 
+                onChange={updateQuestion7} 
+                id="q7-organizer" 
+                label="Organizer" 
+                value="Organizer" 
+                checked={Question7 === "Organizer"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q7" 
+                onChange={updateQuestion7} 
+                id="q7-contributor" 
+                label="Contributor" 
+                value="Contributor" 
+                checked={Question7 === "Contributor"} 
+              />
+              <Form.Check 
+                type="radio" 
+                name="q7" 
+                onChange={updateQuestion7} 
+                id="q7-supporter" 
+                label="Supporter" 
+                value="Supporter" 
+                checked={Question7 === "Supporter"} 
+              />
             </Form.Group>
           </Form>
         </div>

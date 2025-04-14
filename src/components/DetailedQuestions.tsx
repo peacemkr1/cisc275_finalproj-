@@ -17,37 +17,37 @@ const DetailedQuestions = (): JSX.Element => {
         <div style={{ textAlign: 'left', width: '100%', maxWidth: '700px' }}>
           <Form>
             <Form.Group style={{ marginBottom: '1.5rem' }}>
-              <Form.Label style={{ fontWeight: 'bold' }}>1. *** Question #1 ***</Form.Label>
+              <Form.Label style={{ fontWeight: 'bold' }}>1. Describe a time when you solved a problem creatively. What was the outcome?</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
-              <Form.Label style={{ fontWeight: 'bold' }}>2. *** Question #2 ***</Form.Label>
+              <Form.Label style={{ fontWeight: 'bold' }}>2. What motivates you more: recognition, salary, growth opportunities, or making a difference? Why?</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
-              <Form.Label style={{ fontWeight: 'bold' }}>3. *** Question #3 ***</Form.Label>
+              <Form.Label style={{ fontWeight: 'bold' }}>3. If given a blank check to build your ideal workday from 9 to 5, how would you structure it?</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
-              <Form.Label style={{ fontWeight: 'bold' }}>4. *** Question #4 ***</Form.Label>
+              <Form.Label style={{ fontWeight: 'bold' }}>4. Which subjects or topics have consistently caught your interest over the years?</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
-              <Form.Label style={{ fontWeight: 'bold' }}>5. *** Question #5 ***</Form.Label>
+              <Form.Label style={{ fontWeight: 'bold' }}>5. Think about a time when you had to collaborate with others to meet a goal. What was your role, and how did the process go?</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
-              <Form.Label style={{ fontWeight: 'bold' }}>6. *** Question #6 ***</Form.Label>
+              <Form.Label style={{ fontWeight: 'bold' }}>6. Describe your ideal team dynamic. Do you prefer leading, collaborating as an equal, or working independently with occasional input? Explain why.</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
-              <Form.Label style={{ fontWeight: 'bold' }}>7. *** Question #7 ***</Form.Label>
+              <Form.Label style={{ fontWeight: 'bold' }}>7. Reflect on a past experience (school, work, or personal) where you felt highly engaged and motivated. What were you doing, and what factors contributed to that feeling?</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" />
             </Form.Group>
           </Form>

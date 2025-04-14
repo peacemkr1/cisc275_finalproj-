@@ -6,11 +6,15 @@ interface ProgressBarProps {
 
 // Define inline styles for the progress bar container
 const containerStyle: React.CSSProperties = {
+  position: "sticky",
+  top: 0,
   width: "100%",
   height: "20px",
   backgroundColor: "#e0e0e0",
   borderRadius: "10px",
-  overflow: "hidden"
+  overflow: "hidden",
+  zIndex: 1000
+
 };
 
 // Define inline styles for the progress bar fill

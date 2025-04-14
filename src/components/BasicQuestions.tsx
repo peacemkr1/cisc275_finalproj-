@@ -1,7 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 
-export function BasicQuestions(): JSX.Element {
+interface BasicQuestionsProps {
+  onProgressUpdate: (progress: number) => void;
+}
+
+export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.Element {
 
 
   /*
@@ -22,6 +26,14 @@ export function BasicQuestions(): JSX.Element {
   const [Question5, setQuestion5] = useState<string>('');
   const [Question6, setQuestion6] = useState<string>('');
   const [Question7, setQuestion7] = useState<string>('');
+
+  useEffect(() => {
+    const totalQuestions = 7;
+    const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7]
+      .filter(answer => answer !== '').length;
+    const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+    onProgressUpdate(progressPercentage);
+  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
   
   function updateQuestion1(event: React.ChangeEvent<HTMLInputElement>) {
     setQuestion1(event.target.value);

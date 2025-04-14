@@ -8,6 +8,7 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/BasicQuestions.tsx
 import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
+import ProgressBar from './components/ProgressBar';
 //import ChatGPT from './components/ChatGPT';
 
 
@@ -17,6 +18,7 @@ import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymant
         -ChatGPT.tsx
         -DetailedQuestions.tsx
         -Navbar.tsx
+        -ProgressBar.tsx
 
       We used imports (above) to reference those elements of code into our App.tsx file.
       This allows the App.tsx file to be more organized and more efficient.
@@ -38,6 +40,7 @@ function App() {
   const [key, setKey] = useState<string>(keyData); // API key
   const [showBasicQuestions, setShowBasicQuestions] = useState(false); // determines whether or not you are on this given page
   const [showDetailedQuestions, setShowDetailedQuestions] = useState(false); // determines whether or not you are on this given page
+  const [quizProgress, setQuizProgress] = useState<number>(0);
 
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -185,11 +188,15 @@ function App() {
           </Form>
         </>
       ) : showBasicQuestions ? (
-        <BasicQuestions />
-        //leads to Basic Questions Page (in components folder)
+        <>
+          <ProgressBar progress={quizProgress} /> {/* Progress bar added */}
+          <BasicQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to BasicQuestions */}
+        </>
       ) : (
-        <DetailedQuestions />
-        //leads to Detailed Questions Page (in components folder)
+        <>
+          <ProgressBar progress={quizProgress} /> {/* Progress bar added */}
+          <DetailedQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to DetailedQuestions */}
+        </>
       )}
     </div>
   );

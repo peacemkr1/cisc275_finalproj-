@@ -1,16 +1,30 @@
 import React from "react";
-import "./ProgressBar.css";
 
 interface ProgressBarProps {
   progress: number; // Progress value from 0 to 100
 }
 
+// Define inline styles for the progress bar container
+const containerStyle: React.CSSProperties = {
+  width: "100%",
+  height: "20px",
+  backgroundColor: "#e0e0e0",
+  borderRadius: "10px",
+  overflow: "hidden"
+};
+
+// Define inline styles for the progress bar fill
+const fillStyle: React.CSSProperties = {
+  height: "100%",
+  backgroundColor: "#007bff",
+  transition: "width 0.3s ease-in-out"
+};
+
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
   return (
-    <div className="progress-bar-container">
+    <div style={containerStyle}>
       <div
-        className="progress-bar-fill"
-        style={{ width: `${progress}%` }}
+        style={{ ...fillStyle, width: `${progress}%` }}
       />
     </div>
   );

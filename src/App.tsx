@@ -107,13 +107,7 @@ function App() {
         <>
           <header
               className="App-header"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "3rem",
-                marginTop: "4rem",
-              }}
+              
             >
 
             <div
@@ -143,31 +137,33 @@ function App() {
                   paddingBottom: "50rem"
                 }}
               ></div> */}
-            <div
-              style={{
-                width: "25%",
-                textAlign: "center",
-                border: "3px solid white",
-                borderRadius: "10px",
-                padding: "2rem",
-                backgroundColor: "rgba(255,255,255,0.05)",
-                
-              }}
-            >
-              <Form>
-              <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white" }}>API Key:</h2>
-                <Form.Control
-                  type="password"
-                  placeholder="Insert API Key Here"
-                  onChange={changeKey}
-                  style={{marginTop:"1rem"}}
-                />
-                <br />
-                <Button className="Submit-Button" onClick={handleSubmit} style={{ backgroundColor: "blue", border: "none" }}>
-                  Submit
-                </Button>
-              </Form>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
+              <div
+                style={{
+                  width: "500px", 
+                  textAlign: "center",
+                  border: "3px solid white",
+                  borderRadius: "10px",
+                  padding: "2rem",
+                  backgroundColor: "rgba(255,255,255,0.05)",
+                }}
+              >
+                <Form>
+                  <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white" }}>API Key:</h2>
+                  <Form.Control
+                    type="password"
+                    placeholder="Insert API Key Here"
+                    onChange={changeKey}
+                    style={{ marginTop: "1rem" }}
+                  />
+                  <br />
+                  <Button className="Submit-Button" onClick={handleSubmit} style={{ backgroundColor: "blue", border: "none" }}>
+                    Submit
+                  </Button>
+                </Form>
+              </div>
             </div>
+
 
             <div
                 style={{

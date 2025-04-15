@@ -28,7 +28,8 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [Question6, setQuestion6] = useState<string>('');
   const [Question7, setQuestion7] = useState<string>('');
 
-    const [showButton, setShowButton] = useState<boolean>(false); // set to false
+  const [showButton, setShowButton] = useState<boolean>(false); // set to false
+  const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
 
   useEffect(() => {
     const totalQuestions = 7;
@@ -40,11 +41,16 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     if (progressPercentage === 100) {
       setShowButton(true); // if all questions are answered, Get Answer button will appear 
     }
-    else {
-      setShowButton(false);
-    }
+      if (!showFeedbackMech) {
+        alert("Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to recieve your career quiz results!");
+        setFeedbackMech(true);
+      }
+      else {
+        setShowButton(false);
+        setFeedbackMech(false);
+      }
 
-  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
+  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate, showFeedbackMech]);
   
   function updateQuestion1(event: React.ChangeEvent<HTMLInputElement>) {
     setQuestion1(event.target.value);

@@ -144,6 +144,7 @@ function App() {
                   borderRadius: "10px",
                   padding: "2rem",
                   backgroundColor: "rgba(255,255,255,0.05)",
+                  //backgroundColor:"pink"
                 }}
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color:"white" }}>Basic Questions</h2>

@@ -29,7 +29,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [Question7, setQuestion7] = useState<string>('');
 
   const [showButton, setShowButton] = useState<boolean>(false); // set to false
-  const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
+  //const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
 
   useEffect(() => {
     const totalQuestions = 7;
@@ -41,16 +41,16 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     if (progressPercentage === 100) {
       setShowButton(true); // if all questions are answered, Get Answer button will appear 
     }
-      if (!showFeedbackMech) {
-        alert("Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to recieve your career quiz results!");
-        setFeedbackMech(true);
-      }
-      else {
-        setShowButton(false);
-        setFeedbackMech(false);
-      }
+    else {
+      setShowButton(false);
+    }
 
-  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate, showFeedbackMech]);
+    
+      
+        //setFeedbackMech(false);
+      
+
+  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
   
   function updateQuestion1(event: React.ChangeEvent<HTMLInputElement>) {
     setQuestion1(event.target.value);
@@ -397,14 +397,23 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
           
         </div>
       </div>
+
+
       {(showButton === true) && (
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+        <p style={{ fontWeight: "bold", color: "black", fontSize: "18px" }}>
+          Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to recieve your career quiz results!
+        </p>
             <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem"}}> 
               <Button style={{backgroundColor: "green", border:"none"}}>Get Answer</Button>
             </div>
+        </div>
+        
           )}
+          </div>
+          );
+          };
     
-    </div>
-  );
-};
+    
 
 export default BasicQuestions;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 interface DetailedQuestionsProps {
   onProgressUpdate: (progress: number) => void;
@@ -20,6 +20,8 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
   const [Question6, setQuestion6] = useState<string>('');
   const [Question7, setQuestion7] = useState<string>('');
 
+  const [showButton, setShowButton] = useState<boolean>(false); // set to false
+
   // 5. Add a useEffect hook to calculate progress whenever an answer changes:
   useEffect(() => {
     const totalQuestions = 7;
@@ -27,7 +29,17 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
       .filter(answer => answer !== '').length;
     const progressPercentage = (answeredQuestions / totalQuestions) * 100;
     onProgressUpdate(progressPercentage);
+
+    if (progressPercentage === 100) {
+      setShowButton(true);  
+    }
+    else {
+      setShowButton(false);
+    }
+
   }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
+
+    
 
   return (
     <div style={{ backgroundColor: 'lightgray', minHeight: '100vh', padding: '2rem' }}>
@@ -73,6 +85,11 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" value={Question7} onChange={(e) => setQuestion7(e.target.value)} />
             </Form.Group>
           </Form>
+          {(showButton === true) && (
+            <div>
+              <Button>Get Answer</Button>
+            </div>
+          )}
         </div>
       </div>
 

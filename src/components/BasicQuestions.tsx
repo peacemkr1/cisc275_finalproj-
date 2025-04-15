@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Form } from 'react-bootstrap';
+//import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 interface BasicQuestionsProps {
   onProgressUpdate: (progress: number) => void;
@@ -27,12 +28,22 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [Question6, setQuestion6] = useState<string>('');
   const [Question7, setQuestion7] = useState<string>('');
 
+    const [showButton, setShowButton] = useState<boolean>(false); // set to false
+
   useEffect(() => {
     const totalQuestions = 7;
     const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7]
       .filter(answer => answer !== '').length;
     const progressPercentage = (answeredQuestions / totalQuestions) * 100;
     onProgressUpdate(progressPercentage);
+
+    if (progressPercentage === 100) {
+      setShowButton(true); // if all questions are answered, Get Answer button will appear 
+    }
+    else {
+      setShowButton(false);
+    }
+
   }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
   
   function updateQuestion1(event: React.ChangeEvent<HTMLInputElement>) {
@@ -377,9 +388,14 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
               />
             </Form.Group>
           </Form>
+          
         </div>
       </div>
-
+      {(showButton === true) && (
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem"}}> 
+              <Button style={{backgroundColor: "green", border:"none"}}>Get Answer</Button>
+            </div>
+          )}
     
     </div>
   );

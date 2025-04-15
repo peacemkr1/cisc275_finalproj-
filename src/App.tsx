@@ -146,8 +146,8 @@ function App() {
                   backgroundColor: "rgba(255,255,255,0.05)",
                 }}
               >
-                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Basic Questions</h2>
-                <p>Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
+                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color:"white" }}>Basic Questions</h2>
+                <p style={{fontSize:"1.25rem"}}>Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
                 <Button onClick={goToBasicQuestions} style={{ backgroundColor: "teal", border: "none" }}>
                   Go to Basic Questions
                 </Button>
@@ -165,7 +165,7 @@ function App() {
                 }}
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
-                <p>Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
+                <p style={{fontSize:"1.25rem"}}>Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
                 <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "orange", border: "none" }}>
                   Go to Detailed Questions
                 </Button>

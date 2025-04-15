@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (50 ms)
+  ✕ renders learn react link (51 ms)
 
   ● renders learn react link
 
@@ -37,11 +37,13 @@ FAIL src/App.test.tsx
                 [33mstyle[39m=[32m"width: 45%; text-align: center; border: 3px solid white; border-radius: 10px; padding: 2rem; background-color: rgba(255, 255, 255, 0.05);"[39m
               [36m>[39m
                 [36m<h2[39m
-                  [33mstyle[39m=[32m"font-family: Arial; font-size: 2.5rem;"[39m
+                  [33mstyle[39m=[32m"font-family: Arial; font-size: 2.5rem; color: white;"[39m
                 [36m>[39m
                   [0mBasic Questions[0m
                 [36m</h2>[39m
-                [36m<p>[39m
+                [36m<p[39m
+                  [33mstyle[39m=[32m"font-size: 1.25rem;"[39m
+                [36m>[39m
                   [0mStart with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview![0m
                 [36m</p>[39m
                 [36m<button[39m
@@ -60,7 +62,9 @@ FAIL src/App.test.tsx
                 [36m>[39m
                   [0mDetailed Questions[0m
                 [36m</h2>[39m
-                [36m<p>[39m
+                [36m<p[39m
+                  [33mstyle[39m=[32m"font-size: 1.25rem;"[39m
+                [36m>[39m
                   [0mTake a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.[0m
                 [36m</p>[39m
                 [36m<button[39m
@@ -119,22 +123,22 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   16.25 |       40 |    3.22 |   16.25 |                   
+All files               |   14.77 |    26.08 |    3.22 |   14.77 |                   
  src                    |   32.14 |       40 |    12.5 |   32.14 |                   
   App.tsx               |   52.94 |    54.54 |   16.66 |   52.94 | 36,46-64          
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |    7.69 |      100 |       0 |    7.69 |                   
-  BasicQuestions.tsx    |       0 |      100 |       0 |       0 | 22-66             
+ src/components         |    6.66 |        0 |       0 |    6.66 |                   
+  BasicQuestions.tsx    |       0 |        0 |       0 |       0 | 23-77             
   ChatGPT.tsx           |       0 |        0 |       0 |       0 |                   
-  DetailedQuestions.tsx |    4.54 |      100 |       0 |    4.54 | 15-73             
+  DetailedQuestions.tsx |    3.84 |        0 |       0 |    3.84 | 15-85             
   Navbar.tsx            |       0 |      100 |       0 |       0 | 6-12              
   ProgressBar.tsx       |      50 |      100 |       0 |      50 | 29-40             
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.175 s
+Time:        3.082 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without

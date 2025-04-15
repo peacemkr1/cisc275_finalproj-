@@ -31,7 +31,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
     onProgressUpdate(progressPercentage);
 
     if (progressPercentage === 100) {
-      setShowButton(true);  
+      setShowButton(true); // if all questions are answered, Get Answer button will appear 
     }
     else {
       setShowButton(false);
@@ -85,6 +85,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" value={Question7} onChange={(e) => setQuestion7(e.target.value)} />
             </Form.Group>
           </Form>
+
           {(showButton === true) && (
             <div>
               <Button>Get Answer</Button>

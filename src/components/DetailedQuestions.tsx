@@ -85,15 +85,13 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" value={Question7} onChange={(e) => setQuestion7(e.target.value)} />
             </Form.Group>
           </Form>
-
-          {(showButton === true) && (
-            <div>
-              <Button>Get Answer</Button>
-            </div>
-          )}
         </div>
       </div>
-
+      {(showButton === true) && (
+                  <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem"}}> 
+                    <Button style={{backgroundColor: "green", border:"none"}}>Get Answer</Button>
+                  </div>
+                )}
     
     </div>
   );

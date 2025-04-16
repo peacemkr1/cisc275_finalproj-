@@ -164,7 +164,6 @@ function App() {
               </div>
             </div>
 
-
             <div
                 style={{
                   display: "flex",
@@ -214,7 +213,7 @@ function App() {
             </div>
           </header>
         
-        {/*
+        
           <Form>
             <Form.Label>API Key:</Form.Label>
             <Form.Control
@@ -227,7 +226,7 @@ function App() {
               Submit
             </Button>
           </Form>
-          */}
+          
         </>
       ) : showBasicQuestions ? (
         <>

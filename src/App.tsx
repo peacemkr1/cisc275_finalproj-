@@ -139,16 +139,16 @@ function App() {
               ></div> */}
             <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
               <div
-                style={{
-                  width: "500px", 
-                  textAlign: "center",
-                  border: "3px solid white",
-                  borderRadius: "10px",
-                  padding: "2rem",
-                  backgroundColor: "rgba(255,255,255,0.05)",
-                }}
-              >
-                <Form>
+                //style={{
+                  //width: "900px", 
+                  //textAlign: "center",
+                  //border: "3px solid white",
+                  //borderRadius: "10px",
+                  //padding: "2rem",
+                  //backgroundColor: "rgba(255,255,255,0.05)",
+                ////}} 
+              > 
+                {/*<Form>
                   <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white" }}>API Key:</h2>
                   <Form.Control
                     type="password"
@@ -160,7 +160,8 @@ function App() {
                   <Button className="Submit-Button" onClick={handleSubmit} style={{ backgroundColor: "blue", border: "none" }}>
                     Submit
                   </Button>
-                </Form>
+                </Form>*/}
+                <header style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white", fontWeight:"bold", textDecoration:"underline" }}>Welcome to the Career Quiz!</header>
               </div>
             </div>
 

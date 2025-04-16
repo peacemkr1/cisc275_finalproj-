@@ -1,7 +1,3 @@
-// to import use "Copy Path"
-// don't use "relative path"
-
-
 import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
@@ -58,6 +54,16 @@ function App() {
   function goToDetailedQuestions() {
     setShowDetailedQuestions(true); // changes to true when you click on Detailed Ques. button
   }
+  
+  function switchToBasicQuestions() {
+    setShowDetailedQuestions(false);
+    setShowBasicQuestions(true);
+  }
+
+  function switchToDetailedQuestions() {
+    setShowBasicQuestions(false);
+    setShowDetailedQuestions(true);
+  }
 
   function goBackHome() {
     setShowBasicQuestions(false);
@@ -87,18 +93,48 @@ function App() {
       >
         <h2 style={{ margin: 0 }}>Q&A App</h2>
         {(showBasicQuestions || showDetailedQuestions) && (
-          <Button
-            variant="light"
-            onClick={goBackHome}
-            style={{
-              fontSize: "1rem",
-              padding: "0.4rem 1rem",
-              color: "white",
-              backgroundColor: "black",
-            }}
-          >
-            Home
-          </Button>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <Button
+              variant="light"
+              onClick={goBackHome}
+              style={{
+                fontSize: '1rem',
+                padding: '0.4rem 1rem',
+                color: 'white',
+                backgroundColor: 'black',
+              }}
+            >
+              Home
+            </Button>
+            {showDetailedQuestions && (
+              <Button
+                variant="light"
+                onClick={switchToBasicQuestions}
+                style={{
+                  fontSize: '1rem',
+                  padding: '0.4rem 1rem',
+                  color: 'white',
+                  backgroundColor: 'teal',
+                }}
+              >
+                Switch to Basic
+              </Button>
+            )}
+            {showBasicQuestions && (
+              <Button
+                variant="light"
+                onClick={switchToDetailedQuestions}
+                style={{
+                  fontSize: '1rem',
+                  padding: '0.4rem 1rem',
+                  color: 'white',
+                  backgroundColor: 'orange',
+                }}
+              >
+                Switch to Detailed
+              </Button>
+            )}
+          </div>
         )}
       </div>
 

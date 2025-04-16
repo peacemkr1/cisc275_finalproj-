@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Alert, Button, Form } from 'react-bootstrap';
 
 interface DetailedQuestionsProps {
   onProgressUpdate: (progress: number) => void;
@@ -88,11 +88,23 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
         </div>
       </div>
       {(showButton === true) && (
-                  <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem"}}> 
-                    <Button style={{backgroundColor: "green", border:"none"}}>Get Answer</Button>
-                  </div>
-                )}
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+        <div
+          style={{
+            maxWidth: "600px",
+            margin: "0 auto",
+          }}
+        >
+          <Alert style={{ fontWeight: "bold", color: "black", margin: 0, backgroundColor:"white", border: "none" }}>
+          Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to recieve your career quiz results!
+          </Alert>
+        </div>
     
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}> 
+          <Button style={{ backgroundColor: "green", border: "none" }}>Get Answer</Button>
+        </div>
+      </div>
+    )}
     </div>
   );
 };

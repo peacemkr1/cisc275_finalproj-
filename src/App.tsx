@@ -105,7 +105,11 @@ function App() {
       {/* Home Page */}
       {!showBasicQuestions && !showDetailedQuestions ? (
         <>
-          <header className="App-header">
+          <header
+              className="App-header"
+              
+            >
+
             <div
               style={{
                 display: "flex",
@@ -123,18 +127,54 @@ function App() {
               <div>Rahul Davu</div>
               <div>Ayman Tayeb</div> */}
             </div>
+          
+            {/*<div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "1vh", 
+                  paddingBottom: "50rem"
+                }}
+              ></div> */}
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
+              <div
+                //style={{
+                  //width: "900px", 
+                  //textAlign: "center",
+                  //border: "3px solid white",
+                  //borderRadius: "10px",
+                  //padding: "2rem",
+                  //backgroundColor: "rgba(255,255,255,0.05)",
+                ////}} 
+              > 
+                {/*<Form>
+                  <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white" }}>API Key:</h2>
+                  <Form.Control
+                    type="password"
+                    placeholder="Insert API Key Here"
+                    onChange={changeKey}
+                    style={{ marginTop: "1rem" }}
+                  />
+                  <br />
+                  <Button className="Submit-Button" onClick={handleSubmit} style={{ backgroundColor: "blue", border: "none" }}>
+                    Submit
+                  </Button>
+                </Form>*/}
+                <header style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white", fontWeight:"bold", textDecoration:"underline" }}>Welcome to the Career Quiz!</header>
+              </div>
+            </div>
 
             <div
-              style={{
-                position: "absolute",
-                display: "flex",
-                justifyContent: "center",
-                gap: "4rem",
-                color: "white",
-                width: "100%",
-                top: "55%",
-              }}
-            >
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "4rem",
+                  color: "white",
+                  width: "100%",
+                }}
+              >
+
               {/* Box around Basic Questions */}
               <div
                 style={{
@@ -144,6 +184,7 @@ function App() {
                   borderRadius: "10px",
                   padding: "2rem",
                   backgroundColor: "rgba(255,255,255,0.05)",
+                  //backgroundColor:"pink"
                 }}
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color:"white" }}>Basic Questions</h2>
@@ -172,7 +213,8 @@ function App() {
               </div>
             </div>
           </header>
-
+        
+        
           <Form>
             <Form.Label>API Key:</Form.Label>
             <Form.Control
@@ -185,6 +227,7 @@ function App() {
               Submit
             </Button>
           </Form>
+          
         </>
       ) : showBasicQuestions ? (
         <>

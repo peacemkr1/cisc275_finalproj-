@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 //import { Form } from 'react-bootstrap';
-import { Button, Form } from 'react-bootstrap';
+import { Alert, Button, Form } from 'react-bootstrap';
 
 interface BasicQuestionsProps {
   onProgressUpdate: (progress: number) => void;
@@ -28,7 +28,8 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [Question6, setQuestion6] = useState<string>('');
   const [Question7, setQuestion7] = useState<string>('');
 
-    const [showButton, setShowButton] = useState<boolean>(false); // set to false
+  const [showButton, setShowButton] = useState<boolean>(false); // set to false
+  //const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
 
   useEffect(() => {
     const totalQuestions = 7;
@@ -43,6 +44,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     else {
       setShowButton(false);
     }
+
+    
+      
+        //setFeedbackMech(false);
+      
 
   }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
   
@@ -391,14 +397,30 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
           
         </div>
       </div>
+
+
       {(showButton === true) && (
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem"}}> 
-              <Button style={{backgroundColor: "green", border:"none"}}>Get Answer</Button>
-            </div>
-          )}
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+        <div
+          style={{
+            maxWidth: "600px",
+            margin: "0 auto",
+          }}
+        >
+          <Alert style={{ fontWeight: "bold", color: "black", margin: 0, backgroundColor:"white", border: "none" }}>
+          Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to recieve your career quiz results!
+          </Alert>
+        </div>
     
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}> 
+          <Button style={{ backgroundColor: "green", border: "none" }}>Get Answer</Button>
+        </div>
+      </div>
+    )}
     </div>
   );
 };
+    
+    
 
 export default BasicQuestions;

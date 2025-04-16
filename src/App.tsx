@@ -127,40 +127,10 @@ function App() {
               <div>Rahul Davu</div>
               <div>Ayman Tayeb</div> */}
             </div>
-          
-            {/*<div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "1vh", 
-                  paddingBottom: "50rem"
-                }}
-              ></div> */}
+
             <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
-              <div
-                //style={{
-                  //width: "900px", 
-                  //textAlign: "center",
-                  //border: "3px solid white",
-                  //borderRadius: "10px",
-                  //padding: "2rem",
-                  //backgroundColor: "rgba(255,255,255,0.05)",
-                ////}} 
-              > 
-                {/*<Form>
-                  <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white" }}>API Key:</h2>
-                  <Form.Control
-                    type="password"
-                    placeholder="Insert API Key Here"
-                    onChange={changeKey}
-                    style={{ marginTop: "1rem" }}
-                  />
-                  <br />
-                  <Button className="Submit-Button" onClick={handleSubmit} style={{ backgroundColor: "blue", border: "none" }}>
-                    Submit
-                  </Button>
-                </Form>*/}
+              <div> 
+                
                 <header style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white", fontWeight:"bold", textDecoration:"underline" }}>Welcome to the Career Quiz!</header>
               </div>
             </div>
@@ -184,7 +154,7 @@ function App() {
                   borderRadius: "10px",
                   padding: "2rem",
                   backgroundColor: "rgba(255,255,255,0.05)",
-                  //backgroundColor:"pink"
+                  
                 }}
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color:"white" }}>Basic Questions</h2>

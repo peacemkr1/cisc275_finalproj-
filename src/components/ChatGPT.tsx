@@ -14,7 +14,15 @@ export async function generateBasicCareer(UserAnswers: string[]) {
     dangerouslyAllowBrowser: true, 
   });
 
-  const questions = [];
+  const questions = [
+    "What was your favorite subject in school?",
+    "How would you describe your level of talkativeness?",
+    "How comfortable are you with public speaking?",
+    "What is your preferred way of communicating?",
+    "What equipment do you like to work with?",
+    "How would you describe yourself when dealing with stress or pressure?",
+    "When working in a group, what role do you take?"
+  ];
 
   const QuestionAndAnswer = questions.map((q, idx) => `${q} ${UserAnswers[idx]}`).join('\n');
 

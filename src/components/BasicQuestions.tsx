@@ -432,7 +432,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     {careerResult && (
       <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>
         <h4>Career Suggestions:</h4>
-        <pre style={{ whiteSpace: 'pre-wrap', fontSize: '1.2rem' }}>{careerResult}</pre>
+        <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
 
       </div>
     )}

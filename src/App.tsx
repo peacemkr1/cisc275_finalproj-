@@ -4,7 +4,7 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/BasicQuestions.tsx
 import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
-import ProgressBar from './components/ProgressBar';
+import ProgressBar from './components/ProgressBar'; 
 //import ChatGPT from './components/ChatGPT';
 
 
@@ -186,16 +186,17 @@ function App() {
                 style={{
                   width: "45%",
                   textAlign: "center",
-                  border: "3px solid white",
+                  //border: "3px solid white",
                   borderRadius: "10px",
                   padding: "2rem",
-                  backgroundColor: "rgba(255,255,255,0.05)",
+                  backgroundColor: "teal"
+                  //backgroundColor: "rgba(255,255,255,0.05)",
                   
                 }}
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color:"white" }}>Basic Questions</h2>
                 <p style={{fontSize:"1.25rem"}}>Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
-                <Button onClick={goToBasicQuestions} style={{ backgroundColor: "teal", border: "none" }}>
+                <Button onClick={goToBasicQuestions} style={{ backgroundColor: "white", border: "none", color: "teal"}}>
                   Go to Basic Questions
                 </Button>
               </div>
@@ -205,15 +206,16 @@ function App() {
                 style={{
                   width: "45%",
                   textAlign: "center",
-                  border: "3px solid white",
+                  //border: "3px solid white",
                   borderRadius: "10px",
                   padding: "2rem",
-                  backgroundColor: "rgba(255,255,255,0.05)",
+                  backgroundColor: "orange"
+                  //backgroundColor: "rgba(255,255,255,0.05)",
                 }}
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
                 <p style={{fontSize:"1.25rem"}}>Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
-                <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "orange", border: "none" }}>
+                <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "white", border: "none", color: "orange" }}>
                   Go to Detailed Questions
                 </Button>
               </div>

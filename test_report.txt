@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (49 ms)
+  ✕ renders learn react link (48 ms)
 
   ● renders learn react link
 
@@ -45,7 +45,7 @@ FAIL src/App.test.tsx
               [33mstyle[39m=[32m"display: flex; justify-content: center; gap: 4rem; color: white; width: 100%;"[39m
             [36m>[39m
               [36m<div[39m
-                [33mstyle[39m=[32m"width: 45%; text-align: center; border: 3px solid white; border-radius: 10px; padding: 2rem; background-color: rgba(255, 255, 255, 0.05);"[39m
+                [33mstyle[39m=[32m"width: 45%; text-align: center; border-radius: 10px; padding: 2rem; background-color: teal;"[39m
               [36m>[39m
                 [36m<h2[39m
                   [33mstyle[39m=[32m"font-family: Arial; font-size: 2.5rem; color: white;"[39m
@@ -59,14 +59,14 @@ FAIL src/App.test.tsx
                 [36m</p>[39m
                 [36m<button[39m
                   [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mstyle[39m=[32m"background-color: teal;"[39m
+                  [33mstyle[39m=[32m"background-color: white; color: teal;"[39m
                   [33mtype[39m=[32m"button"[39m
                 [36m>[39m
                   [0mGo to Basic Questions[0m
                 [36m</button>[39m
               [36m</div>[39m
               [36m<div[39m
-                [33mstyle[39m=[32m"width: 45%; text-align: center; border: 3px solid white; border-radius: 10px; padding: 2rem; background-color: rgba(255, 255, 255, 0.05);"[39m
+                [33mstyle[39m=[32m"width: 45%; text-align: center; border-radius: 10px; padding: 2rem; background-color: orange;"[39m
               [36m>[39m
                 [36m<h2[39m
                   [33mstyle[39m=[32m"font-family: Arial; font-size: 2.5rem;"[39m
@@ -80,7 +80,7 @@ FAIL src/App.test.tsx
                 [36m</p>[39m
                 [36m<button[39m
                   [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mstyle[39m=[32m"background-color: orange;"[39m
+                  [33mstyle[39m=[32m"background-color: white; color: orange;"[39m
                   [33mtype[39m=[32m"button"[39m
                 [36m>[39m
                   [0mGo to Detailed Questions[0m
@@ -134,22 +134,22 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   14.13 |    22.22 |    3.03 |   14.13 |                   
+All files               |   10.83 |    15.38 |    2.56 |   11.01 |                   
  src                    |   28.12 |    31.57 |      10 |   28.12 |                   
   App.tsx               |   42.85 |       40 |    12.5 |   42.85 | 32,42-70          
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |    6.66 |        0 |       0 |    6.66 |                   
-  BasicQuestions.tsx    |       0 |        0 |       0 |       0 | 23-83             
-  ChatGPT.tsx           |       0 |        0 |       0 |       0 |                   
-  DetailedQuestions.tsx |    3.84 |        0 |       0 |    3.84 | 15-85             
+ src/components         |    4.54 |        0 |       0 |    4.65 |                   
+  BasicQuestions.tsx    |       0 |        0 |       0 |       0 | 25-94             
+  ChatGPT.tsx           |       0 |        0 |       0 |       0 | 5-86              
+  DetailedQuestions.tsx |    3.33 |        0 |       0 |    3.33 | 17-95             
   Navbar.tsx            |       0 |      100 |       0 |       0 | 6-12              
   ProgressBar.tsx       |      50 |      100 |       0 |      50 | 29-40             
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.143 s
+Time:        3.207 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without

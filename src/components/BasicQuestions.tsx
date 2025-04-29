@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 //import { Form } from 'react-bootstrap';
 import { Alert, Button, Form } from 'react-bootstrap';
+import { generateBasicCareer } from './ChatGPT';
+
 
 interface BasicQuestionsProps {
   onProgressUpdate: (progress: number) => void;
@@ -79,6 +81,15 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   function updateQuestion7(event: React.ChangeEvent<HTMLInputElement>) {
     setQuestion7(event.target.value);
   }
+
+  const [careerResult, setCareerResult] = useState<string>('');
+
+  async function handleGetAnswer() {
+    const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7];
+    const result = await generateBasicCareer(answers);
+    setCareerResult(result || 'No result found. Please try again.');
+  }
+
 
   return (
     <div style={{ backgroundColor: 'lightgray', minHeight: '100vh', padding: '2rem' }}>
@@ -400,27 +411,35 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
 
       {(showButton === true) && (
-        <div style={{ textAlign: "center", marginTop: "2rem" }}>
-        <div
-          style={{
-            maxWidth: "600px",
-            margin: "0 auto",
-          }}
+  <>
+    <div style={{ textAlign: "center", marginTop: "2rem" }}>
+      <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+        <Alert style={{ fontWeight: "bold", color: "black", margin: 0, backgroundColor:"white", border: "none" }}>
+          Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to receive your career quiz results!
+        </Alert>
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}> 
+        <Button 
+          style={{ backgroundColor: "green", border: "none" }} 
+          onClick={handleGetAnswer}
         >
-          <Alert style={{ fontWeight: "bold", color: "black", margin: 0, backgroundColor:"white", border: "none" }}>
-          Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to recieve your career quiz results!
-          </Alert>
-        </div>
-    
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}> 
-          <Button style={{ backgroundColor: "green", border: "none" }}>Get Answer</Button>
-        </div>
+          Get Answer
+        </Button>
+      </div>
+    </div>
+
+    {careerResult && (
+      <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>
+        <h4>Career Suggestions:</h4>
+        <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
+
       </div>
     )}
-    </div>
+  </>
+)}
+</div>    
   );
-};
-    
-    
+} 
 
 export default BasicQuestions;

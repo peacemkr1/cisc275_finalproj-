@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
+import { generateDetailedCareer } from './ChatGPT';
+
 
 interface DetailedQuestionsProps {
   onProgressUpdate: (progress: number) => void;
@@ -21,6 +23,14 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
   const [Question7, setQuestion7] = useState<string>('');
 
   const [showButton, setShowButton] = useState<boolean>(false); // set to false
+  const [careerResult, setCareerResult] = useState<string>(''); 
+
+  async function handleGetAnswer() {
+    const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7];
+    const result = await generateDetailedCareer(answers);
+    setCareerResult(result || 'No result found. Please try again.');
+  }
+  
 
   // 5. Add a useEffect hook to calculate progress whenever an answer changes:
   useEffect(() => {
@@ -87,24 +97,31 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
           </Form>
         </div>
       </div>
+      
       {(showButton === true) && (
-        <div style={{ textAlign: "center", marginTop: "2rem" }}>
-        <div
-          style={{
-            maxWidth: "600px",
-            margin: "0 auto",
-          }}
-        >
-          <Alert style={{ fontWeight: "bold", color: "black", margin: 0, backgroundColor:"white", border: "none" }}>
-          Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to recieve your career quiz results!
-          </Alert>
-        </div>
-    
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}> 
-          <Button style={{ backgroundColor: "green", border: "none" }}>Get Answer</Button>
-        </div>
-      </div>
-    )}
+        <>
+          <div style={{ textAlign: "center", marginTop: "2rem" }}>
+            <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+              <Alert style={{ fontWeight: "bold", color: "black", margin: 0, backgroundColor: "white", border: "none" }}>
+                Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to receive your career quiz results!
+              </Alert>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
+              <Button style={{ backgroundColor: "green", border: "none" }} onClick={handleGetAnswer}>
+                Get Answer
+              </Button>
+            </div>
+          </div>
+
+          {careerResult && (
+            <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>
+              <h4>Career Suggestions:</h4>
+              <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

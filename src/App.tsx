@@ -7,6 +7,7 @@ import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymant
 import ProgressBar from './components/ProgressBar'; 
 //import ChatGPT from './components/ChatGPT';
 import ChickenLogo from './ChickenLogo.png';
+import ChickenBackground from './chicken.webp'
 
 
 
@@ -160,7 +161,7 @@ function App() {
           <header
             className="App-header"
             style={{
-              backgroundImage: `url("/chicken.webp")`,
+              backgroundImage: `url(${ChickenBackground})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",

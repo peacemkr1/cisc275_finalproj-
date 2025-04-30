@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (52 ms)
+  ✕ renders learn react link (53 ms)
 
   ● renders learn react link
 
@@ -23,7 +23,7 @@ FAIL src/App.test.tsx
             [36m>[39m
               [36m<img[39m
                 [33malt[39m=[32m"Hen Logo"[39m
-                [33msrc[39m=[32m"/ChickenLogo.png"[39m
+                [33msrc[39m=[32m"ChickenLogo.png"[39m
                 [33mstyle[39m=[32m"height: 68px; width: 68px; object-fit: contain;"[39m
               [36m/>[39m
               [36m<h2[39m
@@ -168,7 +168,7 @@ File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Lin
 ------------------------|---------|----------|---------|---------|-------------------
 All files               |   11.57 |    21.27 |    2.56 |   11.76 |                   
  src                    |    30.3 |    37.03 |      10 |    30.3 |                   
-  App.tsx               |   45.45 |    43.47 |    12.5 |   45.45 | 32,43-72          
+  App.tsx               |   45.45 |    43.47 |    12.5 |   45.45 | 34,45-74          
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
  src/components         |    4.54 |        0 |       0 |    4.65 |                   
@@ -181,5 +181,5 @@ All files               |   11.57 |    21.27 |    2.56 |   11.76 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.285 s
+Time:        3.267 s
 Ran all test suites.

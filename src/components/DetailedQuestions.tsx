@@ -94,6 +94,21 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
               <Form.Label style={{ fontWeight: 'bold' }}>7. Reflect on a past experience (school, work, or personal) where you felt highly engaged and motivated. What were you doing, and what factors contributed to that feeling?</Form.Label>
               <Form.Control as="textarea" rows={3} placeholder="Answer Here" value={Question7} onChange={(e) => setQuestion7(e.target.value)} />
             </Form.Group>
+          
+          <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Label style={{ fontWeight: 'bold' }}>8. Describe a time you felt deeply accomplished after completing a task. What were you doing, and why did it feel meaningful to you?</Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" value={Question7} onChange={(e) => setQuestion7(e.target.value)} />
+          </Form.Group>
+
+          <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Label style={{ fontWeight: 'bold' }}>9. When facing a high-pressure situation, do you prefer to lead a team, work independently, or support someone else's leadership? Why?</Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" value={Question7} onChange={(e) => setQuestion7(e.target.value)} />
+          </Form.Group>
+
+          <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Label style={{ fontWeight: 'bold' }}>10. What kind of long-term impact do you want your career to have—on people, society, technology, or something else? Why is that important to you?</Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="Answer Here" value={Question7} onChange={(e) => setQuestion7(e.target.value)} />
+          </Form.Group>
           </Form>
         </div>
       </div>

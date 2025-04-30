@@ -54,7 +54,7 @@ function App() {
   function goToDetailedQuestions() {
     setShowDetailedQuestions(true); // changes to true when you click on Detailed Ques. button
   }
-  
+
   function switchToBasicQuestions() {
     setShowDetailedQuestions(false);
     setShowBasicQuestions(true);
@@ -96,7 +96,7 @@ function App() {
           src="/ChickenLogo.png" 
           alt="Hen Logo" 
           style={{ height: "68px", width: "68px", objectFit: "contain" }} 
-/>
+        />
 
         {(showBasicQuestions || showDetailedQuestions) && (
           <div style={{ display: 'flex', gap: '8px' }}>
@@ -148,19 +148,21 @@ function App() {
       {!showBasicQuestions && !showDetailedQuestions ? (
         <>
           <header
-  className="App-header"
-  style={{
-    backgroundImage: `url("/chicken.webp")`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundBlendMode: "overlay",
-    minHeight: "100vh",
-  }}
->
-  
-
-
+            className="App-header"
+            style={{
+              backgroundImage: `url("/chicken.webp")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundBlendMode: "overlay",
+              minHeight: "100vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              paddingTop: "4rem",
+            }}
+          >
+            {/* Optional author section */}
             <div
               style={{
                 display: "flex",
@@ -173,32 +175,79 @@ function App() {
                 color: "black",
               }}
             >
-              {/* Optional author section */}
               {/* <div>David Cardenas</div>
               <div>Rahul Davu</div>
               <div>Ayman Tayeb</div> */}
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
-            <div style={{
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
-  padding: "2rem",
-  borderRadius: "12px"
-}}>
-  <h1 style={{ color: "white" }}>Welcome to the Peck Your Path!</h1>
-</div>
+            {/* Welcome Title */}
+            <div
+              style={{
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                padding: "2rem",
+                borderRadius: "12px",
+                marginBottom: "2rem",
+                textAlign: "center",
+                width: "90%",
+                maxWidth: "600px",
+              }}
+            >
+              <h1 style={{ color: "white", fontWeight: "bold", textDecoration: "underline" }}>
+                Welcome to the Peck Your Path!
+              </h1>
             </div>
 
-            <div
+            {/* API Key Form Box - separate from title */}
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
+              <div
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: "4rem",
-                  color: "white",
-                  width: "100%",
+                  width: "500px",
+                  textAlign: "center",
+                  //border: "3px solid white",
+                  borderRadius: "10px",
+                  padding: "2rem",
+                  //backgroundColor: "rgba(255,255,255,0.05)",
+                  backgroundColor: "blue"
                 }}
               >
+                <Form>
+                  <h2 style={{
+                    fontFamily: "Arial",
+                    fontSize: "2rem",
+                    color: "white",
+                    fontWeight: "bold",
+                    textDecoration: "underline"
+                  }}>
+                    API Key:
+                  </h2>
+                  <Form.Control
+                    type="password"
+                    placeholder="Insert API Key Here"
+                    onChange={changeKey}
+                    style={{ marginTop: "1rem" }}
+                  />
+                  <br />
+                  <Button
+                    className="Submit-Button"
+                    onClick={handleSubmit}
+                    style={{ backgroundColor: "white", border: "none", color: "blue" }}
+                  >
+                    Submit
+                  </Button>
+                </Form>
+              </div>
+            </div>
 
+            {/* Box around Basic and Detailed Questions */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "4rem",
+                color: "white",
+                width: "100%",
+              }}
+            >
               {/* Box around Basic Questions */}
               <div
                 style={{
@@ -213,9 +262,9 @@ function App() {
                   
                 }}
               >
-                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color:"white" }}>Basic Questions</h2>
-                <p style={{fontSize:"1.25rem"}}>Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
-                <Button onClick={goToBasicQuestions} style={{ backgroundColor: "white", border: "none", color: "teal"}}>
+                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white" }}>Basic Questions</h2>
+                <p style={{ fontSize: "1.25rem" }}>Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
+                <Button onClick={goToBasicQuestions} style={{ backgroundColor: "white", border: "none", color: "teal" }}>
                   Go to Basic Questions
                 </Button>
               </div>
@@ -234,28 +283,13 @@ function App() {
                 }}
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
-                <p style={{fontSize:"1.25rem"}}>Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
+                <p style={{ fontSize: "1.25rem" }}>Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
                 <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "white", border: "none", color: "orange" }}>
                   Go to Detailed Questions
                 </Button>
               </div>
             </div>
           </header>
-        
-        
-          <Form>
-            <Form.Label>API Key:</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Insert API Key Here"
-              onChange={changeKey}
-            />
-            <br />
-            <Button className="Submit-Button" onClick={handleSubmit}>
-              Submit
-            </Button>
-          </Form>
-          
         </>
       ) : showBasicQuestions ? (
         <>

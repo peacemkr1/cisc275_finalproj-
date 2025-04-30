@@ -6,6 +6,8 @@ import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/c
 import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
 import ProgressBar from './components/ProgressBar'; 
 //import ChatGPT from './components/ChatGPT';
+import ChickenLogo from '/Users/aymantayeb/cisc275_finalproj-/src/ChickenLogo.png';
+
 
 
       /* 
@@ -95,11 +97,13 @@ function App() {
       >
         {/*<h2 style={{ margin: 0 }}>Q&A App</h2>*/}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <img 
-            src="/ChickenLogo.png" 
-            alt="Hen Logo" 
-            style={{ height: "68px", width: "68px", objectFit: "contain" }} 
-          />
+        <img
+          src={ChickenLogo}
+          alt="Hen Logo"
+          style={{ height: "68px", width: "68px", objectFit: "contain" }}
+        />
+
+
           <h2 style={{ margin: 0, fontWeight: 'bold', fontSize: '1.75rem', color: "coral" }}>Peck-Your-Path</h2>
         </div>
 

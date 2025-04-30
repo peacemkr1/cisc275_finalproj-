@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (52 ms)
+  ✕ renders learn react link (75 ms)
 
   ● renders learn react link
 
@@ -32,6 +32,13 @@ FAIL src/App.test.tsx
                 [0mPeck-Your-Path[0m
               [36m</h2>[39m
             [36m</div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-light"[39m
+              [33mstyle[39m=[32m"font-size: 1rem; padding: 0.4rem 1rem; color: white; background-color: purple;"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mAbout Us[0m
+            [36m</button>[39m
           [36m</div>[39m
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
@@ -166,12 +173,13 @@ go away.[0m
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   11.57 |    21.27 |    2.56 |   11.76 |                   
- src                    |    30.3 |    37.03 |      10 |    30.3 |                   
-  App.tsx               |   45.45 |    43.47 |    12.5 |   45.45 | 35,46-75          
+All files               |    12.5 |    28.07 |    2.43 |   12.69 |                   
+ src                    |   28.94 |    43.24 |    9.09 |   28.94 |                   
+  App.tsx               |   40.74 |    48.48 |   11.11 |   40.74 | 36,48-84          
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |    4.54 |        0 |       0 |    4.65 |                   
+ src/components         |    5.55 |        0 |       0 |    5.68 |                   
+  AboutUs.tsx           |      50 |      100 |       0 |      50 | 7                 
   BasicQuestions.tsx    |       0 |        0 |       0 |       0 | 25-94             
   ChatGPT.tsx           |       0 |        0 |       0 |       0 | 5-86              
   DetailedQuestions.tsx |    3.33 |        0 |       0 |    3.33 | 17-95             
@@ -181,5 +189,5 @@ All files               |   11.57 |    21.27 |    2.56 |   11.76 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.303 s
+Time:        3.306 s
 Ran all test suites.

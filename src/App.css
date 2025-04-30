@@ -42,3 +42,11 @@
     transform: rotate(360deg);
   }
 }
+
+/* About Us page styling */
+.about-us-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  background-color: rgba(255, 127, 80, 0.8);
+}

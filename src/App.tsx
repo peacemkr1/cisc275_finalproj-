@@ -7,7 +7,7 @@ import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymant
 import ProgressBar from './components/ProgressBar'; 
 //import ChatGPT from './components/ChatGPT';
 import ChickenLogo from './ChickenLogo.png';
-import ChickenBackground from './chicken.webp'
+import ChickenBackground from './chickenBackground.png'
 
 
 

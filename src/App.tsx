@@ -37,10 +37,12 @@ function App() {
   const [showBasicQuestions, setShowBasicQuestions] = useState(false); // determines whether or not you are on this given page
   const [showDetailedQuestions, setShowDetailedQuestions] = useState(false); // determines whether or not you are on this given page
   const [quizProgress, setQuizProgress] = useState<number>(0);
+  const [keySubmitted, setKeySubmitted] = useState<boolean>(false);
 
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload();
+    //window.location.reload();
+    setKeySubmitted(true);
   }
 
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
@@ -54,7 +56,7 @@ function App() {
   function goToDetailedQuestions() {
     setShowDetailedQuestions(true); // changes to true when you click on Detailed Ques. button
   }
-  
+
   function switchToBasicQuestions() {
     setShowDetailedQuestions(false);
     setShowBasicQuestions(true);
@@ -91,7 +93,17 @@ function App() {
           color: "black",
         }}
       >
-        <h2 style={{ margin: 0 }}>Q&A App</h2>
+        {/*<h2 style={{ margin: 0 }}>Q&A App</h2>*/}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <img 
+            src="/ChickenLogo.png" 
+            alt="Hen Logo" 
+            style={{ height: "68px", width: "68px", objectFit: "contain" }} 
+          />
+          <h2 style={{ margin: 0, fontWeight: 'bold', fontSize: '1.75rem', color: "coral" }}>Peck-Your-Path</h2>
+        </div>
+
+
         {(showBasicQuestions || showDetailedQuestions) && (
           <div style={{ display: 'flex', gap: '8px' }}>
             <Button
@@ -142,10 +154,21 @@ function App() {
       {!showBasicQuestions && !showDetailedQuestions ? (
         <>
           <header
-              className="App-header"
-              
-            >
-
+            className="App-header"
+            style={{
+              backgroundImage: `url("/chicken.webp")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundBlendMode: "overlay",
+              minHeight: "100vh",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              paddingTop: "4rem",
+            }}
+          >
+            {/* Optional author section */}
             <div
               style={{
                 display: "flex",
@@ -158,29 +181,79 @@ function App() {
                 color: "black",
               }}
             >
-              {/* Optional author section */}
               {/* <div>David Cardenas</div>
               <div>Rahul Davu</div>
               <div>Ayman Tayeb</div> */}
             </div>
 
+            {/* Welcome Title */}
+            <div
+              style={{
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                padding: "2rem",
+                borderRadius: "12px",
+                marginBottom: "2rem",
+                textAlign: "center",
+                width: "90%",
+                maxWidth: "600px",
+              }}
+            >
+              <h1 style={{ color: "white", fontWeight: "bold", textDecoration: "underline" }}>
+                Welcome to the Peck Your Path!
+              </h1>
+            </div>
+
+            {/* API Key Form Box - separate from title */}
             <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
-              <div> 
-                
-                <header style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white", fontWeight:"bold", textDecoration:"underline" }}>Welcome to the Career Quiz!</header>
+              <div
+                style={{
+                  width: "500px",
+                  textAlign: "center",
+                  //border: "3px solid white",
+                  borderRadius: "10px",
+                  padding: "2rem",
+                  //backgroundColor: "rgba(255,255,255,0.05)",
+                  backgroundColor: "blue"
+                }}
+              >
+                <Form>
+                  <h2 style={{
+                    fontFamily: "Arial",
+                    fontSize: "2rem",
+                    color: "white",
+                    fontWeight: "bold",
+                    textDecoration: "underline"
+                  }}>
+                    API Key:
+                  </h2>
+                  <Form.Control
+                    type="password"
+                    placeholder="Insert API Key Here"
+                    onChange={changeKey}
+                    style={{ marginTop: "1rem" }}
+                  />
+                  <br />
+                  <Button
+                    className="Submit-Button"
+                    onClick={handleSubmit}
+                    style={{ backgroundColor: "white", border: "none", color: "blue" }}
+                  >
+                    Submit
+                  </Button>
+                </Form>
               </div>
             </div>
 
+            {/* Box around Basic and Detailed Questions */}
             <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: "4rem",
-                  color: "white",
-                  width: "100%",
-                }}
-              >
-
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "4rem",
+                color: "white",
+                width: "100%",
+              }}
+            >
               {/* Box around Basic Questions */}
               <div
                 style={{
@@ -189,16 +262,28 @@ function App() {
                   //border: "3px solid white",
                   borderRadius: "10px",
                   padding: "2rem",
-                  backgroundColor: "teal"
+                  //backgroundColor: "teal"
+                  backgroundColor: "rgba(0, 128, 128, 1)"
                   //backgroundColor: "rgba(255,255,255,0.05)",
                   
                 }}
               >
-                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color:"white" }}>Basic Questions</h2>
-                <p style={{fontSize:"1.25rem"}}>Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
-                <Button onClick={goToBasicQuestions} style={{ backgroundColor: "white", border: "none", color: "teal"}}>
+                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white" }}>Basic Questions</h2>
+                <p style={{ fontSize: "1.25rem" }}>Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
+                <Button 
+                  onClick={goToBasicQuestions} 
+                  style={{ 
+                    backgroundColor: "white", 
+                    border: "none", 
+                    color: "teal",
+                    opacity: keySubmitted ? 1 : 0.5,
+                    cursor: keySubmitted ? "pointer" : "not-allowed"
+                  }}
+                  disabled={!keySubmitted}
+                >
                   Go to Basic Questions
                 </Button>
+
               </div>
 
               {/* Box around Detailed Questions */}
@@ -209,33 +294,30 @@ function App() {
                   //border: "3px solid white",
                   borderRadius: "10px",
                   padding: "2rem",
-                  backgroundColor: "orange"
+                  //backgroundColor: "orange"
+                  backgroundColor: "rgba(255, 165, 0, 1)"
                   //backgroundColor: "rgba(255,255,255,0.05)",
                 }}
               >
                 <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
-                <p style={{fontSize:"1.25rem"}}>Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
-                <Button onClick={goToDetailedQuestions} style={{ backgroundColor: "white", border: "none", color: "orange" }}>
+                <p style={{ fontSize: "1.25rem" }}>Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
+                <Button 
+                  onClick={goToDetailedQuestions} 
+                  style={{ 
+                    backgroundColor: "white", 
+                    border: "none", 
+                    color: "orange",
+                    opacity: keySubmitted ? 1 : 0.5,
+                    cursor: keySubmitted ? "pointer" : "not-allowed"
+                  }}
+                  disabled={!keySubmitted}
+                >
                   Go to Detailed Questions
                 </Button>
+
               </div>
             </div>
           </header>
-        
-        
-          <Form>
-            <Form.Label>API Key:</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Insert API Key Here"
-              onChange={changeKey}
-            />
-            <br />
-            <Button className="Submit-Button" onClick={handleSubmit}>
-              Submit
-            </Button>
-          </Form>
-          
         </>
       ) : showBasicQuestions ? (
         <>

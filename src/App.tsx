@@ -5,6 +5,7 @@ import { Button, Form } from 'react-bootstrap';
 import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/BasicQuestions.tsx
 import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
 import ProgressBar from './components/ProgressBar'; 
+import AboutUs from './components/AboutUs';
 //import ChatGPT from './components/ChatGPT';
 import ChickenLogo from './ChickenLogo.png';
 import ChickenBackground from './chickenBackground.png'
@@ -39,6 +40,7 @@ function App() {
   const [key, setKey] = useState<string>(keyData); // API key
   const [showBasicQuestions, setShowBasicQuestions] = useState(false); // determines whether or not you are on this given page
   const [showDetailedQuestions, setShowDetailedQuestions] = useState(false); // determines whether or not you are on this given page
+  const [showAbout, setShowAbout] = useState(false);
   const [quizProgress, setQuizProgress] = useState<number>(0);
   const [keySubmitted, setKeySubmitted] = useState<boolean>(false);
 
@@ -70,9 +72,16 @@ function App() {
     setShowDetailedQuestions(true);
   }
 
+  function goToAboutUs() {
+    setShowBasicQuestions(false);
+    setShowDetailedQuestions(false);
+    setShowAbout(true);
+  }
+
   function goBackHome() {
     setShowBasicQuestions(false);
     setShowDetailedQuestions(false);
+    setShowAbout(false);
     /*
       when clicking the "Home" button at the top right, 
       both values are set to false to determine that 
@@ -108,8 +117,22 @@ function App() {
           <h2 style={{ margin: 0, fontWeight: 'bold', fontSize: '1.75rem', color: "coral" }}>Peck-Your-Path</h2>
         </div>
 
+        {!showBasicQuestions && !showDetailedQuestions && !showAbout && (
+          <Button
+            variant="light"
+            onClick={goToAboutUs}
+            style={{
+              fontSize: "1rem",
+              padding: "0.4rem 1rem",
+              color: "white",
+              backgroundColor: "purple",
+            }}
+          >
+            About Us
+          </Button>
+        )}
 
-        {(showBasicQuestions || showDetailedQuestions) && (
+        {(showBasicQuestions || showDetailedQuestions || showAbout) && (
           <div style={{ display: 'flex', gap: '8px' }}>
             <Button
               variant="light"
@@ -156,7 +179,7 @@ function App() {
       </div>
 
       {/* Home Page */}
-      {!showBasicQuestions && !showDetailedQuestions ? (
+      {!showBasicQuestions && !showDetailedQuestions && !showAbout ? (
         <>
           <header
             className="App-header"
@@ -329,12 +352,14 @@ function App() {
           <ProgressBar progress={quizProgress} /> {/* Progress bar added */}
           <BasicQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to BasicQuestions */}
         </>
-      ) : (
+      ) : showDetailedQuestions ? (
         <>
           <ProgressBar progress={quizProgress} /> {/* Progress bar added */}
           <DetailedQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to DetailedQuestions */}
         </>
-      )}
+      ) : showAbout ? (
+        <AboutUs />
+      ) : null}
     </div>
   );
 }

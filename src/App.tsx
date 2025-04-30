@@ -91,7 +91,13 @@ function App() {
           color: "black",
         }}
       >
-        <h2 style={{ margin: 0 }}>Q&A App</h2>
+        {/*<h2 style={{ margin: 0 }}>Q&A App</h2>*/}
+        <img 
+          src="/ChickenLogo.png" 
+          alt="Hen Logo" 
+          style={{ height: "68px", width: "68px", objectFit: "contain" }} 
+/>
+
         {(showBasicQuestions || showDetailedQuestions) && (
           <div style={{ display: 'flex', gap: '8px' }}>
             <Button
@@ -142,9 +148,18 @@ function App() {
       {!showBasicQuestions && !showDetailedQuestions ? (
         <>
           <header
-              className="App-header"
-              
-            >
+  className="App-header"
+  style={{
+    backgroundImage: `url("/chicken.webp")`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundBlendMode: "overlay",
+    minHeight: "100vh",
+  }}
+>
+  
+
 
             <div
               style={{
@@ -165,10 +180,13 @@ function App() {
             </div>
 
             <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
-              <div> 
-                
-                <header style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white", fontWeight:"bold", textDecoration:"underline" }}>Welcome to the Career Quiz!</header>
-              </div>
+            <div style={{
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  padding: "2rem",
+  borderRadius: "12px"
+}}>
+  <h1 style={{ color: "white" }}>Welcome to the Peck Your Path!</h1>
+</div>
             </div>
 
             <div
@@ -189,7 +207,8 @@ function App() {
                   //border: "3px solid white",
                   borderRadius: "10px",
                   padding: "2rem",
-                  backgroundColor: "teal"
+                  //backgroundColor: "teal"
+                  backgroundColor: "rgba(0, 128, 128, 1)"
                   //backgroundColor: "rgba(255,255,255,0.05)",
                   
                 }}
@@ -209,7 +228,8 @@ function App() {
                   //border: "3px solid white",
                   borderRadius: "10px",
                   padding: "2rem",
-                  backgroundColor: "orange"
+                  //backgroundColor: "orange"
+                  backgroundColor: "rgba(255, 165, 0, 1)"
                   //backgroundColor: "rgba(255,255,255,0.05)",
                 }}
               >

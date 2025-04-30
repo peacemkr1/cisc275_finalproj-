@@ -6,7 +6,7 @@ import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/c
 import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
 import ProgressBar from './components/ProgressBar'; 
 //import ChatGPT from './components/ChatGPT';
-import ChickenLogo from '/Users/aymantayeb/cisc275_finalproj-/src/ChickenLogo.png';
+import ChickenLogo from './ChickenLogo.png';
 
 
 

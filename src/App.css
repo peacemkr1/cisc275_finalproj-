@@ -1,3 +1,37 @@
+
+.welcome-container {
+  min-height: 100vh;
+  background-color: coral;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: white;
+}
+
+.welcome-box {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.welcome-title {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.welcome-subtitle {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.submit-button {
+  background-color: white;
+  color: coral;
+  border: none;
+}
 /*
   Color Options:
     https://developer.mozilla.org/en-US/docs/Web/CSS/named-color

@@ -43,9 +43,7 @@ const AboutUs: React.FC = () => {
               <li>Age: 21</li>
               <li>Year: Junior</li>
               <li>Major: Computer Science</li>
-              <li>LinkedIn: www.linkedin.com/in/ayman-tayeb-9b7a12345
-
-</li>
+              <li>LinkedIn: www.linkedin.com/in/ayman-tayeb-9b7a12345</li>
           </p>
         </Col>
       </Row>

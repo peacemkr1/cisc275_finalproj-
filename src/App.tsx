@@ -8,7 +8,7 @@ import ProgressBar from './components/ProgressBar';
 import AboutUs from './components/AboutUs';
 //import ChatGPT from './components/ChatGPT';
 import ChickenLogo from './ChickenLogo.png';
-import ChickenBackground from './chickenBackground.png'
+import ChickenBackground from './chickenBackground1.png'
 
 
 
@@ -185,10 +185,10 @@ function App() {
             className="App-header"
             style={{
               backgroundImage: `url(${ChickenBackground})`,
-              backgroundSize: "cover",
+              backgroundSize: "100%",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "overlay",
+              backgroundBlendMode: "normal",
               minHeight: "100vh",
               display: "flex",
               flexDirection: "column",

@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (79 ms)
+  ✕ renders learn react link (77 ms)
 
   ● renders learn react link
 
@@ -42,7 +42,7 @@ FAIL src/App.test.tsx
           [36m</div>[39m
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
-            [33mstyle[39m=[32m"background-image: url(chickenBackground.png); background-size: cover; background-position: center; background-repeat: no-repeat; background-blend-mode: overlay; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-top: 4rem;"[39m
+            [33mstyle[39m=[32m"background-image: url(chickenBackground1.png); background-size: 100%; background-position: center; background-repeat: no-repeat; background-blend-mode: normal; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-top: 4rem;"[39m
           [36m>[39m
             [36m<div[39m
               [33mstyle[39m=[32m"display: flex; flex-direction: column; align-items: flex-start; padding: 1rem; position: absolute; top: 0px; left: 0px; color: black;"[39m
@@ -179,7 +179,7 @@ All files               |    12.5 |    28.07 |    2.43 |   12.69 |
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
  src/components         |    5.55 |        0 |       0 |    5.68 |                   
-  AboutUs.tsx           |      50 |      100 |       0 |      50 | 8                 
+  AboutUs.tsx           |      50 |      100 |       0 |      50 | 9                 
   BasicQuestions.tsx    |       0 |        0 |       0 |       0 | 25-94             
   ChatGPT.tsx           |       0 |        0 |       0 |       0 | 5-86              
   DetailedQuestions.tsx |    3.33 |        0 |       0 |    3.33 | 17-95             
@@ -189,5 +189,5 @@ All files               |    12.5 |    28.07 |    2.43 |   12.69 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.407 s
+Time:        3.462 s
 Ran all test suites.

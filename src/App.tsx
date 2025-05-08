@@ -191,10 +191,10 @@ function App() {
             className="App-header"
             style={{
               backgroundImage: `url(${ChickenBackground})`,
-              backgroundSize: "cover",
+              backgroundSize: "100%",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "overlay",
+              backgroundBlendMode: "normal",
               minHeight: "100vh",
               display: "flex",
               flexDirection: "column",

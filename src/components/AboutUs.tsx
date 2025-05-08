@@ -3,6 +3,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../App.css';
+import MovingHen from '../MovingHen.gif';
 
 const AboutUs: React.FC = () => {
   return (
@@ -13,6 +14,14 @@ const AboutUs: React.FC = () => {
         students discover and shape their future careers. Using personalized quizzes,
         we guide you toward paths that suit your skills, values, and goals.
       </p>
+
+      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <img
+          src={MovingHen}
+          alt="Animated Chicken"
+          style={{ width: '150px', height: 'auto' }}
+        />
+      </div>
 
       <h2 className="about-us-subtitle">Meet the Team</h2>
       <Row className="team-section">
@@ -31,7 +40,10 @@ const AboutUs: React.FC = () => {
         <Col md={4} className="team-member">
           <h4 className="team-member-name">Ayman Tayeb</h4>
           <p className="team-member-role">
-            Ayman here
+              <li>Age: 21</li>
+              <li>Year: Junior</li>
+              <li>Major: Computer Science</li>
+              <li>LinkedIn: www.linkedin.com/in/ayman-tayeb-9b7a12345</li>
           </p>
         </Col>
       </Row>

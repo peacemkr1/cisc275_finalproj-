@@ -8,9 +8,9 @@ interface WelcomePageProps {
 
 const WelcomePage: React.FC<WelcomePageProps> = ({ onSubmit, onKeyChange }) => {
   return (
-    <div className="App welcome-container">
-      <h1 className="welcome-title">Welcome to Peck-Your-Path</h1>
+    <div className="welcome-wrapper">
       <div className="welcome-box">
+        <h1 className="welcome-title">Welcome to Peck-Your-Path</h1>
         <Form>
           <h2 className="welcome-subtitle">Insert your API Key:</h2>
           <Form.Control

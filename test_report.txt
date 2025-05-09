@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (77 ms)
+  ✕ renders learn react link (55 ms)
 
   ● renders learn react link
 
@@ -13,129 +13,47 @@ FAIL src/App.test.tsx
     [36m<body>[39m
       [36m<div>[39m
         [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
+          [33mclass[39m=[32m"welcome-wrapper"[39m
         [36m>[39m
           [36m<div[39m
-            [33mstyle[39m=[32m"display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: white; color: black;"[39m
+            [33mclass[39m=[32m"welcome-box"[39m
           [36m>[39m
-            [36m<div[39m
-              [33mstyle[39m=[32m"display: flex; align-items: center; gap: 0.75rem;"[39m
+            [36m<h1[39m
+              [33mclass[39m=[32m"welcome-title"[39m
             [36m>[39m
-              [36m<img[39m
-                [33malt[39m=[32m"Hen Logo"[39m
-                [33msrc[39m=[32m"ChickenLogo.png"[39m
-                [33mstyle[39m=[32m"height: 68px; width: 68px; object-fit: contain;"[39m
-              [36m/>[39m
+              [0mWelcome to Peck-Your-Path[0m
+            [36m</h1>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"welcome-description"[39m
+            [36m>[39m
+              [0mUnlock personalized carrer interests and career goals. Enter your API key below to begin your journey with Peck-Your-Path.[0m
+            [36m</p>[39m
+            [36m<form[39m
+              [33mclass[39m=[32m""[39m
+            [36m>[39m
               [36m<h2[39m
-                [33mstyle[39m=[32m"margin: 0px; font-weight: bold; font-size: 1.75rem; color: coral;"[39m
+                [33mclass[39m=[32m"welcome-subtitle"[39m
               [36m>[39m
-                [0mPeck-Your-Path[0m
+                [0mInsert your API Key:[0m
               [36m</h2>[39m
-            [36m</div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-light"[39m
-              [33mstyle[39m=[32m"font-size: 1rem; padding: 0.4rem 1rem; color: white; background-color: purple;"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mAbout Us[0m
-            [36m</button>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"api-input form-control"[39m
+                [33mplaceholder[39m=[32m"API Key"[39m
+                [33mtype[39m=[32m"password"[39m
+              [36m/>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"submit-button btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mSubmit[0m
+              [36m</button>[39m
+            [36m</form>[39m
           [36m</div>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header"[39m
-            [33mstyle[39m=[32m"background-image: url(chickenBackground1.png); background-size: 100%; background-position: center; background-repeat: no-repeat; background-blend-mode: normal; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-top: 4rem;"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mstyle[39m=[32m"display: flex; flex-direction: column; align-items: flex-start; padding: 1rem; position: absolute; top: 0px; left: 0px; color: black;"[39m
-            [36m/>[39m
-            [36m<div[39m
-              [33mstyle[39m=[32m"background-color: rgba(0, 0, 0, 0.5); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; text-align: center; width: 90%; max-width: 600px;"[39m
-            [36m>[39m
-              [36m<h1[39m
-                [33mstyle[39m=[32m"color: white; font-weight: bold; text-decoration: underline;"[39m
-              [36m>[39m
-                [0mWelcome to the Peck Your Path![0m
-              [36m</h1>[39m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mstyle[39m=[32m"display: flex; justify-content: center; margin-bottom: 3rem;"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mstyle[39m=[32m"width: 500px; text-align: center; border-radius: 10px; padding: 2rem; background-color: blue;"[39m
-              [36m>[39m
-                [36m<form[39m
-                  [33mclass[39m=[32m""[39m
-                [36m>[39m
-                  [36m<h2[39m
-                    [33mstyle[39m=[32m"font-family: Arial; font-size: 2rem; color: white; font-weight: bold; text-decoration: underline;"[39m
-                  [36m>[39m
-                    [0mAPI Key:[0m
-                  [36m</h2>[39m
-                  [36m<input[39m
-                    [33mclass[39m=[32m"form-control"[39m
-                    [33mplaceholder[39m=[32m"Insert API Key Here"[39m
-                    [33mstyle[39m=[32m"margin-top: 1rem;"[39m
-                    [33mtype[39m=[32m"password"[39m
-                  [36m/>[39m
-                  [36m<br />[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
-                    [33mstyle[39m=[32m"background-color: white; color: blue;"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mSubmit[0m
-                  [36m</button>[39m
-                [36m</form>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mstyle[39m=[32m"display: flex; justify-content: center; gap: 4rem; color: white; width: 100%;"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mstyle[39m=[32m"width: 45%; text-align: center; border-radius: 10px; padding: 2rem; background-color: rgb(0, 128, 128);"[39m
-              [36m>[39m
-                [36m<h2[39m
-                  [33mstyle[39m=[32m"font-family: Arial; font-size: 2.5rem; color: white;"[39m
-                [36m>[39m
-                  [0mBasic Questions[0m
-                [36m</h2>[39m
-                [36m<p[39m
-                  [33mstyle[39m=[32m"font-size: 1.25rem;"[39m
-                [36m>[39m
-                  [0mStart with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview![0m
-                [36m</p>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mdisabled[39m=[32m""[39m
-                  [33mstyle[39m=[32m"background-color: white; color: teal; opacity: 0.5; cursor: not-allowed;"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mGo to Basic Questions[0m
-                [36m</button>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mstyle[39m=[32m"width: 45%; text-align: center; border-radius: 10px; padding: 2rem; background-color: rgb(255, 165, 0);"[39m
-              [36m>[39m
-                [36m<h2[39m
-                  [33mstyle[39m=[32m"font-family: Arial; font-size: 2.5rem;"[39m
-                [36m>[39m
-                  [0mDetailed Questions[0m
-                [36m</h2>[39m
-                [36m<p[39m
-                  [33mstyle[39m=[32m"font-size: 1.25rem;"[39m
-                [36m>[39m
-                  [0mTake a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.[0m
-                [36m</p>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mdisabled[39m=[32m""[39m
-                  [33mstyle[39m=[32m"background-color: white; color: orange; opacity: 0.5; cursor: not-allowed;"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mGo to Detailed Questions[0m
-                [36m</button>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-          [36m</header>[39m
+          [36m<img[39m
+            [33malt[39m=[32m"Moving Hen"[39m
+            [33mclass[39m=[32m"moving-hen"[39m
+            [33msrc[39m=[32m"MovingHen.gif"[39m
+          [36m/>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -173,21 +91,22 @@ go away.[0m
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |    12.5 |    28.07 |    2.43 |   12.69 |                   
- src                    |   28.94 |    43.24 |    9.09 |   28.94 |                   
-  App.tsx               |   40.74 |    48.48 |   11.11 |   40.74 | 36,48-84          
+All files               |   14.92 |     3.38 |    4.76 |   15.15 |                   
+ src                    |   30.95 |     5.12 |    9.09 |   30.95 |                   
+  App.tsx               |   41.93 |     5.71 |   11.11 |   41.93 | 37,50-86,101      
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |    5.55 |        0 |       0 |    5.68 |                   
+ src/components         |     7.6 |        0 |    3.22 |    7.77 |                   
   AboutUs.tsx           |      50 |      100 |       0 |      50 | 9                 
   BasicQuestions.tsx    |       0 |        0 |       0 |       0 | 25-94             
   ChatGPT.tsx           |       0 |        0 |       0 |       0 | 5-86              
   DetailedQuestions.tsx |    3.33 |        0 |       0 |    3.33 | 17-95             
   Navbar.tsx            |       0 |      100 |       0 |       0 | 6-12              
   ProgressBar.tsx       |      50 |      100 |       0 |      50 | 29-40             
+  WelcomePage.tsx       |     100 |      100 |     100 |     100 |                   
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.462 s
+Time:        3.318 s
 Ran all test suites.

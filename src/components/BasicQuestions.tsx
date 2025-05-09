@@ -29,14 +29,15 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [Question5, setQuestion5] = useState<string>('');
   const [Question6, setQuestion6] = useState<string>('');
   const [Question7, setQuestion7] = useState<string>('');
+  const [Question8, setQuestion8] = useState<string>('');
+
 
   const [showButton, setShowButton] = useState<boolean>(false); // set to false
   //const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
 
   useEffect(() => {
-    const totalQuestions = 7;
-    const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7]
-      .filter(answer => answer !== '').length;
+    const totalQuestions = 8;
+    const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8].filter(answer => answer !== '').length;
     const progressPercentage = (answeredQuestions / totalQuestions) * 100;
     onProgressUpdate(progressPercentage);
 
@@ -52,7 +53,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
         //setFeedbackMech(false);
       
 
-  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
+  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, onProgressUpdate]);
   
   function updateQuestion1(event: React.ChangeEvent<HTMLInputElement>) {
     setQuestion1(event.target.value);
@@ -82,10 +83,15 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     setQuestion7(event.target.value);
   }
 
+  function updateQuestion8(event: React.ChangeEvent<HTMLInputElement>) {
+    setQuestion8(event.target.value);
+  }
+  
+
   const [careerResult, setCareerResult] = useState<string>('');
 
   async function handleGetAnswer() {
-    const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7];
+    const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8];
     const result = await generateBasicCareer(answers);
     setCareerResult(result || 'No result found. Please try again.');
   }
@@ -230,11 +236,12 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                 type="radio" 
                 name="q3" 
                 onChange={updateQuestion3} 
-                id="q3-terrified" 
-                label="Terrified" 
-                value="Terrified" 
-                checked={Question3 === "Terrified"} 
+                id="q3-avoid" 
+                label="Prefer To Avoid It" 
+                value="Prefer To Avoid It" 
+                checked={Question3 === "Prefer To Avoid It"} 
               />
+
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
@@ -404,6 +411,48 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                 checked={Question7 === "Supporter"} 
               />
             </Form.Group>
+            <Form.Group style={{ marginBottom: '1.5rem' }}>
+            <Form.Label style={{ fontWeight: 'bold' }}>
+              8. Which work environment do you prefer?
+            </Form.Label>
+            <Form.Check 
+              type="radio" 
+              name="q8" 
+              onChange={updateQuestion8} 
+              id="q8-office" 
+              label="In an office with others" 
+              value="In an office with others" 
+              checked={Question8 === "In an office with others"} 
+            />
+            <Form.Check 
+              type="radio" 
+              name="q8" 
+              onChange={updateQuestion8} 
+              id="q8-hybrid" 
+              label="Hybrid (home and office)" 
+              value="Hybrid (home and office)" 
+              checked={Question8 === "Hybrid (home and office)"} 
+            />
+            <Form.Check 
+              type="radio" 
+              name="q8" 
+              onChange={updateQuestion8} 
+              id="q8-remote" 
+              label="Fully remote" 
+              value="Fully remote" 
+              checked={Question8 === "Fully remote"} 
+            />
+            <Form.Check 
+              type="radio" 
+              name="q8" 
+              onChange={updateQuestion8} 
+              id="q8-outdoors" 
+              label="Hands-on/outdoors" 
+              value="Hands-on/outdoors" 
+              checked={Question8 === "Hands-on/outdoors"} 
+            />
+          </Form.Group>
+
           </Form>
           
         </div>

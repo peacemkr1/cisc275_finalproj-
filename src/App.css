@@ -1,3 +1,58 @@
+.welcome-wrapper {
+  min-height: 100vh;
+  background-color: coral;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 25rem;
+  padding: 2rem;
+}
+
+.welcome-box {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: -10px 10px 20px rgba(241, 224, 196, .5);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  padding: 4rem;
+  border-radius: 20px;
+  text-align: left;
+  max-width: 700px;
+  height: 80vh;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.moving-hen {
+  height: 50vh;
+  width: auto;
+  margin-left: -11rem;
+}
+
+.welcome-title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.welcome-subtitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.submit-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+}
 /*
   Color Options:
     https://developer.mozilla.org/en-US/docs/Web/CSS/named-color
@@ -49,4 +104,18 @@
   min-height: 100vh;
   padding: 2.5rem 1rem;
   background-color: rgba(255, 127, 80, 0.8);
+}
+
+.api-input {
+  border-radius: 8px;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-description {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  color: white;
 }

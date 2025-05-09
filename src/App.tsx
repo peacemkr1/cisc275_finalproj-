@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/BasicQuestions.tsx
 import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
 import ProgressBar from './components/ProgressBar'; 
 import AboutUs from './components/AboutUs';
 //import ChatGPT from './components/ChatGPT';
 import ChickenLogo from './ChickenLogo.png';
-import ChickenBackground from './chickenBackground1.png'
+import ChickenBackground from './chickenBackground.png'
+import WelcomePage from './components/WelcomePage';
 
 
 
@@ -43,11 +44,12 @@ function App() {
   const [showAbout, setShowAbout] = useState(false);
   const [quizProgress, setQuizProgress] = useState<number>(0);
   const [keySubmitted, setKeySubmitted] = useState<boolean>(false);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
-    //window.location.reload();
     setKeySubmitted(true);
+    setShowWelcome(false);
   }
 
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
@@ -90,6 +92,10 @@ function App() {
       on the home page, and values remain true while 
       on the given page
     */
+  }
+
+  if (showWelcome) {
+    return <WelcomePage onSubmit={handleSubmit} onKeyChange={changeKey} />;
   }
 
   return (
@@ -231,46 +237,6 @@ function App() {
               </h1>
             </div>
 
-            {/* API Key Form Box - separate from title */}
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
-              <div
-                style={{
-                  width: "500px",
-                  textAlign: "center",
-                  //border: "3px solid white",
-                  borderRadius: "10px",
-                  padding: "2rem",
-                  //backgroundColor: "rgba(255,255,255,0.05)",
-                  backgroundColor: "blue"
-                }}
-              >
-                <Form>
-                  <h2 style={{
-                    fontFamily: "Arial",
-                    fontSize: "2rem",
-                    color: "white",
-                    fontWeight: "bold",
-                    textDecoration: "underline"
-                  }}>
-                    API Key:
-                  </h2>
-                  <Form.Control
-                    type="password"
-                    placeholder="Insert API Key Here"
-                    onChange={changeKey}
-                    style={{ marginTop: "1rem" }}
-                  />
-                  <br />
-                  <Button
-                    className="Submit-Button"
-                    onClick={handleSubmit}
-                    style={{ backgroundColor: "white", border: "none", color: "blue" }}
-                  >
-                    Submit
-                  </Button>
-                </Form>
-              </div>
-            </div>
 
             {/* Box around Basic and Detailed Questions */}
             <div

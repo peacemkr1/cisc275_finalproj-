@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+import MovingHen from '../MovingHen.gif';
 
 interface WelcomePageProps {
   onSubmit: () => void;
@@ -11,13 +12,16 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onSubmit, onKeyChange }) => {
     <div className="welcome-wrapper">
       <div className="welcome-box">
         <h1 className="welcome-title">Welcome to Peck-Your-Path</h1>
+        <p className="welcome-description">
+          Unlock personalized carrer interests and career goals. Enter your API key below to begin your journey with Peck-Your-Path.
+        </p>
         <Form>
           <h2 className="welcome-subtitle">Insert your API Key:</h2>
           <Form.Control
             type="password"
             placeholder="API Key"
             onChange={onKeyChange}
-            style={{ marginBottom: "1rem" }}
+            className="api-input"
           />
           <Button
             onClick={onSubmit}
@@ -27,6 +31,7 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onSubmit, onKeyChange }) => {
           </Button>
         </Form>
       </div>
+      <img src={MovingHen} alt="Moving Hen" className="moving-hen" />
     </div>
   );
 };

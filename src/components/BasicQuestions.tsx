@@ -35,6 +35,8 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
   const [showButton, setShowButton] = useState<boolean>(false); // set to false
   //const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+
 
   useEffect(() => {
     const totalQuestions = 9;
@@ -96,9 +98,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [careerResult, setCareerResult] = useState<string>('');
 
   async function handleGetAnswer() {
+    setLoading(true);
     const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9];
     const result = await generateBasicCareer(answers);
     setCareerResult(result || 'No result found. Please try again.');
+    setLoading(false);
   }
 
 
@@ -532,6 +536,12 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
         </Button>
       </div>
     </div>
+
+    {loading && (
+      <div style={{ marginTop: '2rem', fontWeight: 'bold', fontSize: '18px', textAlign: 'center' }}>
+        Generating results...
+      </div>
+    )}
 
     {careerResult && (
       <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>

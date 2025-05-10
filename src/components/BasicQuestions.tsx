@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 //import { Form } from 'react-bootstrap';
 import { Alert, Button, Form } from 'react-bootstrap';
 import { generateBasicCareer } from './ChatGPT';
+import loadingGif from '../loadingScreen.gif';
+
 
 
 interface BasicQuestionsProps {
@@ -538,10 +540,12 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     </div>
 
     {loading && (
-      <div style={{ marginTop: '2rem', fontWeight: 'bold', fontSize: '18px', textAlign: 'center' }}>
-        Generating results...
+      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+        <img src={loadingGif} alt="Loading..." style={{ width: '80px', marginBottom: '1rem' }} />
+        <div style={{ fontWeight: 'bold', fontSize: '18px' }}>Generating results...</div>
       </div>
     )}
+
 
     {careerResult && (
       <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>

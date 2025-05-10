@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (55 ms)
+  ✕ renders learn react link (38 ms)
 
   ● renders learn react link
 
@@ -21,8 +21,13 @@ FAIL src/App.test.tsx
             [36m<h1[39m
               [33mclass[39m=[32m"welcome-title"[39m
             [36m>[39m
-              [0mWelcome to Peck-Your-Path[0m
+              [0mPeck-Your-Path[0m
             [36m</h1>[39m
+            [36m<h2[39m
+              [33mclass[39m=[32m"welcome-subtitle"[39m
+            [36m>[39m
+              [0mCreators: Ayman Tayeb, David Cardenas, Rahul Davu[0m
+            [36m</h2>[39m
             [36m<p[39m
               [33mclass[39m=[32m"welcome-description"[39m
             [36m>[39m
@@ -91,16 +96,16 @@ go away.[0m
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   14.92 |     3.38 |    4.76 |   15.15 |                   
+All files               |   12.65 |     2.89 |    3.84 |   13.07 |                   
  src                    |   30.95 |     5.12 |    9.09 |   30.95 |                   
   App.tsx               |   41.93 |     5.71 |   11.11 |   41.93 | 37,50-86,101      
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |     7.6 |        0 |    3.22 |    7.77 |                   
+ src/components         |    6.03 |        0 |    2.43 |     6.3 |                   
   AboutUs.tsx           |      50 |      100 |       0 |      50 | 9                 
-  BasicQuestions.tsx    |       0 |        0 |       0 |       0 | 25-94             
-  ChatGPT.tsx           |       0 |        0 |       0 |       0 | 5-86              
-  DetailedQuestions.tsx |    3.33 |        0 |       0 |    3.33 | 17-95             
+  BasicQuestions.tsx    |       0 |        0 |       0 |       0 | 27-558            
+  ChatGPT.tsx           |       0 |        0 |       0 |       0 | 5-105             
+  DetailedQuestions.tsx |     2.5 |        0 |       0 |    2.56 | 18-133            
   Navbar.tsx            |       0 |      100 |       0 |       0 | 6-12              
   ProgressBar.tsx       |      50 |      100 |       0 |      50 | 29-40             
   WelcomePage.tsx       |     100 |      100 |     100 |     100 |                   
@@ -108,5 +113,5 @@ All files               |   14.92 |     3.38 |    4.76 |   15.15 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.318 s
+Time:        3.458 s
 Ran all test suites.

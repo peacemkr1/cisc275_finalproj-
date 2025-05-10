@@ -38,6 +38,8 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [showButton, setShowButton] = useState<boolean>(false); // set to false
   //const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [showResults, setShowResults] = useState<boolean>(false);
+
 
 
   useEffect(() => {
@@ -548,10 +550,20 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
 
     {careerResult && (
-      <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>
-        <h4>Career Suggestions:</h4>
-        <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
+      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+        <Button 
+          onClick={() => setShowResults(prev => !prev)}
+          style={{ backgroundColor: 'LightSalmon', border: 'none', marginBottom: '1rem' }}
+        >
+          {showResults ? 'Hide Career Results' : 'View Career Results'}
+        </Button>
 
+        {showResults && (
+          <div style={{ marginTop: '1rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>
+            <h4>Career Suggestions:</h4>
+            <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
+          </div>
+        )}
       </div>
     )}
   </>

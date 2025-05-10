@@ -30,14 +30,15 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [Question6, setQuestion6] = useState<string>('');
   const [Question7, setQuestion7] = useState<string>('');
   const [Question8, setQuestion8] = useState<string>('');
+  const [Question9, setQuestion9] = useState<string>('');
 
 
   const [showButton, setShowButton] = useState<boolean>(false); // set to false
   //const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
 
   useEffect(() => {
-    const totalQuestions = 8;
-    const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8].filter(answer => answer !== '').length;
+    const totalQuestions = 9;
+    const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9].filter(answer => answer !== '').length;
     const progressPercentage = (answeredQuestions / totalQuestions) * 100;
     onProgressUpdate(progressPercentage);
 
@@ -53,7 +54,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
         //setFeedbackMech(false);
       
 
-  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, onProgressUpdate]);
+  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9, onProgressUpdate]);
   
   function updateQuestion1(event: React.ChangeEvent<HTMLInputElement>) {
     setQuestion1(event.target.value);
@@ -86,12 +87,16 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   function updateQuestion8(event: React.ChangeEvent<HTMLInputElement>) {
     setQuestion8(event.target.value);
   }
+
+  function updateQuestion9(event: React.ChangeEvent<HTMLInputElement>) {
+    setQuestion9(event.target.value);
+  }
   
 
   const [careerResult, setCareerResult] = useState<string>('');
 
   async function handleGetAnswer() {
-    const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8];
+    const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9];
     const result = await generateBasicCareer(answers);
     setCareerResult(result || 'No result found. Please try again.');
   }
@@ -452,6 +457,56 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
               checked={Question8 === "Hands-on/outdoors"} 
             />
           </Form.Group>
+          <Form.Group style={{ marginBottom: '1.5rem' }}>
+          <Form.Label style={{ fontWeight: 'bold' }}>
+            9. Which career field are you most drawn to?
+          </Form.Label>
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-healthcare" 
+            label="Healthcare" 
+            value="Healthcare" 
+            checked={Question9 === "Healthcare"} 
+          />
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-business" 
+            label="Business" 
+            value="Business" 
+            checked={Question9 === "Business"} 
+          />
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-law" 
+            label="Law" 
+            value="Law" 
+            checked={Question9 === "Law"} 
+          />
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-engineering" 
+            label="Engineering" 
+            value="Engineering" 
+            checked={Question9 === "Engineering"} 
+          />
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-theatre" 
+            label="Theatre" 
+            value="Theatre" 
+            checked={Question9 === "Theatre"} 
+          />
+        </Form.Group>
 
           </Form>
           

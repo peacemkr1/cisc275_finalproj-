@@ -8,7 +8,7 @@ import ProgressBar from './components/ProgressBar';
 import AboutUs from './components/AboutUs';
 //import ChatGPT from './components/ChatGPT';
 import ChickenLogo from './ChickenLogo.png';
-import ChickenBackground from './chickenBackground.png'
+import ChickenBackground from './chickenBackground1.png'
 import WelcomePage from './components/WelcomePage';
 
 

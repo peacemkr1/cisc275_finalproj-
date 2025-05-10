@@ -89,8 +89,16 @@ export async function generateDetailedCareer(UserAnswers: string[]) {
       },
       {
         role: 'user',
-        content: `Given these responses:\n${QuestionAndAnswer}\n\nReturn exactly 3 careers. Format the output as a numbered list, with one career per line. Each line should have the format: "1. Career Name (Salary)". Do not add any extra sentences, introductions, or explanations.`
-      }
+        content: `Given these responses:\n${QuestionAndAnswer}\n\nReturn exactly 5 careers. Format the output as a numbered list. Each line should follow this format:
+
+        1. Career Name:  
+           Salary: $XXX,XXX/year  
+           Education: [brief education needed]
+           Experience: [brief experience needed]
+           Match: XX%
+        
+        Do not include any extra explanations or introductions. Just return the list.`,
+            }
     ],
   });
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, Button, Form } from 'react-bootstrap';
+import { Button, Form, Modal } from 'react-bootstrap';
 import { generateDetailedCareer } from './ChatGPT';
+import loadingGif from '../loadingScreen.gif';
 
 
 interface DetailedQuestionsProps {
@@ -23,14 +24,19 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
   const [Question7, setQuestion7] = useState<string>('');
 
   const [showButton, setShowButton] = useState<boolean>(false); // set to false
+  const [loading, setLoading] = useState<boolean>(false);
   const [careerResult, setCareerResult] = useState<string>(''); 
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [showResults, setShowResults] = useState<boolean>(false);
+
 
   async function handleGetAnswer() {
+    setLoading(true);
     const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7];
     const result = await generateDetailedCareer(answers);
     setCareerResult(result || 'No result found. Please try again.');
-  }
-  
+    setLoading(false);
+  }  
 
   // 5. Add a useEffect hook to calculate progress whenever an answer changes:
   useEffect(() => {
@@ -41,12 +47,11 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
     onProgressUpdate(progressPercentage);
 
     if (progressPercentage === 100) {
-      setShowButton(true); // if all questions are answered, Get Answer button will appear 
-    }
-    else {
+      setShowButton(true);
+      setShowPopup(true);
+    } else {
       setShowButton(false);
     }
-
   }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
 
     
@@ -99,29 +104,57 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
       </div>
       
       {(showButton === true) && (
-        <>
-          <div style={{ textAlign: "center", marginTop: "2rem" }}>
-            <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-              <Alert style={{ fontWeight: "bold", color: "black", margin: 0, backgroundColor: "white", border: "none" }}>
-                Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to receive your career quiz results!
-              </Alert>
-            </div>
+  <>
+    <div style={{ textAlign: "center", marginTop: "2rem" }}>
+      <Modal show={showPopup} onHide={() => setShowPopup(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>All Questions Answered!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ fontWeight: 'bold' }}>
+          Great job! You've completed all the quiz questions. If you'd like to review or revise your answers, feel free to scroll up and make changes. When you're ready, click <strong>'Get Answer'</strong> to view your personalized career suggestions!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={() => setShowPopup(false)}>
+            Ok
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
-              <Button style={{ backgroundColor: "green", border: "none" }} onClick={handleGetAnswer}>
-                Get Answer
-              </Button>
-            </div>
-          </div>
+      <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "2rem" }}>
+        <Button 
+          style={{ backgroundColor: "green", border: "none" }} 
+          onClick={handleGetAnswer}
+        >
+          Get Answer
+        </Button>
 
-          {careerResult && (
-            <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>
-              <h4>Career Suggestions:</h4>
-              <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
-            </div>
-          )}
-        </>
+        {careerResult && (
+          <Button 
+            onClick={() => setShowResults(prev => !prev)}
+            style={{ backgroundColor: 'LightSalmon', border: 'none' }}
+          >
+            {showResults ? 'Hide Career Results' : 'View Career Results'}
+          </Button>
+        )}
+      </div>
+
+      {showResults && careerResult && (
+        <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px', textAlign: 'center' }}>
+          <h4>Career Suggestions:</h4>
+          <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
+        </div>
       )}
+    </div>
+
+    <Modal show={loading} centered backdrop="static" keyboard={false}>
+      <Modal.Body style={{ textAlign: 'center', padding: '2rem' }}>
+        <img src={loadingGif} alt="Loading..." style={{ width: '80px', marginBottom: '1rem' }} />
+        <div style={{ fontWeight: 'bold', fontSize: '18px' }}>Generating results...</div>
+      </Modal.Body>
+    </Modal>
+  </>
+)}
+
     </div>
   );
 };

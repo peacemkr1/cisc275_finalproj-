@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 //import { Form } from 'react-bootstrap';
-import { Alert, Button, Form } from 'react-bootstrap';
+import { Button, Form, Modal } from 'react-bootstrap';
 import { generateBasicCareer } from './ChatGPT';
+import loadingGif from '../loadingScreen.gif';
+
 
 
 interface BasicQuestionsProps {
@@ -29,19 +31,28 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [Question5, setQuestion5] = useState<string>('');
   const [Question6, setQuestion6] = useState<string>('');
   const [Question7, setQuestion7] = useState<string>('');
+  const [Question8, setQuestion8] = useState<string>('');
+  const [Question9, setQuestion9] = useState<string>('');
+
 
   const [showButton, setShowButton] = useState<boolean>(false); // set to false
   //const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [showResults, setShowResults] = useState<boolean>(false);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+
+
+
 
   useEffect(() => {
-    const totalQuestions = 7;
-    const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7]
-      .filter(answer => answer !== '').length;
+    const totalQuestions = 9;
+    const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9].filter(answer => answer !== '').length;
     const progressPercentage = (answeredQuestions / totalQuestions) * 100;
     onProgressUpdate(progressPercentage);
 
     if (progressPercentage === 100) {
       setShowButton(true); // if all questions are answered, Get Answer button will appear 
+      setShowPopup(true);
     }
     else {
       setShowButton(false);
@@ -52,7 +63,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
         //setFeedbackMech(false);
       
 
-  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, onProgressUpdate]);
+  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9, onProgressUpdate]);
   
   function updateQuestion1(event: React.ChangeEvent<HTMLInputElement>) {
     setQuestion1(event.target.value);
@@ -82,12 +93,23 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     setQuestion7(event.target.value);
   }
 
+  function updateQuestion8(event: React.ChangeEvent<HTMLInputElement>) {
+    setQuestion8(event.target.value);
+  }
+
+  function updateQuestion9(event: React.ChangeEvent<HTMLInputElement>) {
+    setQuestion9(event.target.value);
+  }
+  
+
   const [careerResult, setCareerResult] = useState<string>('');
 
   async function handleGetAnswer() {
-    const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7];
+    setLoading(true);
+    const answers = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9];
     const result = await generateBasicCareer(answers);
     setCareerResult(result || 'No result found. Please try again.');
+    setLoading(false);
   }
 
 
@@ -230,11 +252,12 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                 type="radio" 
                 name="q3" 
                 onChange={updateQuestion3} 
-                id="q3-terrified" 
-                label="Terrified" 
-                value="Terrified" 
-                checked={Question3 === "Terrified"} 
+                id="q3-avoid" 
+                label="Prefer To Avoid It" 
+                value="Prefer To Avoid It" 
+                checked={Question3 === "Prefer To Avoid It"} 
               />
+
             </Form.Group>
 
             <Form.Group style={{ marginBottom: '1.5rem' }}>
@@ -404,6 +427,98 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                 checked={Question7 === "Supporter"} 
               />
             </Form.Group>
+            <Form.Group style={{ marginBottom: '1.5rem' }}>
+            <Form.Label style={{ fontWeight: 'bold' }}>
+              8. Which work environment do you prefer?
+            </Form.Label>
+            <Form.Check 
+              type="radio" 
+              name="q8" 
+              onChange={updateQuestion8} 
+              id="q8-office" 
+              label="In an office with others" 
+              value="In an office with others" 
+              checked={Question8 === "In an office with others"} 
+            />
+            <Form.Check 
+              type="radio" 
+              name="q8" 
+              onChange={updateQuestion8} 
+              id="q8-hybrid" 
+              label="Hybrid (home and office)" 
+              value="Hybrid (home and office)" 
+              checked={Question8 === "Hybrid (home and office)"} 
+            />
+            <Form.Check 
+              type="radio" 
+              name="q8" 
+              onChange={updateQuestion8} 
+              id="q8-remote" 
+              label="Fully remote" 
+              value="Fully remote" 
+              checked={Question8 === "Fully remote"} 
+            />
+            <Form.Check 
+              type="radio" 
+              name="q8" 
+              onChange={updateQuestion8} 
+              id="q8-outdoors" 
+              label="Hands-on/outdoors" 
+              value="Hands-on/outdoors" 
+              checked={Question8 === "Hands-on/outdoors"} 
+            />
+          </Form.Group>
+          <Form.Group style={{ marginBottom: '1.5rem' }}>
+          <Form.Label style={{ fontWeight: 'bold' }}>
+            9. Which career field are you most drawn to?
+          </Form.Label>
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-healthcare" 
+            label="Healthcare" 
+            value="Healthcare" 
+            checked={Question9 === "Healthcare"} 
+          />
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-business" 
+            label="Business" 
+            value="Business" 
+            checked={Question9 === "Business"} 
+          />
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-law" 
+            label="Law" 
+            value="Law" 
+            checked={Question9 === "Law"} 
+          />
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-engineering" 
+            label="Engineering" 
+            value="Engineering" 
+            checked={Question9 === "Engineering"} 
+          />
+          <Form.Check 
+            type="radio" 
+            name="q9" 
+            onChange={updateQuestion9} 
+            id="q9-theatre" 
+            label="Theatre" 
+            value="Theatre" 
+            checked={Question9 === "Theatre"} 
+          />
+        </Form.Group>
+
           </Form>
           
         </div>
@@ -411,31 +526,58 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
 
       {(showButton === true) && (
-  <>
+  <> 
+  {/*https://react-bootstrap.netlify.app/docs/components/modal/ */}
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-        <Alert style={{ fontWeight: "bold", color: "black", margin: 0, backgroundColor:"white", border: "none" }}>
-          Congratulations! You have completed all the quiz questions. Click the 'Get Answer' button to receive your career quiz results!
-        </Alert>
-      </div>
+      <Modal show={showPopup} onHide={() => setShowPopup(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>All Questions Answered!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ fontWeight: 'bold' }}>
+          Great job! You've completed all the quiz questions. If you'd like to review or revise your answers, feel free to scroll up and make changes. When you're ready, click <strong>'Get Answer'</strong> to view your personalized career suggestions!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={() => setShowPopup(false)}>
+            Ok
+          </Button>
+        </Modal.Footer>
 
-      <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}> 
+      </Modal>
+
+
+            <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "2rem" }}>
         <Button 
           style={{ backgroundColor: "green", border: "none" }} 
           onClick={handleGetAnswer}
         >
           Get Answer
         </Button>
+
+        {careerResult && (
+          <Button 
+            onClick={() => setShowResults(prev => !prev)}
+            style={{ backgroundColor: 'LightSalmon', border: 'none' }}
+          >
+            {showResults ? 'Hide Career Results' : 'View Career Results'}
+          </Button>
+        )}
       </div>
+      {showResults && careerResult && (
+        <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px', textAlign: 'center' }}>
+          <h4>Career Suggestions:</h4>
+          <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
+        </div>
+      )}
+
+
     </div>
 
-    {careerResult && (
-      <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px' }}>
-        <h4>Career Suggestions:</h4>
-        <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
-
-      </div>
-    )}
+    <Modal show={loading} centered backdrop="static" keyboard={false}>
+      <Modal.Body style={{ textAlign: 'center', padding: '2rem' }}>
+        <img src={loadingGif} alt="Loading..." style={{ width: '80px', marginBottom: '1rem' }} />
+        <div style={{ fontWeight: 'bold', fontSize: '18px' }}>Generating results...</div>
+      </Modal.Body>
+    </Modal>
   </>
 )}
 </div>    

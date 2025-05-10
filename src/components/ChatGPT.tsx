@@ -21,8 +21,11 @@ export async function generateBasicCareer(UserAnswers: string[]) {
     "What is your preferred way of communicating?",
     "What equipment do you like to work with?",
     "How would you describe yourself when dealing with stress or pressure?",
-    "When working in a group, what role do you take?"
+    "When working in a group, what role do you take?",
+    "Which work environment do you prefer?",
+    "Which career field are you most drawn to?"
   ];
+  
 
   const QuestionAndAnswer = questions.map((q, idx) => `${q} ${UserAnswers[idx]}`).join('\n');
 
@@ -35,8 +38,16 @@ export async function generateBasicCareer(UserAnswers: string[]) {
       },
       {
         role: 'user',
-        content: `Given these responses:\n${QuestionAndAnswer}\n\nReturn exactly 3 careers. Format the output as a numbered list, with one career per line. Each line should have the format: "1. Career Name (Salary)". Do not add any extra sentences, introductions, or explanations.`
-    }
+        content: `Given these responses:\n${QuestionAndAnswer}\n\nReturn exactly 5 careers. Format the output as a numbered list. Each line should follow this format:
+
+        1. Career Name:  
+           Salary: $XXX,XXX/year  
+           Education: [brief education needed]
+           Experience: [brief experience needed]
+           Match: XX%
+        
+        Do not include any extra explanations or introductions. Just return the list.`,
+            }
     ],
   });
 
@@ -78,8 +89,16 @@ export async function generateDetailedCareer(UserAnswers: string[]) {
       },
       {
         role: 'user',
-        content: `Given these responses:\n${QuestionAndAnswer}\n\nReturn exactly 3 careers. Format the output as a numbered list, with one career per line. Each line should have the format: "1. Career Name (Salary)". Do not add any extra sentences, introductions, or explanations.`
-      }
+        content: `Given these responses:\n${QuestionAndAnswer}\n\nReturn exactly 5 careers. Format the output as a numbered list. Each line should follow this format:
+
+        1. Career Name:  
+           Salary: $XXX,XXX/year  
+           Education: [brief education needed]
+           Experience: [brief experience needed]
+           Match: XX%
+        
+        Do not include any extra explanations or introductions. Just return the list.`,
+            }
     ],
   });
 

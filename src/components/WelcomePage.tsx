@@ -11,7 +11,11 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onSubmit, onKeyChange }) => {
   return (
     <div className="welcome-wrapper">
       <div className="welcome-box">
-        <h1 className="welcome-title">Welcome to Peck-Your-Path</h1>
+        <h1 className="welcome-title">Peck-Your-Path</h1>
+        <h2 className="welcome-subtitle">
+          Creators: Ayman Tayeb, David Cardenas, Rahul Davu
+        </h2>
+
         <p className="welcome-description">
           Unlock personalized carrer interests and career goals. Enter your API key below to begin your journey with Peck-Your-Path.
         </p>

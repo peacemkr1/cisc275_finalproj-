@@ -17,6 +17,7 @@ const QUESTIONS = [
   { prompt: 'Which work environment do you prefer?', options: ['In an office with others','Hybrid (home and office)','Fully remote','Hands-on/outdoors'] },
   { prompt: 'Which career field are you most drawn to?', options: ['Healthcare','Business','Law','Engineering','Theatre'] }
 ];
+export const BASIC_QUESTION_COUNT = QUESTIONS.length;
 
 interface BasicQuestionsProps {
   onProgressUpdate: (progress: number) => void;

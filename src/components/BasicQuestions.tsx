@@ -6,6 +6,11 @@ import { generateBasicCareer } from './ChatGPT';
 import loadingGif from '../loadingScreen.gif';
 import '../App.css';
 
+// Props for BasicQuestions component
+interface BasicQuestionsProps {
+  onProgressUpdate?: (progress: number) => void;
+}
+
 const QUESTIONS = [
   { prompt: 'What was your favorite subject in school?', options: ['Math','Science','English','History'] },
   { prompt: 'How would you describe your level of talkativeness?', options: ['Very Talkative','Somewhat Talkative','Quiet','Depends on Situation'] },
@@ -17,10 +22,7 @@ const QUESTIONS = [
   { prompt: 'Which work environment do you prefer?', options: ['In an office with others','Hybrid (home and office)','Fully remote','Hands-on/outdoors'] },
   { prompt: 'Which career field are you most drawn to?', options: ['Healthcare','Business','Law','Engineering','Theatre'] }
 ];
-
-interface BasicQuestionsProps {
-  onProgressUpdate: (progress: number) => void;
-}
+export const BASIC_QUESTION_COUNT = QUESTIONS.length;
 
 export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.Element {
 
@@ -55,7 +57,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
   useEffect(() => {
     const answeredCount = answers.filter(a => a !== '').length;
-    onProgressUpdate((answeredCount / QUESTIONS.length) * 100);
+    onProgressUpdate && onProgressUpdate((answeredCount / QUESTIONS.length) * 100);
     if (answeredCount === QUESTIONS.length && !hasShownPopup) {
       setShowPopup(true);
       setHasShownPopup(true);
@@ -182,7 +184,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
             variant="secondary"
             onClick={handleGetAnswer}
           >
-            Get Results
+            Get Answer
           </Button>
         )}
 

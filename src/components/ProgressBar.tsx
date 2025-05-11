@@ -3,11 +3,11 @@ import '../App.css';
 
 interface ProgressBarProps {
   progress: number; // Progress value from 0 to 100
+  totalQuestions: number;
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
-  const totalQuestions = 9;
-  const currentCount = Math.round(progress * totalQuestions / 100);
+const ProgressBar: React.FC<ProgressBarProps> = ({ progress, totalQuestions }) => {
+  const currentCount = Math.round((progress * totalQuestions) / 100);
   return (
     <div className="progress-container">
       <div

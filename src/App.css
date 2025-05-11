@@ -155,9 +155,11 @@
 .basic-form .form-group-custom .form-label {
   font-size: 3rem;
   color: coral;
-  font-weight: bold;
   margin-bottom: 1.5rem;
   text-align: center;
+  font-weight: 900;
+  font-size: 3rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
 .listgroup-fullwidth {
   width: 100%;
@@ -268,3 +270,88 @@
 /*
 ProgressBar styles end here 
  */
+
+/* DetailedQuestions page styling */
+.detailed-questions-container {
+  background-color:  #006D77 ;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detailed-questions-inner {
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.question-group {
+  margin-bottom: 1.5rem;
+}
+.question-label {
+  font-weight: 900;
+  color: coral;
+  font-size: 2rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+.nav-buttons-detailed {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Increased spacing between buttons */
+  margin-top: 1rem;
+}
+
+/* Coral buttons for DetailedQuestions */
+.nav-buttons-detailed .btn {
+  background-color: coral !important;
+  border-color: coral !important;
+  color: white !important;
+  font-size: 1.25rem;        /* Increase font size */
+  padding: 0.75rem 1.5rem;   /* Increase padding */
+  min-width: 8rem;           /* Ensure a minimum width */
+}
+.toggle-results-btn-detailed {
+  background-color: coral !important;
+  border-color: coral !important;
+  color: white !important;
+}
+.results-card-detailed {
+  margin-top: 2rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.loading-modal-body-detailed {
+  text-align: center;
+  padding: 2rem;
+}
+.loading-spinner-detailed {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+.loading-text-detailed {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.toggle-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.toggle-results-btn-detailed {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Make the detailed textarea cover roughly half the viewport height */
+.detailed-textarea {
+  height: 50vh !important;
+  resize: vertical;
+  background-color: #FFF5EE;
+  color: coral;
+  border: 1px solid coral;
+  font-size: 1.5rem;
+}

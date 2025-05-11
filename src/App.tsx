@@ -11,6 +11,9 @@ import ChickenLogo from './ChickenLogo.png';
 import ChickenBackground from './chickenBackground1.png'
 import WelcomePage from './components/WelcomePage';
 
+import { BASIC_QUESTION_COUNT } from './components/BasicQuestions';
+import { DETAILED_QUESTION_COUNT } from './components/DetailedQuestions';
+
 
 
       /* 
@@ -315,12 +318,12 @@ function App() {
         </>
       ) : showBasicQuestions ? (
         <>
-          <ProgressBar progress={quizProgress} /> {/* Progress bar added */}
+          <ProgressBar progress={quizProgress} totalQuestions={BASIC_QUESTION_COUNT} /> {/* Progress bar added */}
           <BasicQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to BasicQuestions */}
         </>
       ) : showDetailedQuestions ? (
         <>
-          <ProgressBar progress={quizProgress} /> {/* Progress bar added */}
+          <ProgressBar progress={quizProgress} totalQuestions={DETAILED_QUESTION_COUNT} /> {/* Progress bar added */}
           <DetailedQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to DetailedQuestions */}
         </>
       ) : showAbout ? (

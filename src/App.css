@@ -119,3 +119,78 @@
   font-size: 1.25rem;
   color: white;
 }
+
+/*
+  Basic Questions page styling begins here
+*/
+.basic-questions-container {
+  background-color: #006D77 ;
+  min-height: 100vh;
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.basic-questions-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.basic-questions-inner {
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  margin: 0 auto;
+}
+.basic-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-group-custom {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+.basic-form .form-group-custom .form-label {
+  font-size: 3rem;
+  color: coral;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.listgroup-fullwidth {
+  width: 100%;
+}
+.listgroup-fullwidth .list-group-item {
+  font-size: 2rem;
+  padding: 1.5rem 2rem;
+}
+.listgroup-fullwidth .list-group-item.active {
+  background-color: coral!important;
+  border-color: coral !important;
+  color: white !important;
+}
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.nav-buttons .btn {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: coral;
+  border-color: coral;
+  color: white;
+}
+
+.basic-questions-inner h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+
+/*
+  Basic Questions page styling ends here
+*/

@@ -4,6 +4,7 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import { ListGroup } from 'react-bootstrap';
 import { generateBasicCareer } from './ChatGPT';
 import loadingGif from '../loadingScreen.gif';
+import '../App.css';
 
 
 
@@ -45,29 +46,34 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   const [showResults, setShowResults] = useState<boolean>(false);
   const [showPopup, setShowPopup] = useState<boolean>(false);
 
+  const [hasShownPopup, setHasShownPopup] = useState<boolean>(false);
+
 
 
 
   useEffect(() => {
     const totalQuestions = 9;
-    const answeredQuestions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9].filter(answer => answer !== '').length;
+    const answeredQuestions = [
+      Question1, Question2, Question3, Question4, Question5,
+      Question6, Question7, Question8, Question9
+    ].filter(answer => answer !== '').length;
     const progressPercentage = (answeredQuestions / totalQuestions) * 100;
     onProgressUpdate(progressPercentage);
 
     if (progressPercentage === 100) {
-      setShowButton(true); // if all questions are answered, Get Answer button will appear 
-      setShowPopup(true);
-    }
-    else {
+      setShowButton(true);
+      if (!hasShownPopup) {
+        setShowPopup(true);
+        setHasShownPopup(true);
+      }
+    } else {
       setShowButton(false);
     }
-
-    
-      
-        //setFeedbackMech(false);
-      
-
-  }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9, onProgressUpdate]);
+  }, [
+    Question1, Question2, Question3, Question4, Question5,
+    Question6, Question7, Question8, Question9,
+    hasShownPopup, onProgressUpdate
+  ]);
   
   
 
@@ -83,13 +89,13 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
 
   return (
-    <div style={{ backgroundColor: 'lightgray', minHeight: '100vh', padding: '2rem' }}>
+    <div className="basic-questions-container">
       {/* Header */}
 
 
       {/* 7 Questions */}
-      <div style={{ display: 'flex', justifyContent: 'left' }}>
-        <div style={{ width: '100%', maxWidth: '700px', textAlign: 'left' }}>
+      <div className="basic-questions-wrapper">
+        <div className="basic-questions-inner">
 
         {/* 
           Note: 
@@ -101,17 +107,14 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
           
           */}
 
-          <Form
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-            onSubmit={(e) => e.preventDefault()}
-          >
+          <Form className="basic-form" onSubmit={(e) => e.preventDefault()}>
             {/* Question 1 */}
             {currentQuestion === 0 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  1. What was your favorite subject in school?
+                  What was your favorite subject in school?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['Math','Science','English','History'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -128,11 +131,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
             {/* Question 2 */}
             {currentQuestion === 1 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  2. How would you describe your level of talkativeness?
+                  How would you describe your level of talkativeness?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['Very Talkative','Somewhat Talkative','Quiet','Depends on Situation'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -149,11 +152,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
             {/* Question 3 */}
             {currentQuestion === 2 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  3. How comfortable are you with public speaking?
+                  How comfortable are you with public speaking?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['Very Comfortable','Somewhat Comfortable','Uncomfortable','Prefer To Avoid It'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -170,11 +173,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
             {/* Question 4 */}
             {currentQuestion === 3 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  4. What is your preferred way of communicating?
+                  What is your preferred way of communicating?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['In Person','Phone Call','Text','Email'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -191,11 +194,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
             {/* Question 5 */}
             {currentQuestion === 4 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  5. What equipment do you like to work with?
+                  What equipment do you like to work with?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['Computers','Tools','Instruments','Art Supplies'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -212,11 +215,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
             {/* Question 6 */}
             {currentQuestion === 5 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  6. How would you describe yourself when dealing with stress or pressure?
+                  How would you describe yourself when dealing with stress or pressure?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['Stay Calm','Get Focused','Feel Overwhelmed','Avoid the Situation'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -233,11 +236,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
             {/* Question 7 */}
             {currentQuestion === 6 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  7. When working in a group, what role do you take?
+                  When working in a group, what role do you take?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['Leader','Organizer','Contributor','Supporter'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -254,11 +257,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
             {/* Question 8 */}
             {currentQuestion === 7 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  8. Which work environment do you prefer?
+                  Which work environment do you prefer?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['In an office with others','Hybrid (home and office)','Fully remote','Hands-on/outdoors'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -275,11 +278,11 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
             {/* Question 9 */}
             {currentQuestion === 8 && (
-              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
+              <Form.Group className="form-group-custom">
                 <Form.Label style={{ fontWeight: 'bold' }}>
-                  9. Which career field are you most drawn to?
+                  Which career field are you most drawn to?
                 </Form.Label>
-                <ListGroup style={{ width: '100%' }}>
+                <ListGroup className="listgroup-fullwidth">
                   {['Healthcare','Business','Law','Engineering','Theatre'].map(option => (
                     <ListGroup.Item
                       key={option}
@@ -299,7 +302,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
       </div>
 
       {/* Navigation Buttons */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
+      <div className="nav-buttons">
         <Button
           type="button"
           variant="secondary"

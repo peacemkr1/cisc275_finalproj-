@@ -1,10 +1,11 @@
-// src/components/AboutUs.tsx
-
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import '../App.css';
 import MovingHen from '../MovingHen.gif';
 
+      //Note: 
+          //How to Create Card Body: https://react-bootstrap.netlify.app/docs/components/cards/
+      
 const AboutUs: React.FC = () => {
   return (
     <Container fluid className="about-us-container">
@@ -25,35 +26,47 @@ const AboutUs: React.FC = () => {
 
       <h2 className="about-us-subtitle">Meet the Team</h2>
       <Row className="team-section">
-        <Col md={4} className="team-member">
-          <h4 className="team-member-name">David Cardenas</h4>
-          <p className="team-member-role">
-            <li><strong>Age:</strong> 22</li>
-            <li><strong>Year:</strong> Senior</li>
-            <li><strong>Major:</strong> Computer Engineering</li>
-            <li><strong>Minor:</strong> Computer Science</li>
-            <li><strong>Email:</strong> davidcar@udel.edu</li>
-          </p>
+      <Col md={4} className="team-member">
+          <Card className="mb-4 shadow-sm">
+            <Card.Body>
+              <Card.Title>David Cardenas</Card.Title>
+              <ul>
+                <li><strong>Age:</strong> 22</li>
+                <li><strong>Year:</strong> Senior</li>
+                <li><strong>Major:</strong> Computer Engineering</li>
+                <li><strong>Minor:</strong> Computer Science</li>
+                <li><strong>Email:</strong> davidcar@udel.edu</li>
+              </ul>
+            </Card.Body>
+          </Card>
         </Col>
         <Col md={4} className="team-member">
-          <h4 className="team-member-name">Ayman Tayeb</h4>
-          <p className="team-member-role">
-            <li><strong>Age:</strong> 21</li>
-            <li><strong>Year:</strong> Junior</li>
-            <li><strong>Major:</strong> Computer Science</li>
-            <li><strong>Concentration:</strong> Bioinformatics</li>
-            <li><strong>Email:</strong> atayeb@udel.edu</li>
-          </p>
+          <Card className="mb-4 shadow-sm">
+            <Card.Body>
+              <Card.Title>Ayman Tayeb</Card.Title>
+              <ul>
+                <li><strong>Age:</strong> 21</li>
+                <li><strong>Year:</strong> Junior</li>
+                <li><strong>Major:</strong> Computer Science</li>
+                <li><strong>Concentration:</strong> Bioinformatics</li>
+                <li><strong>Email:</strong> atayeb@udel.edu</li>
+              </ul>
+            </Card.Body>
+          </Card>
         </Col>
         <Col md={4} className="team-member">
-          <h4 className="team-member-name">Rahul Davu</h4>
-          <p className="team-member-role">
-            <li><strong>Age:</strong> 21</li>
-            <li><strong>Year:</strong> Junior</li>
-            <li><strong>Major:</strong> Computer Science</li>
-            <li><strong>Minor:</strong> Cybersecurity</li>
-            <li><strong>Email:</strong> davur@udel.edu</li>
-          </p>
+          <Card className="mb-4 shadow-sm">
+            <Card.Body>
+              <Card.Title>Rahul Davu</Card.Title>
+              <ul>
+                <li><strong>Age:</strong> 21</li>
+                <li><strong>Year:</strong> Junior</li>
+                <li><strong>Major:</strong> Computer Science</li>
+                <li><strong>Minor:</strong> Cybersecurity</li>
+                <li><strong>Email:</strong> davur@udel.edu</li>
+              </ul>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>

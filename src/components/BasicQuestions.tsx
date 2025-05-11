@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //import { Form } from 'react-bootstrap';
 import { Button, Form, Modal } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 import { generateBasicCareer } from './ChatGPT';
 import loadingGif from '../loadingScreen.gif';
 
@@ -68,41 +69,6 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
   }, [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9, onProgressUpdate]);
   
-  function updateQuestion1(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion1(event.target.value);
-  }
-
-  function updateQuestion2(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion2(event.target.value);
-  }
-
-  function updateQuestion3(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion3(event.target.value);
-  }
-
-  function updateQuestion4(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion4(event.target.value);
-  }
-
-  function updateQuestion5(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion5(event.target.value);
-  }
-
-  function updateQuestion6(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion6(event.target.value);
-  }
-
-  function updateQuestion7(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion7(event.target.value);
-  }
-
-  function updateQuestion8(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion8(event.target.value);
-  }
-
-  function updateQuestion9(event: React.ChangeEvent<HTMLInputElement>) {
-    setQuestion9(event.target.value);
-  }
   
 
   const [careerResult, setCareerResult] = useState<string>('');
@@ -135,418 +101,196 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
           
           */}
 
-          <Form>
+          <Form
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+            onSubmit={(e) => e.preventDefault()}
+          >
             {/* Question 1 */}
             {currentQuestion === 0 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   1. What was your favorite subject in school?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q1" 
-                  onChange={updateQuestion1} 
-                  id="q1-math" 
-                  label="Math" 
-                  value="Math" 
-                  checked={Question1 === "Math"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q1" 
-                  onChange={updateQuestion1}  
-                  id="q1-science" 
-                  label="Science" 
-                  value="Science" 
-                  checked={Question1 === "Science"} 
-                  />
-                <Form.Check 
-                  type="radio" 
-                  name="q1" 
-                  onChange={updateQuestion1} 
-                  id="q1-english" 
-                  label="English" 
-                  value="English" 
-                  checked={Question1 === "English"} 
-                  />
-                <Form.Check 
-                  type="radio" 
-                  name="q1" 
-                  onChange={updateQuestion1} 
-                  id="q1-history" 
-                  label="History" 
-                  value="History" 
-                  checked={Question1 === "History"} 
-                  />
+                <ListGroup style={{ width: '100%' }}>
+                  {['Math','Science','English','History'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question1 === option}
+                      onClick={() => setQuestion1(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
 
             {/* Question 2 */}
             {currentQuestion === 1 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   2. How would you describe your level of talkativeness?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q2" 
-                  onChange={updateQuestion2} 
-                  id="q2-very" 
-                  label="Very Talkative" 
-                  value="Very Talkative" 
-                  checked={Question2 === "Very Talkative"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q2" 
-                  onChange={updateQuestion2} 
-                  id="q2-somewhat" 
-                  label="Somewhat Talkative" 
-                  value="Somewhat Talkative" 
-                  checked={Question2 === "Somewhat Talkative"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q2" 
-                  onChange={updateQuestion2} 
-                  id="q2-quiet" 
-                  label="Quiet" 
-                  value="Quiet" 
-                  checked={Question2 === "Quiet"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q2" 
-                  onChange={updateQuestion2} 
-                  id="q2-depends" 
-                  label="Depends on Situation" 
-                  value="Depends on Situation" 
-                  checked={Question2 === "Depends on Situation"} 
-                />
+                <ListGroup style={{ width: '100%' }}>
+                  {['Very Talkative','Somewhat Talkative','Quiet','Depends on Situation'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question2 === option}
+                      onClick={() => setQuestion2(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
 
             {/* Question 3 */}
             {currentQuestion === 2 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   3. How comfortable are you with public speaking?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q3" 
-                  onChange={updateQuestion3} 
-                  id="q3-very" 
-                  label="Very Comfortable" 
-                  value="Very Comfortable" 
-                  checked={Question3 === "Very Comfortable"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q3" 
-                  onChange={updateQuestion3} 
-                  id="q3-somewhat" 
-                  label="Somewhat Comfortable" 
-                  value="Somewhat Comfortable" 
-                  checked={Question3 === "Somewhat Comfortable"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q3" 
-                  onChange={updateQuestion3} 
-                  id="q3-uncomfortable" 
-                  label="Uncomfortable" 
-                  value="Uncomfortable" 
-                  checked={Question3 === "Uncomfortable"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q3" 
-                  onChange={updateQuestion3} 
-                  id="q3-avoid" 
-                  label="Prefer To Avoid It" 
-                  value="Prefer To Avoid It" 
-                  checked={Question3 === "Prefer To Avoid It"} 
-                />
+                <ListGroup style={{ width: '100%' }}>
+                  {['Very Comfortable','Somewhat Comfortable','Uncomfortable','Prefer To Avoid It'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question3 === option}
+                      onClick={() => setQuestion3(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
 
             {/* Question 4 */}
             {currentQuestion === 3 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   4. What is your preferred way of communicating?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q4" 
-                  onChange={updateQuestion4} 
-                  id="q4-person" 
-                  label="In Person" 
-                  value="In Person" 
-                  checked={Question4 === "In Person"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q4" 
-                  onChange={updateQuestion4} 
-                  id="q4-phone" 
-                  label="Phone Call" 
-                  value="Phone Call" 
-                  checked={Question4 === "Phone Call"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q4" 
-                  onChange={updateQuestion4} 
-                  id="q4-text" 
-                  label="Text" 
-                  value="Text" 
-                  checked={Question4 === "Text"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q4" 
-                  onChange={updateQuestion4} 
-                  id="q4-email" 
-                  label="Email" 
-                  value="Email" 
-                  checked={Question4 === "Email"} 
-                />
+                <ListGroup style={{ width: '100%' }}>
+                  {['In Person','Phone Call','Text','Email'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question4 === option}
+                      onClick={() => setQuestion4(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
 
             {/* Question 5 */}
             {currentQuestion === 4 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   5. What equipment do you like to work with?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q5" 
-                  onChange={updateQuestion5} 
-                  id="q5-computers" 
-                  label="Computers" 
-                  value="Computers" 
-                  checked={Question5 === "Computers"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q5" 
-                  onChange={updateQuestion5} 
-                  id="q5-tools" 
-                  label="Tools" 
-                  value="Tools" 
-                  checked={Question5 === "Tools"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q5" 
-                  onChange={updateQuestion5} 
-                  id="q5-instruments" 
-                  label="Instruments" 
-                  value="Instruments" 
-                  checked={Question5 === "Instruments"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q5" 
-                  onChange={updateQuestion5} 
-                  id="q5-art" 
-                  label="Art Supplies" 
-                  value="Art Supplies" 
-                  checked={Question5 === "Art Supplies"} 
-                />
+                <ListGroup style={{ width: '100%' }}>
+                  {['Computers','Tools','Instruments','Art Supplies'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question5 === option}
+                      onClick={() => setQuestion5(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
 
             {/* Question 6 */}
             {currentQuestion === 5 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   6. How would you describe yourself when dealing with stress or pressure?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q6" 
-                  onChange={updateQuestion6} 
-                  id="q6-calm" 
-                  label="Stay Calm" 
-                  value="Stay Calm" 
-                  checked={Question6 === "Stay Calm"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q6" 
-                  onChange={updateQuestion6} 
-                  id="q6-focused" 
-                  label="Get Focused" 
-                  value="Get Focused" 
-                  checked={Question6 === "Get Focused"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q6" 
-                  onChange={updateQuestion6} 
-                  id="q6-overwhelmed" 
-                  label="Feel Overwhelmed" 
-                  value="Feel Overwhelmed" 
-                  checked={Question6 === "Feel Overwhelmed"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q6" 
-                  onChange={updateQuestion6} 
-                  id="q6-avoid" 
-                  label="Avoid the Situation" 
-                  value="Avoid the Situation" 
-                  checked={Question6 === "Avoid the Situation"} 
-                />
+                <ListGroup style={{ width: '100%' }}>
+                  {['Stay Calm','Get Focused','Feel Overwhelmed','Avoid the Situation'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question6 === option}
+                      onClick={() => setQuestion6(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
 
             {/* Question 7 */}
             {currentQuestion === 6 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   7. When working in a group, what role do you take?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q7" 
-                  onChange={updateQuestion7} 
-                  id="q7-leader" 
-                  label="Leader" 
-                  value="Leader" 
-                  checked={Question7 === "Leader"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q7" 
-                  onChange={updateQuestion7} 
-                  id="q7-organizer" 
-                  label="Organizer" 
-                  value="Organizer" 
-                  checked={Question7 === "Organizer"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q7" 
-                  onChange={updateQuestion7} 
-                  id="q7-contributor" 
-                  label="Contributor" 
-                  value="Contributor" 
-                  checked={Question7 === "Contributor"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q7" 
-                  onChange={updateQuestion7} 
-                  id="q7-supporter" 
-                  label="Supporter" 
-                  value="Supporter" 
-                  checked={Question7 === "Supporter"} 
-                />
+                <ListGroup style={{ width: '100%' }}>
+                  {['Leader','Organizer','Contributor','Supporter'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question7 === option}
+                      onClick={() => setQuestion7(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
 
             {/* Question 8 */}
             {currentQuestion === 7 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   8. Which work environment do you prefer?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q8" 
-                  onChange={updateQuestion8} 
-                  id="q8-office" 
-                  label="In an office with others" 
-                  value="In an office with others" 
-                  checked={Question8 === "In an office with others"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q8" 
-                  onChange={updateQuestion8} 
-                  id="q8-hybrid" 
-                  label="Hybrid (home and office)" 
-                  value="Hybrid (home and office)" 
-                  checked={Question8 === "Hybrid (home and office)"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q8" 
-                  onChange={updateQuestion8} 
-                  id="q8-remote" 
-                  label="Fully remote" 
-                  value="Fully remote" 
-                  checked={Question8 === "Fully remote"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q8" 
-                  onChange={updateQuestion8} 
-                  id="q8-outdoors" 
-                  label="Hands-on/outdoors" 
-                  value="Hands-on/outdoors" 
-                  checked={Question8 === "Hands-on/outdoors"} 
-                />
+                <ListGroup style={{ width: '100%' }}>
+                  {['In an office with others','Hybrid (home and office)','Fully remote','Hands-on/outdoors'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question8 === option}
+                      onClick={() => setQuestion8(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
 
             {/* Question 9 */}
             {currentQuestion === 8 && (
-              <Form.Group style={{ marginBottom: '1.5rem' }}>
+              <Form.Group style={{ marginBottom: '1.5rem', width: '100%' }}>
                 <Form.Label style={{ fontWeight: 'bold' }}>
                   9. Which career field are you most drawn to?
                 </Form.Label>
-                <Form.Check 
-                  type="radio" 
-                  name="q9" 
-                  onChange={updateQuestion9} 
-                  id="q9-healthcare" 
-                  label="Healthcare" 
-                  value="Healthcare" 
-                  checked={Question9 === "Healthcare"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q9" 
-                  onChange={updateQuestion9} 
-                  id="q9-business" 
-                  label="Business" 
-                  value="Business" 
-                  checked={Question9 === "Business"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q9" 
-                  onChange={updateQuestion9} 
-                  id="q9-law" 
-                  label="Law" 
-                  value="Law" 
-                  checked={Question9 === "Law"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q9" 
-                  onChange={updateQuestion9} 
-                  id="q9-engineering" 
-                  label="Engineering" 
-                  value="Engineering" 
-                  checked={Question9 === "Engineering"} 
-                />
-                <Form.Check 
-                  type="radio" 
-                  name="q9" 
-                  onChange={updateQuestion9} 
-                  id="q9-theatre" 
-                  label="Theatre" 
-                  value="Theatre" 
-                  checked={Question9 === "Theatre"} 
-                />
+                <ListGroup style={{ width: '100%' }}>
+                  {['Healthcare','Business','Law','Engineering','Theatre'].map(option => (
+                    <ListGroup.Item
+                      key={option}
+                      action
+                      active={Question9 === option}
+                      onClick={() => setQuestion9(option)}
+                    >
+                      {option}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
               </Form.Group>
             )}
           </Form>
@@ -557,6 +301,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
       {/* Navigation Buttons */}
       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
         <Button
+          type="button"
           variant="secondary"
           onClick={() => setCurrentQuestion(prev => prev - 1)}
           disabled={currentQuestion === 0}
@@ -565,6 +310,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
         </Button>
         {currentQuestion < 8 && (
           <Button
+            type="button"
             variant="secondary"
             onClick={() => setCurrentQuestion(prev => prev + 1)}
             disabled={
@@ -599,6 +345,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     
             <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "2rem" }}>
               <Button 
+                type="button"
                 style={{ backgroundColor: "green", border: "none" }} 
                 onClick={handleGetAnswer}
               >

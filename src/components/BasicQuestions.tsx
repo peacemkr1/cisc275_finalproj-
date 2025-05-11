@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 //import { Form } from 'react-bootstrap';
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Button, Form, Modal, Table } from 'react-bootstrap';
 import { ListGroup } from 'react-bootstrap';
 import { generateBasicCareer } from './ChatGPT';
 import loadingGif from '../loadingScreen.gif';
@@ -74,6 +74,53 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   }
 
 
+  const [careerData, setCareerData] = useState<any[]>([]);
+
+
+  /*
+    Note: 
+      The useEffect hook is used to perform side effects in function components.
+      It takes a function as an argument and runs it after the component renders.
+      The second argument is an array of dependencies. If any of the dependencies change,
+      the effect will run again. If you pass an empty array, the effect will only run once
+      when the component mounts. This part was AI generated from ChatGPT. 
+   */
+  useEffect(() => {
+    if (careerResult) {
+      try {
+        // Remove markdown code fences if present
+        let jsonString = careerResult.trim();
+        if (jsonString.startsWith('```')) {
+          // Remove opening fence line
+          jsonString = jsonString.replace(/^```.*\r?\n/, '');
+          // Remove closing fence
+          jsonString = jsonString.replace(/\r?\n```$/, '');
+        }
+        const parsed = JSON.parse(jsonString);
+        // Sort careers by match percentage descending
+        parsed.sort((a: any, b: any) => {
+          const aMatch = parseInt(a.match.replace('%', ''), 10);
+          const bMatch = parseInt(b.match.replace('%', ''), 10);
+          return bMatch - aMatch;
+        });
+        setCareerData(parsed);
+        console.log('Parsed careerData:', parsed);
+      } catch (err) {
+        console.error('Failed to parse careerResult:', err, careerResult);
+        setCareerData([]);
+      }
+    } else {
+      setCareerData([]);
+    }
+  }, [careerResult]);
+
+  useEffect(() => {
+    if (careerResult) {
+      setShowResults(true);
+    }
+  }, [careerResult]);
+
+
   return (
     <div className="basic-questions-container">
       {/* Header */}
@@ -135,7 +182,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
             variant="secondary"
             onClick={handleGetAnswer}
           >
-            Get Answer
+            Get Results
           </Button>
         )}
 
@@ -160,7 +207,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                 <Modal.Title>All Questions Answered!</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                Great job! You've completed all the quiz questions. If you'd like to review or revise your answers, feel free to scroll up and make changes. When you're ready, click <strong>'Get Answer'</strong> to view your personalized career suggestions!
+                Great job! You've completed all the quiz questions. If you'd like to review or revise your answers, feel free to scroll up and make changes. When you're ready, click <strong>'Get Results'</strong> to view your personalized career suggestions!
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="success" onClick={() => setShowPopup(false)}>
@@ -180,7 +227,28 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
             {showResults && careerResult && (
               <div className="results-card">
                 <h4>Career Suggestions:</h4>
-                <div style={{ whiteSpace: 'pre-wrap' }}>{careerResult}</div>
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>Career Name</th>
+                      <th>Education</th>
+                      <th>Experience</th>
+                      <th>Salary</th>
+                      <th>Match</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {careerData.map((job: any, idx: number) => (
+                      <tr key={idx}>
+                        <td>{job.career}</td>
+                        <td>{job.education}</td>
+                        <td>{job.experience}</td>
+                        <td>{job.salary}</td>
+                        <td>{job.match}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
               </div>
             )}
           </div>

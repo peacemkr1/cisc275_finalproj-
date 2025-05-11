@@ -174,7 +174,7 @@
 .nav-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 10rem;
   margin-top: 1rem;
 }
 .nav-buttons .btn {
@@ -183,6 +183,7 @@
   background-color: coral;
   border-color: coral;
   color: white;
+  min-width: 10rem; /* ensures buttons are at least this wide */
 }
 
 .basic-questions-inner h2 {
@@ -191,6 +192,79 @@
 }
 
 
+/* Completion popup */
+.completion-popup {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Toggle Results button */
+.toggle-results-btn {
+  background-color: LightSalmon !important;
+  border: none !important;
+  color: white !important;
+}
+
+/* Results card */
+.results-card {
+  margin-top: 2rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Loading modal body */
+.loading-modal-body {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Loading spinner image */
+.loading-spinner {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+
+/* Loading text */
+.loading-text {
+  font-weight: bold;
+  font-size: 18px;
+}
+
 /*
   Basic Questions page styling ends here
 */
+
+/* ProgressBar styling begins here */
+.progress-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000;
+  position: relative;
+}
+.progress-fill {
+  height: 100%;
+  background-color: coral;
+  transition: width 0.3s ease-in-out;
+}
+.progress-text {
+  position: absolute;
+  width: 97%;
+  top: 56%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+
+/*
+ProgressBar styles end here 
+ */

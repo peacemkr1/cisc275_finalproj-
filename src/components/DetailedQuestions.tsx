@@ -30,20 +30,19 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
   const [answers, setAnswers] = useState<string[]>(Array(questions.length).fill(''));
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
 
-  const [showButton, setShowButton] = useState<boolean>(false); // set to false
   const [loading, setLoading] = useState<boolean>(false);
   const [careerResult, setCareerResult] = useState<string>(''); 
-  const [showPopup, setShowPopup] = useState<boolean>(false);
   const [showResults, setShowResults] = useState<boolean>(false);
   const [careerData, setCareerData] = useState<any[]>([]);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
     
-
 
   async function handleGetAnswer() {
     setLoading(true);
     const result = await generateDetailedCareer(answers);
     setCareerResult(result || 'No result found. Please try again.');
     setLoading(false);
+    setShowResults(true);
   }  
 
   // 5. Add a useEffect hook to calculate progress whenever an answer changes:
@@ -52,13 +51,6 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
     const answeredQuestions = answers.filter(answer => answer !== '').length;
     const progressPercentage = (answeredQuestions / totalQuestions) * 100;
     onProgressUpdate(progressPercentage);
-
-    if (progressPercentage === 100) {
-      setShowButton(true);
-      setShowPopup(true);
-    } else {
-      setShowButton(false);
-    }
   }, [answers, onProgressUpdate]);
 
 
@@ -92,31 +84,61 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
     
 
   return (
-    <div style={{ backgroundColor: 'lightgray', minHeight: '100vh', padding: '2rem' }}>
+    <div className="detailed-questions-container">
       {/* Centered heading section */}
 
       {/* Centered container, left-aligned content */}
-      <div style={{ display: 'flex', justifyContent: 'left' }}>
-        <div style={{ textAlign: 'left', width: '100%', maxWidth: '700px' }}>
+      <div className="detailed-questions-inner">
           <Form>
-            <Form.Group style={{ marginBottom: '1.5rem' }}>
-              <Form.Label style={{ fontWeight: 'bold' }}>
-                {currentQuestion + 1}. {questions[currentQuestion]}
+            <Form.Group className="question-group">
+              <Form.Label className="question-label">
+                {questions[currentQuestion]}
               </Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder="Answer Here"
+                className="detailed-textarea"
+                placeholder="Answer here (press Enter when done)"
                 value={answers[currentQuestion]}
                 onChange={(e) => {
                   const updated = [...answers];
                   updated[currentQuestion] = e.target.value;
                   setAnswers(updated);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    // If not last question, move to next
+                    if (currentQuestion < questions.length - 1 && answers[currentQuestion].trim() !== '') {
+                      setCurrentQuestion(q => q + 1);
+                    } 
+                    // If last question and non-empty, show popup
+                    else if (currentQuestion === questions.length - 1 && answers[currentQuestion].trim() !== '') {
+                      setShowPopup(true);
+                    }
+                  }
+                }}
               />
             </Form.Group>
           </Form>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+
+          <div className="completion-popup">
+            <Modal show={showPopup} onHide={() => setShowPopup(false)} centered>
+              <Modal.Header closeButton>
+                <Modal.Title>All Questions Answered!</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                Great job! You've completed all the quiz questions. If you'd like to review or revise your answers, feel free to scroll up and make changes. When you're ready, click <strong>'Get Answer'</strong> to view your personalized career suggestions!
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="success" onClick={() => setShowPopup(false)}>
+                  Ok
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
+
+          <div className="nav-buttons-detailed">
             <Button disabled={currentQuestion === 0} onClick={() => setCurrentQuestion(q => q - 1)}>
               Previous
             </Button>
@@ -125,89 +147,61 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
                 Next
               </Button>
             ) : (
-              <Button
-                disabled={!answers[currentQuestion]}
-                onClick={handleGetAnswer}
-              >
-                Get Answer
-              </Button>
+              <>
+                <Button
+                  disabled={!answers[currentQuestion]}
+                  onClick={handleGetAnswer}
+                >
+                  Get Answer
+                </Button>
+              </>
             )}
           </div>
-        </div>
+          {careerResult && (
+            <div className="toggle-button-container">
+              <Button
+                className="toggle-results-btn-detailed"
+                onClick={() => setShowResults(prev => !prev)}
+              >
+                {showResults ? 'Hide Career Results' : 'View Career Results'}
+              </Button>
+            </div>
+          )}
+          {showResults && careerResult && (
+            <div className="results-card-detailed">
+              <h4>Career Suggestions:</h4>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Career Name</th>
+                    <th>Education</th>
+                    <th>Experience</th>
+                    <th>Salary</th>
+                    <th>Match</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {careerData.map((job: any, idx: number) => (
+                    <tr key={idx}>
+                      <td>{job.career}</td>
+                      <td>{job.education}</td>
+                      <td>{job.experience}</td>
+                      <td>{job.salary}</td>
+                      <td>{job.match}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          )}
       </div>
-      
-      {(showButton === true) && (
-  <>
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <Modal show={showPopup} onHide={() => setShowPopup(false)} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>All Questions Answered!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body style={{ fontWeight: 'bold' }}>
-          Great job! You've completed all the quiz questions. If you'd like to review or revise your answers, feel free to scroll up and make changes. When you're ready, click <strong>'Get Answer'</strong> to view your personalized career suggestions!
+
+      <Modal show={loading} centered backdrop="static" keyboard={false}>
+        <Modal.Body className="loading-modal-body-detailed">
+          <img src={loadingGif} alt="Loading..." className="loading-spinner-detailed" />
+          <div className="loading-text-detailed">Generating results...</div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="success" onClick={() => setShowPopup(false)}>
-            Ok
-          </Button>
-        </Modal.Footer>
       </Modal>
-
-      <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "2rem" }}>
-        <Button 
-          style={{ backgroundColor: "green", border: "none" }} 
-          onClick={handleGetAnswer}
-        >
-          Get Answer
-        </Button>
-
-        {careerResult && (
-          <Button 
-            onClick={() => setShowResults(prev => !prev)}
-            style={{ backgroundColor: 'LightSalmon', border: 'none' }}
-          >
-            {showResults ? 'Hide Career Results' : 'View Career Results'}
-          </Button>
-        )}
-      </div>
-
-      {showResults && careerResult && (
-        <div style={{ marginTop: '2rem', backgroundColor: 'white', padding: '1rem', borderRadius: '8px', textAlign: 'center' }}>
-          <h4>Career Suggestions:</h4>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Career Name</th>
-                <th>Education</th>
-                <th>Experience</th>
-                <th>Salary</th>
-                <th>Match</th>
-              </tr>
-            </thead>
-            <tbody>
-              {careerData.map((job: any, idx: number) => (
-                <tr key={idx}>
-                  <td>{job.career}</td>
-                  <td>{job.education}</td>
-                  <td>{job.experience}</td>
-                  <td>{job.salary}</td>
-                  <td>{job.match}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
-      )}
-    </div>
-
-    <Modal show={loading} centered backdrop="static" keyboard={false}>
-      <Modal.Body style={{ textAlign: 'center', padding: '2rem' }}>
-        <img src={loadingGif} alt="Loading..." style={{ width: '80px', marginBottom: '1rem' }} />
-        <div style={{ fontWeight: 'bold', fontSize: '18px' }}>Generating results...</div>
-      </Modal.Body>
-    </Modal>
-  </>
-)}
 
     </div>
   );

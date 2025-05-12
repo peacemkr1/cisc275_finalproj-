@@ -96,21 +96,21 @@ go away.[0m
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   11.57 |     1.98 |    3.44 |   12.42 |                   
+All files               |   11.16 |      1.9 |    3.44 |   11.95 |                   
  src                    |   28.26 |     5.12 |    8.33 |   28.26 |                   
   App.tsx               |   37.14 |     5.71 |      10 |   37.14 | 40,53-89,104-136  
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/components         |    6.25 |        0 |    2.17 |    6.87 |                   
+ src/components         |    5.96 |        0 |    2.17 |    6.52 |                   
   AboutUs.tsx           |      50 |      100 |       0 |      50 | 13                
   BasicQuestions.tsx    |    3.44 |        0 |       0 |    3.77 | 42-245            
   ChatGPT.tsx           |       0 |        0 |       0 |       0 | 5-175             
-  DetailedQuestions.tsx |    5.08 |        0 |       0 |    5.66 | 33-188            
+  DetailedQuestions.tsx |    4.54 |        0 |       0 |       5 | 33-201            
   ProgressBar.tsx       |   33.33 |      100 |       0 |   33.33 | 10-11             
   WelcomePage.tsx       |     100 |      100 |     100 |     100 |                   
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.466 s
+Time:        3.436 s
 Ran all test suites.

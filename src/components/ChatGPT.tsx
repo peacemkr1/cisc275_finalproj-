@@ -19,7 +19,7 @@ export async function generateBasicCareer(UserAnswers: string[]) {
     "How would you describe your level of talkativeness?",
     "How comfortable are you with public speaking?",
     "What is your preferred way of communicating?",
-    "What equipment do you like to work with?",
+    "Which type of equipment do you most enjoy using in a work setting?",
     "How would you describe yourself when dealing with stress or pressure?",
     "When working in a group, what role do you take?",
     "Which work environment do you prefer?",
@@ -41,41 +41,41 @@ export async function generateBasicCareer(UserAnswers: string[]) {
         content: `Given these responses:
 ${QuestionAndAnswer}
 
-Please return a JSON array of exactly 5 objects. Each object must have the keys "career", "education", "experience", "salary", and "match". Do not include any extra text, comments, or ellipses—output only valid JSON. Example format:
+Please return a JSON array of exactly 5 objects. Each object must have the keys "career", "education", "jobGrowth", "salary", and "match". Do not include any extra text, comments, or ellipses—output only valid JSON. Example format:
 
 [
   {
     "career": "Software Engineer",
     "education": "Bachelor's in Computer Science",
-    "experience": "2 years",
+    "jobGrowth": "25%",
     "salary": "$100,000/year",
     "match": "85%"
   },
   {
     "career": "Data Analyst",
     "education": "Bachelor's in Statistics",
-    "experience": "1 year",
+    "jobGrowth": "15%",
     "salary": "$70,000/year",
     "match": "80%"
   },
   {
     "career": "Project Manager",
     "education": "Bachelor's in Business Administration",
-    "experience": "3 years",
+    "jobGrowth": "30%",
     "salary": "$90,000/year",
     "match": "78%"
   },
   {
     "career": "UX Designer",
     "education": "Bachelor's in Design",
-    "experience": "2 years",
+    "jobGrowth": "50%",
     "salary": "$85,000/year",
     "match": "75%"
   },
   {
     "career": "Marketing Coordinator",
     "education": "Bachelor's in Marketing",
-    "experience": "1 year",
+    "jobGrowth": "22%",
     "salary": "$65,000/year",
     "match": "72%"
   }
@@ -125,41 +125,41 @@ export async function generateDetailedCareer(UserAnswers: string[]) {
         content: `Given these responses:
 ${QuestionAndAnswer}
 
-Please return a JSON array of exactly 5 objects. Each object must have the keys "career", "education", "experience", "salary", and "match". Do not include any extra text, comments, or ellipses—output only valid JSON. Example format:
+Please return a JSON array of exactly 5 objects. Each object must have the keys "career", "education", "jobGrowth", "salary", and "match".
 
 [
   {
     "career": "Software Engineer",
     "education": "Bachelor's in Computer Science",
-    "experience": "2 years",
+    "jobGrowth": "25%",
     "salary": "$100,000/year",
     "match": "85%"
   },
   {
     "career": "Data Analyst",
     "education": "Bachelor's in Statistics",
-    "experience": "1 year",
+    "jobGrowth": "15%",
     "salary": "$70,000/year",
     "match": "80%"
   },
   {
     "career": "Project Manager",
     "education": "Bachelor's in Business Administration",
-    "experience": "3 years",
+    "jobGrowth": "30%",
     "salary": "$90,000/year",
     "match": "78%"
   },
   {
     "career": "UX Designer",
     "education": "Bachelor's in Design",
-    "experience": "2 years",
+    "jobGrowth": "50%",
     "salary": "$85,000/year",
     "match": "75%"
   },
   {
     "career": "Marketing Coordinator",
     "education": "Bachelor's in Marketing",
-    "experience": "1 year",
+    "jobGrowth": "22%",
     "salary": "$65,000/year",
     "match": "72%"
   }

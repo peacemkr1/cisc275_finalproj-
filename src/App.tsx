@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import BasicQuestions from './components/BasicQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/BasicQuestions.tsx
 import DetailedQuestions from './components/DetailedQuestions'; // /Users/aymantayeb/cisc275_finalproj-/src/components/DetailedQuestions.tsx 
 import ProgressBar from './components/ProgressBar'; 
+import AboutUs from './components/AboutUs';
 //import ChatGPT from './components/ChatGPT';
 import ChickenLogo from './ChickenLogo.png';
-import ChickenBackground from './chickenBackground.png'
+import ChickenBackground from './chickenBackground1.png'
+import WelcomePage from './components/WelcomePage';
+
+import { BASIC_QUESTION_COUNT } from './components/BasicQuestions';
+import { DETAILED_QUESTION_COUNT } from './components/DetailedQuestions';
 
 
 
@@ -39,13 +44,15 @@ function App() {
   const [key, setKey] = useState<string>(keyData); // API key
   const [showBasicQuestions, setShowBasicQuestions] = useState(false); // determines whether or not you are on this given page
   const [showDetailedQuestions, setShowDetailedQuestions] = useState(false); // determines whether or not you are on this given page
+  const [showAbout, setShowAbout] = useState(false);
   const [quizProgress, setQuizProgress] = useState<number>(0);
   const [keySubmitted, setKeySubmitted] = useState<boolean>(false);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
-    //window.location.reload();
     setKeySubmitted(true);
+    setShowWelcome(false);
   }
 
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
@@ -70,9 +77,16 @@ function App() {
     setShowDetailedQuestions(true);
   }
 
+  function goToAboutUs() {
+    setShowBasicQuestions(false);
+    setShowDetailedQuestions(false);
+    setShowAbout(true);
+  }
+
   function goBackHome() {
     setShowBasicQuestions(false);
     setShowDetailedQuestions(false);
+    setShowAbout(false);
     /*
       when clicking the "Home" button at the top right, 
       both values are set to false to determine that 
@@ -81,6 +95,10 @@ function App() {
       on the home page, and values remain true while 
       on the given page
     */
+  }
+
+  if (showWelcome) {
+    return <WelcomePage onSubmit={handleSubmit} onKeyChange={changeKey} />;
   }
 
   return (
@@ -108,8 +126,22 @@ function App() {
           <h2 style={{ margin: 0, fontWeight: 'bold', fontSize: '1.75rem', color: "coral" }}>Peck-Your-Path</h2>
         </div>
 
+        {!showBasicQuestions && !showDetailedQuestions && !showAbout && (
+          <Button
+            variant="light"
+            onClick={goToAboutUs}
+            style={{
+              fontSize: "1rem",
+              padding: "0.4rem 1rem",
+              color: "white",
+              backgroundColor: "purple",
+            }}
+          >
+            About Us
+          </Button>
+        )}
 
-        {(showBasicQuestions || showDetailedQuestions) && (
+        {(showBasicQuestions || showDetailedQuestions || showAbout) && (
           <div style={{ display: 'flex', gap: '8px' }}>
             <Button
               variant="light"
@@ -156,16 +188,16 @@ function App() {
       </div>
 
       {/* Home Page */}
-      {!showBasicQuestions && !showDetailedQuestions ? (
+      {!showBasicQuestions && !showDetailedQuestions && !showAbout ? (
         <>
           <header
             className="App-header"
             style={{
               backgroundImage: `url(${ChickenBackground})`,
-              backgroundSize: "cover",
+              backgroundSize: "100%",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "overlay",
+              backgroundBlendMode: "normal",
               minHeight: "100vh",
               display: "flex",
               flexDirection: "column",
@@ -208,46 +240,6 @@ function App() {
               </h1>
             </div>
 
-            {/* API Key Form Box - separate from title */}
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
-              <div
-                style={{
-                  width: "500px",
-                  textAlign: "center",
-                  //border: "3px solid white",
-                  borderRadius: "10px",
-                  padding: "2rem",
-                  //backgroundColor: "rgba(255,255,255,0.05)",
-                  backgroundColor: "blue"
-                }}
-              >
-                <Form>
-                  <h2 style={{
-                    fontFamily: "Arial",
-                    fontSize: "2rem",
-                    color: "white",
-                    fontWeight: "bold",
-                    textDecoration: "underline"
-                  }}>
-                    API Key:
-                  </h2>
-                  <Form.Control
-                    type="password"
-                    placeholder="Insert API Key Here"
-                    onChange={changeKey}
-                    style={{ marginTop: "1rem" }}
-                  />
-                  <br />
-                  <Button
-                    className="Submit-Button"
-                    onClick={handleSubmit}
-                    style={{ backgroundColor: "white", border: "none", color: "blue" }}
-                  >
-                    Submit
-                  </Button>
-                </Form>
-              </div>
-            </div>
 
             {/* Box around Basic and Detailed Questions */}
             <div
@@ -326,15 +318,17 @@ function App() {
         </>
       ) : showBasicQuestions ? (
         <>
-          <ProgressBar progress={quizProgress} /> {/* Progress bar added */}
+          <ProgressBar progress={quizProgress} totalQuestions={BASIC_QUESTION_COUNT} /> {/* Progress bar added */}
           <BasicQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to BasicQuestions */}
         </>
-      ) : (
+      ) : showDetailedQuestions ? (
         <>
-          <ProgressBar progress={quizProgress} /> {/* Progress bar added */}
+          <ProgressBar progress={quizProgress} totalQuestions={DETAILED_QUESTION_COUNT} /> {/* Progress bar added */}
           <DetailedQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to DetailedQuestions */}
         </>
-      )}
+      ) : showAbout ? (
+        <AboutUs />
+      ) : null}
     </div>
   );
 }

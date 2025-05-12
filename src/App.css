@@ -1,3 +1,58 @@
+.welcome-wrapper {
+  min-height: 100vh;
+  background-color: coral;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 25rem;
+  padding: 2rem;
+}
+
+.welcome-box {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: -10px 10px 20px rgba(241, 224, 196, .5);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  padding: 4rem;
+  border-radius: 20px;
+  text-align: left;
+  max-width: 700px;
+  height: 80vh;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.moving-hen {
+  height: 50vh;
+  width: auto;
+  margin-left: -11rem;
+}
+
+.welcome-title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.welcome-subtitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.submit-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+}
 /*
   Color Options:
     https://developer.mozilla.org/en-US/docs/Web/CSS/named-color
@@ -41,4 +96,262 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* About Us page styling */
+.about-us-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  background-color: rgba(255, 127, 80, 0.8);
+}
+
+.api-input {
+  border-radius: 8px;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-description {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  color: white;
+}
+
+/*
+  Basic Questions page styling begins here
+*/
+.basic-questions-container {
+  background-color: #006D77 ;
+  min-height: 100vh;
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.basic-questions-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.basic-questions-inner {
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+  margin: 0 auto;
+}
+.basic-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-group-custom {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+.basic-form .form-group-custom .form-label {
+  font-size: 3rem;
+  color: coral;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 900;
+  font-size: 3rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+.listgroup-fullwidth {
+  width: 100%;
+}
+.listgroup-fullwidth .list-group-item {
+  font-size: 2rem;
+  padding: 1.5rem 2rem;
+}
+.listgroup-fullwidth .list-group-item.active {
+  background-color: coral!important;
+  border-color: coral !important;
+  color: white !important;
+}
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10rem;
+  margin-top: 1rem;
+}
+.nav-buttons .btn {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: coral;
+  border-color: coral;
+  color: white;
+  min-width: 10rem; /* ensures buttons are at least this wide */
+}
+
+.basic-questions-inner h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+
+/* Completion popup */
+.completion-popup {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Toggle Results button */
+.toggle-results-btn {
+  background-color: LightSalmon !important;
+  border: none !important;
+  color: white !important;
+}
+
+/* Results card */
+.results-card {
+  margin-top: 2rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Loading modal body */
+.loading-modal-body {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Loading spinner image */
+.loading-spinner {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+
+/* Loading text */
+.loading-text {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*
+  Basic Questions page styling ends here
+*/
+
+/* ProgressBar styling begins here */
+.progress-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000;
+  position: relative;
+}
+.progress-fill {
+  height: 100%;
+  background-color: coral;
+  transition: width 0.3s ease-in-out;
+}
+.progress-text {
+  position: absolute;
+  width: 97%;
+  top: 56%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+
+/*
+ProgressBar styles end here 
+ */
+
+/* DetailedQuestions page styling */
+.detailed-questions-container {
+  background-color:  #006D77 ;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detailed-questions-inner {
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.question-group {
+  margin-bottom: 1.5rem;
+}
+.question-label {
+  font-weight: 900;
+  color: coral;
+  font-size: 2rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+.nav-buttons-detailed {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Increased spacing between buttons */
+  margin-top: 1rem;
+}
+
+/* Coral buttons for DetailedQuestions */
+.nav-buttons-detailed .btn {
+  background-color: coral !important;
+  border-color: coral !important;
+  color: white !important;
+  font-size: 1.25rem;        /* Increase font size */
+  padding: 0.75rem 1.5rem;   /* Increase padding */
+  min-width: 8rem;           /* Ensure a minimum width */
+}
+.toggle-results-btn-detailed {
+  background-color: coral !important;
+  border-color: coral !important;
+  color: white !important;
+}
+.results-card-detailed {
+  margin-top: 2rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.loading-modal-body-detailed {
+  text-align: center;
+  padding: 2rem;
+}
+.loading-spinner-detailed {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+.loading-text-detailed {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.toggle-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.toggle-results-btn-detailed {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Make the detailed textarea cover roughly half the viewport height */
+.detailed-textarea {
+  height: 50vh !important;
+  resize: vertical;
+  background-color: #FFF5EE;
+  color: coral;
+  border: 1px solid coral;
+  font-size: 1.5rem;
 }

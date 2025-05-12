@@ -21,8 +21,11 @@ export async function generateBasicCareer(UserAnswers: string[]) {
     "What is your preferred way of communicating?",
     "What equipment do you like to work with?",
     "How would you describe yourself when dealing with stress or pressure?",
-    "When working in a group, what role do you take?"
+    "When working in a group, what role do you take?",
+    "Which work environment do you prefer?",
+    "Which career field are you most drawn to?"
   ];
+  
 
   const QuestionAndAnswer = questions.map((q, idx) => `${q} ${UserAnswers[idx]}`).join('\n');
 
@@ -35,8 +38,49 @@ export async function generateBasicCareer(UserAnswers: string[]) {
       },
       {
         role: 'user',
-        content: `Given these responses:\n${QuestionAndAnswer}\n\nReturn exactly 3 careers. Format the output as a numbered list, with one career per line. Each line should have the format: "1. Career Name (Salary)". Do not add any extra sentences, introductions, or explanations.`
-    }
+        content: `Given these responses:
+${QuestionAndAnswer}
+
+Please return a JSON array of exactly 5 objects. Each object must have the keys "career", "education", "experience", "salary", and "match". Do not include any extra text, comments, or ellipses—output only valid JSON. Example format:
+
+[
+  {
+    "career": "Software Engineer",
+    "education": "Bachelor's in Computer Science",
+    "experience": "2 years",
+    "salary": "$100,000/year",
+    "match": "85%"
+  },
+  {
+    "career": "Data Analyst",
+    "education": "Bachelor's in Statistics",
+    "experience": "1 year",
+    "salary": "$70,000/year",
+    "match": "80%"
+  },
+  {
+    "career": "Project Manager",
+    "education": "Bachelor's in Business Administration",
+    "experience": "3 years",
+    "salary": "$90,000/year",
+    "match": "78%"
+  },
+  {
+    "career": "UX Designer",
+    "education": "Bachelor's in Design",
+    "experience": "2 years",
+    "salary": "$85,000/year",
+    "match": "75%"
+  },
+  {
+    "career": "Marketing Coordinator",
+    "education": "Bachelor's in Marketing",
+    "experience": "1 year",
+    "salary": "$65,000/year",
+    "match": "72%"
+  }
+]`
+      }
     ],
   });
 
@@ -78,7 +122,48 @@ export async function generateDetailedCareer(UserAnswers: string[]) {
       },
       {
         role: 'user',
-        content: `Given these responses:\n${QuestionAndAnswer}\n\nReturn exactly 3 careers. Format the output as a numbered list, with one career per line. Each line should have the format: "1. Career Name (Salary)". Do not add any extra sentences, introductions, or explanations.`
+        content: `Given these responses:
+${QuestionAndAnswer}
+
+Please return a JSON array of exactly 5 objects. Each object must have the keys "career", "education", "experience", "salary", and "match". Do not include any extra text, comments, or ellipses—output only valid JSON. Example format:
+
+[
+  {
+    "career": "Software Engineer",
+    "education": "Bachelor's in Computer Science",
+    "experience": "2 years",
+    "salary": "$100,000/year",
+    "match": "85%"
+  },
+  {
+    "career": "Data Analyst",
+    "education": "Bachelor's in Statistics",
+    "experience": "1 year",
+    "salary": "$70,000/year",
+    "match": "80%"
+  },
+  {
+    "career": "Project Manager",
+    "education": "Bachelor's in Business Administration",
+    "experience": "3 years",
+    "salary": "$90,000/year",
+    "match": "78%"
+  },
+  {
+    "career": "UX Designer",
+    "education": "Bachelor's in Design",
+    "experience": "2 years",
+    "salary": "$85,000/year",
+    "match": "75%"
+  },
+  {
+    "career": "Marketing Coordinator",
+    "education": "Bachelor's in Marketing",
+    "experience": "1 year",
+    "salary": "$65,000/year",
+    "match": "72%"
+  }
+]`
       }
     ],
   });

@@ -209,7 +209,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                 <Modal.Title>All Questions Answered!</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                Great job! You've completed all the quiz questions. If you'd like to review or revise your answers, feel free to scroll up and make changes. When you're ready, click <strong>'Get Results'</strong> to view your personalized career suggestions!
+                Great job! You've completed all the quiz questions. If you'd like to review or revise your answers, feel free to scroll up and make changes. When you're ready, click <strong>'Get Answer'</strong> to view your personalized career suggestions!
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="success" onClick={() => setShowPopup(false)}>
@@ -234,7 +234,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                     <tr>
                       <th>Career Name</th>
                       <th>Education</th>
-                      <th>Experience</th>
+                      <th>Job Growth Rate</th>
                       <th>Salary</th>
                       <th>Match</th>
                     </tr>
@@ -244,7 +244,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                       <tr key={idx}>
                         <td>{job.career}</td>
                         <td>{job.education}</td>
-                        <td>{job.experience}</td>
+                        <td>{job.jobGrowth}</td>
                         <td>{job.salary}</td>
                         <td>{job.match}</td>
                       </tr>

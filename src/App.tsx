@@ -126,6 +126,25 @@ function App() {
           <h2 style={{ margin: 0, fontWeight: 'bold', fontSize: '1.75rem', color: "coral" }}>Peck-Your-Path</h2>
         </div>
 
+        <div style={{ display: 'flex', gap: '8px' }}>
+        <Button
+          variant="light"
+          onClick={() => {
+            setShowWelcome(true);
+            setShowBasicQuestions(false);
+            setShowDetailedQuestions(false);
+            setShowAbout(false);
+          }}
+          style={{
+            fontSize: '1rem',
+            padding: '0.4rem 1rem',
+            color: 'white',
+            backgroundColor: 'coral',
+          }}
+        >
+          Back to API Page
+        </Button>
+        
         {!showBasicQuestions && !showDetailedQuestions && !showAbout && (
           <Button
             variant="light"
@@ -142,7 +161,7 @@ function App() {
         )}
 
         {(showBasicQuestions || showDetailedQuestions || showAbout) && (
-          <div style={{ display: 'flex', gap: '8px' }}>
+<>
             <Button
               variant="light"
               onClick={goBackHome}
@@ -183,8 +202,10 @@ function App() {
                 Switch to Detailed
               </Button>
             )}
-          </div>
+          </>
         )}
+      </div>
+
       </div>
 
       {/* Home Page */}

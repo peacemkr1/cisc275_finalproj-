@@ -60,11 +60,22 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
   useEffect(() => {
     if (careerResult) {
       try {
+        console.log("CareerResult:", careerResult); // Debug log to see raw result
         let jsonString = careerResult.trim();
+
+        // Remove triple backticks and optional language identifier
         if (jsonString.startsWith('```')) {
-          jsonString = jsonString.replace(/^```.*\r?\n/, '');
-          jsonString = jsonString.replace(/\r?\n```$/, '');
+          jsonString = jsonString.replace(/^```[a-zA-Z]*\s*/, '');
+          jsonString = jsonString.replace(/\s*```$/, '');
         }
+
+        // Extract only the JSON array between the first '[' and last ']'
+        const startIndex = jsonString.indexOf('[');
+        const endIndex = jsonString.lastIndexOf(']');
+        if (startIndex !== -1 && endIndex !== -1) {
+          jsonString = jsonString.substring(startIndex, endIndex + 1);
+        }
+
         const parsed = JSON.parse(jsonString);
         parsed.sort((a: any, b: any) => {
           const aMatch = parseInt(a.match.replace('%',''), 10);
@@ -72,7 +83,9 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
           return bMatch - aMatch;
         });
         setCareerData(parsed);
-      } catch {
+      } catch (err) {
+        console.error("Failed to parse careerResult:", careerResult);
+        console.error(err);
         setCareerData([]);
       }
     } else {

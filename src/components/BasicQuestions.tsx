@@ -13,13 +13,14 @@ interface BasicQuestionsProps {
 
 const QUESTIONS = [
   { prompt: 'What was your favorite subject in school?', options: ['Math','Science','English','History'] },
-  { prompt: 'How would you describe your level of talkativeness?', options: ['Very Talkative','Somewhat Talkative','Quiet','Depends on Situation'] },
+  { prompt: 'How do you prefer your workday to be structured?', options: ['Highly organized with clear tasks','Flexible with room for creativity','Fast-paced and constantly changing','Steady and routine-focused'] },
   { prompt: 'How comfortable are you with public speaking?', options: ['Very Comfortable','Somewhat Comfortable','Uncomfortable','Prefer To Avoid It'] },
   { prompt: 'What is your preferred way of communicating?', options: ['In Person','Phone Call','Text','Email'] },
   { prompt: 'Which type of equipment do you most enjoy using in a work setting?', options: ['Computers and Software','Hand Tools and Machinery','Medical or Lab Instruments','Artistic Tools and Supplies'] },
-  { prompt: 'How would you describe yourself when dealing with stress or pressure?', options: ['Stay Calm','Get Focused','Feel Overwhelmed','Avoid the Situation'] },
+  { prompt: 'Which type of decision-making environment do you prefer?', options: ['Making quick independent decisions','Gathering input before deciding','Following set procedures','Collaborating to reach group consensus'] },
   { prompt: 'When working in a group, what role do you take?', options: ['Leader','Organizer','Contributor','Supporter'] },
   { prompt: 'Which work environment do you prefer?', options: ['In an office with others','Hybrid (home and office)','Fully remote','Hands-on/outdoors'] },
+  { prompt: 'What motivates you most when choosing a career?', options: ['High earning potential','Helping others or making a difference','Creativity and self-expression','Solving complex problems'] },
   { prompt: 'Which career field are you most drawn to?', options: ['Healthcare','Business','Law','Engineering','Theatre'] }
 ];
 export const BASIC_QUESTION_COUNT = QUESTIONS.length;

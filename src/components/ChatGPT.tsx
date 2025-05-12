@@ -16,13 +16,14 @@ export async function generateBasicCareer(UserAnswers: string[]) {
 
   const questions = [
     "What was your favorite subject in school?",
-    "How would you describe your level of talkativeness?",
+    "How do you prefer your workday to be structured?",
     "How comfortable are you with public speaking?",
     "What is your preferred way of communicating?",
     "Which type of equipment do you most enjoy using in a work setting?",
-    "How would you describe yourself when dealing with stress or pressure?",
+    "Which type of decision-making environment do you prefer?",
     "When working in a group, what role do you take?",
     "Which work environment do you prefer?",
+    "What motivates you most when choosing a career?",
     "Which career field are you most drawn to?"
   ];
   

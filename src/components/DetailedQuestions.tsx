@@ -7,7 +7,7 @@ import loadingGif from '../loadingScreen.gif';
 const questions = [
   "Describe a time when you solved a problem creatively. What was the outcome?",
   "What motivates you more: recognition, salary, growth opportunities, or making a difference? Why?",
-  "If given a blank check to build your ideal workday from 9 to 5, how would you structure it?",
+  "If you had complete freedom to design your ideal 9-to-5 workday, how would you structure it?",
   "Describe a time you felt deeply accomplished after completing a task. What were you doing, and why did it feel meaningful to you?",
   "When facing a high-pressure situation, do you prefer to lead a team, work independently, or support someone else's leadership? Why?",
   "What kind of long-term impact do you want your career to have—on people, society, technology, or something else? Why is that important to you?",

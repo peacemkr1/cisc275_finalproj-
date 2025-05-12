@@ -178,7 +178,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
                   <tr>
                     <th>Career Name</th>
                     <th>Education</th>
-                    <th>Experience</th>
+                    <th>Job Growth Rate</th>
                     <th>Salary</th>
                     <th>Match</th>
                   </tr>
@@ -188,7 +188,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
                     <tr key={idx}>
                       <td>{job.career}</td>
                       <td>{job.education}</td>
-                      <td>{job.experience}</td>
+                      <td>{job.jobGrowth}</td>
                       <td>{job.salary}</td>
                       <td>{job.match}</td>
                     </tr>

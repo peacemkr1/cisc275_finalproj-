@@ -8,6 +8,9 @@ const questions = [
   "Describe a time when you solved a problem creatively. What was the outcome?",
   "What motivates you more: recognition, salary, growth opportunities, or making a difference? Why?",
   "If given a blank check to build your ideal workday from 9 to 5, how would you structure it?",
+  "Describe a time you felt deeply accomplished after completing a task. What were you doing, and why did it feel meaningful to you?",
+  "When facing a high-pressure situation, do you prefer to lead a team, work independently, or support someone else's leadership? Why?",
+  "What kind of long-term impact do you want your career to have—on people, society, technology, or something else? Why is that important to you?",
   "Which subjects or topics have consistently caught your interest over the years?",
   "Think about a time when you had to collaborate with others to meet a goal. What was your role, and how did the process go?",
   "Describe your ideal team dynamic. Do you prefer leading, collaborating as an equal, or working independently with occasional input? Explain why.",
@@ -175,7 +178,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
                   <tr>
                     <th>Career Name</th>
                     <th>Education</th>
-                    <th>Job Growth Rate</th>
+                    <th>Experience</th>
                     <th>Salary</th>
                     <th>Match</th>
                   </tr>
@@ -185,7 +188,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
                     <tr key={idx}>
                       <td>{job.career}</td>
                       <td>{job.education}</td>
-                      <td>{job.jobGrowth}</td>
+                      <td>{job.experience}</td>
                       <td>{job.salary}</td>
                       <td>{job.match}</td>
                     </tr>

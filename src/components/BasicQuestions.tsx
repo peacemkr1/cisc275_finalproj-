@@ -16,7 +16,7 @@ const QUESTIONS = [
   { prompt: 'How would you describe your level of talkativeness?', options: ['Very Talkative','Somewhat Talkative','Quiet','Depends on Situation'] },
   { prompt: 'How comfortable are you with public speaking?', options: ['Very Comfortable','Somewhat Comfortable','Uncomfortable','Prefer To Avoid It'] },
   { prompt: 'What is your preferred way of communicating?', options: ['In Person','Phone Call','Text','Email'] },
-  { prompt: 'What equipment do you like to work with?', options: ['Computers','Tools','Instruments','Art Supplies'] },
+  { prompt: 'Which type of equipment do you most enjoy using in a work setting?', options: ['Computers and Software','Hand Tools and Machinery','Medical or Lab Instruments','Artistic Tools and Supplies'] },
   { prompt: 'How would you describe yourself when dealing with stress or pressure?', options: ['Stay Calm','Get Focused','Feel Overwhelmed','Avoid the Situation'] },
   { prompt: 'When working in a group, what role do you take?', options: ['Leader','Organizer','Contributor','Supporter'] },
   { prompt: 'Which work environment do you prefer?', options: ['In an office with others','Hybrid (home and office)','Fully remote','Hands-on/outdoors'] },

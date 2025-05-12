@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cisc275_finalproj-/static/css/main.4d23930e.css",
-    "main.js": "/cisc275_finalproj-/static/js/main.17d628f8.js",
+    "main.js": "/cisc275_finalproj-/static/js/main.a869c248.js",
     "static/js/453.bad6c33a.chunk.js": "/cisc275_finalproj-/static/js/453.bad6c33a.chunk.js",
     "static/media/chickenBackground1.png": "/cisc275_finalproj-/static/media/chickenBackground1.c015c93e564f31a7d416.png",
     "static/media/ChickenLogo.png": "/cisc275_finalproj-/static/media/ChickenLogo.f7065d691885f4151e3c.png",
@@ -12,11 +12,11 @@
     "static/media/loadingScreen.gif": "/cisc275_finalproj-/static/media/loadingScreen.90672f1deffccbcdf4f1.gif",
     "index.html": "/cisc275_finalproj-/index.html",
     "main.4d23930e.css.map": "/cisc275_finalproj-/static/css/main.4d23930e.css.map",
-    "main.17d628f8.js.map": "/cisc275_finalproj-/static/js/main.17d628f8.js.map",
+    "main.a869c248.js.map": "/cisc275_finalproj-/static/js/main.a869c248.js.map",
     "453.bad6c33a.chunk.js.map": "/cisc275_finalproj-/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d23930e.css",
-    "static/js/main.17d628f8.js"
+    "static/js/main.a869c248.js"
   ]
 }

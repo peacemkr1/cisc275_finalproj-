@@ -115,6 +115,12 @@
   background-color: rgba(255, 127, 80, 0.8);
 }
 
+.about-us-intro-text {
+  font-size: 2rem;
+  line-height: 1.6;
+  color: white;
+}
+
 .api-input {
   border-radius: 8px;
   border: none;
@@ -127,6 +133,23 @@
   margin-bottom: 2rem;
   font-size: 1.25rem;
   color: white;
+}
+
+.about-us-chicken-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-us-chicken {
+  width: 150px;
+  height: auto;
+}
+
+.team-member-photo {
+  object-fit: cover;
+  width: 250px;
+  height: 350px;
+  border-radius: 8px;
 }
 
 /* ===============================

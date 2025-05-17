@@ -27,11 +27,11 @@ const AboutUs: React.FC = () => {
       </p>
 
       {/* Animated mascot image to add visual interest and branding */}
-      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+      <div className="about-us-chicken-container">
         <img
           src={MovingHen}
           alt="Animated Chicken"
-          style={{ width: '150px', height: 'auto' }}
+          className="about-us-chicken"
         />
       </div>
       {/* Subheading introducing the team member section */}
@@ -47,7 +47,7 @@ const AboutUs: React.FC = () => {
                 variant="top"
                 src={DavidPic}
                 alt="David Cardenas"
-                style={{ objectFit: 'cover', width: '250px', height: '350px', borderRadius: '8px' }}
+                className="team-member-photo"
               />
             </div>
             <Card.Body>
@@ -73,7 +73,7 @@ const AboutUs: React.FC = () => {
               variant="top"
               src={AymanPic}
               alt="Ayman Tayeb"
-              style={{ objectFit: 'cover', width: '250px', height: '350px', borderRadius: '8px' }}
+              className="team-member-photo"
             />
           </div>
 
@@ -100,7 +100,7 @@ const AboutUs: React.FC = () => {
                 variant="top"
                 src={RahulPic}
                 alt="Rahul Davu"
-                style={{ objectFit: 'cover', width: '250px', height: '350px', borderRadius: '8px' }}
+                className="team-member-photo"
               />
             </div>
             <Card.Body>

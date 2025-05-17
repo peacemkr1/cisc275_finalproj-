@@ -6,11 +6,15 @@ import { generateBasicCareer } from './ChatGPT';
 import loadingGif from '../loadingScreen.gif';
 import '../App.css';
 
+// BasicQuestions component handles a step-by-step multiple-choice questionnaire.
+// Tracks answers, manages progress state, and renders results returned by OpenAI's API.
+
 // Props for BasicQuestions component
 interface BasicQuestionsProps {
   onProgressUpdate?: (progress: number) => void;
 }
 
+// Define a list of basic multiple-choice career-related questions with preset options
 const QUESTIONS = [
   { prompt: 'What was your favorite subject in school?', options: ['Math','Science','English','History'] },
   { prompt: 'How do you prefer your workday to be structured?', options: ['Highly organized with clear tasks','Flexible with room for creativity','Fast-paced and constantly changing','Steady and routine-focused'] },
@@ -39,23 +43,30 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
       I referenced the TOME to complete this section: 
         https://frontend-fun.github.io/react-hooks-typescript-tome/4-state/forms.html#multiline-textarea
   */
+
+  // State for storing user answers for each question
   const [answers, setAnswers] = useState<string[]>(Array(QUESTIONS.length).fill(''));
+  // Determines if "Get Answer" button should be shown (when all are answered)
   const showButton = answers.every(a => a !== '');
 
-  // New state for current question index
+  // Tracks the index of the current question being shown
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
 
-
-  //const [showFeedbackMech, setFeedbackMech] = useState<boolean>(false);
+  // Manages loading spinner state while waiting for API response
   const [loading, setLoading] = useState<boolean>(false);
+  // Controls whether results table is displayed
   const [showResults, setShowResults] = useState<boolean>(false);
+  // Manages display of modal popup upon quiz completion
   const [showPopup, setShowPopup] = useState<boolean>(false);
 
+  // Tracks if popup has already been shown to prevent repeat modals
   const [hasShownPopup, setHasShownPopup] = useState<boolean>(false);
 
 
 
 
+  // Recalculate and update progress percentage as user answers questions
+  // Triggers modal popup once all questions are answered
   useEffect(() => {
     const answeredCount = answers.filter(a => a !== '').length;
     onProgressUpdate && onProgressUpdate((answeredCount / QUESTIONS.length) * 100);
@@ -67,8 +78,10 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   
   
 
+  // Stores raw string result returned by OpenAI backend
   const [careerResult, setCareerResult] = useState<string>('');
 
+  // Sends user responses to backend and retrieves career suggestions
   async function handleGetAnswer() {
     setLoading(true);
     const result = await generateBasicCareer(answers);
@@ -77,6 +90,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
   }
 
 
+  // Parsed array of career suggestion data to display in table
   const [careerData, setCareerData] = useState<any[]>([]);
 
 
@@ -88,6 +102,8 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
       the effect will run again. If you pass an empty array, the effect will only run once
       when the component mounts. This part was AI generated from ChatGPT. 
    */
+  // Attempts to parse OpenAI response and extract sorted JSON array of career data
+  // Handles markdown-style formatting cleanup and fallback error handling
   useEffect(() => {
     if (careerResult) {
       try {
@@ -117,6 +133,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
     }
   }, [careerResult]);
 
+  // Automatically show results once valid data is received
   useEffect(() => {
     if (careerResult) {
       setShowResults(true);
@@ -143,6 +160,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
           
           */}
 
+          {/* Display current question and associated multiple-choice options */}
           <Form className="basic-form" onSubmit={(e) => e.preventDefault()}>
             <Form.Group className="form-group-custom">
               <Form.Label>{QUESTIONS[currentQuestion].prompt}</Form.Label>
@@ -168,7 +186,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
         </div>
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Buttons to navigate between questions or fetch results */}
       <div className={`nav-buttons ${currentQuestion === 8 ? 'single-nav' : ''}`}>
         <Button
           type="button"
@@ -203,7 +221,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
 
       {showButton && (
         <> 
-        {/*https://react-bootstrap.netlify.app/docs/components/modal/ */}
+        {/* Modal appears when all questions are completed */}
           <div className="completion-popup">
             <Modal show={showPopup} onHide={() => setShowPopup(false)} centered>
               <Modal.Header closeButton>
@@ -219,6 +237,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
               </Modal.Footer>
             </Modal>
     
+            {/* Button to toggle visibility of career results */}
             {careerResult && (
               <Button
                 className="toggle-results-btn"
@@ -227,6 +246,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
                 {showResults ? 'Hide Career Results' : 'View Career Results'}
               </Button>
             )}
+            {/* Career suggestions table populated with backend response */}
             {showResults && careerResult && (
               <div className="results-card">
                 <h4>Career Suggestions:</h4>
@@ -256,6 +276,7 @@ export function BasicQuestions({ onProgressUpdate }: BasicQuestionsProps): JSX.E
             )}
           </div>
     
+          {/* Spinner and overlay shown while waiting for backend response */}
           <Modal show={loading} centered backdrop="static" keyboard={false}>
             <Modal.Body className="loading-modal-body">
               <img src={loadingGif} alt="Loading..." className="loading-spinner" />

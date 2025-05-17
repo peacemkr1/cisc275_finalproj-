@@ -1,19 +1,25 @@
+// ChatGPT.tsx: Contains backend logic to generate basic and detailed career recommendations using OpenAI's API
 import OpenAI from 'openai';
 
+// Generates basic career suggestions based on short multiple-choice answers
 export async function generateBasicCareer(UserAnswers: string[]) {
   
+  // Retrieve stored API key from localStorage
   const ApiKeyValue = localStorage.getItem("MYKEY");
+  // Validate that an API key exists before continuing
   if (!ApiKeyValue) {
     throw new Error("API Key not found. Please enter your key on the homepage.");
   }
   const apiKey = JSON.parse(ApiKeyValue);
 
   
+  // Create a new OpenAI instance configured for browser use
   const openai = new OpenAI({
     apiKey: apiKey,
     dangerouslyAllowBrowser: true, 
   });
 
+  // Define the list of questions used in the quiz
   const questions = [
     "What was your favorite subject in school?",
     "How do you prefer your workday to be structured?",
@@ -26,10 +32,11 @@ export async function generateBasicCareer(UserAnswers: string[]) {
     "What motivates you most when choosing a career?",
     "Which career field are you most drawn to?"
   ];
-  
 
+  // Format the user responses into a single prompt string for the language model
   const QuestionAndAnswer = questions.map((q, idx) => `${q} ${UserAnswers[idx]}`).join('\n');
 
+  // Make a request to OpenAI's GPT model with system and user prompt
   const ChatResults = await openai.chat.completions.create({
     model: 'gpt-4o',
     messages: [
@@ -85,23 +92,29 @@ Please return a JSON array of exactly 5 objects. Each object must have the keys 
     ],
   });
 
+  // Return only the assistant's reply (JSON array) from the model response
   return ChatResults.choices[0].message.content;
 }
 
+// Generates detailed career suggestions based on free-text written responses
 export async function generateDetailedCareer(UserAnswers: string[]) {
 
+  // Retrieve stored API key from localStorage
   const ApiKeyValue = localStorage.getItem("MYKEY");
 
+  // Validate that an API key exists before continuing
   if (!ApiKeyValue) {
     throw new Error("API Key not found. Please enter your key on the homepage.");
   }
   const apiKey = JSON.parse(ApiKeyValue);
 
+  // Create a new OpenAI instance configured for browser use
   const openai = new OpenAI({
     apiKey: apiKey,
     dangerouslyAllowBrowser: true,
   });
 
+  // Define the list of questions used in the quiz
   const questions = [
     "Describe a time when you solved a problem creatively.",
     "What motivates you more: recognition, salary, growth opportunities, or making a difference?",
@@ -115,8 +128,10 @@ export async function generateDetailedCareer(UserAnswers: string[]) {
     "Describe an experience where you felt highly engaged and motivated."
   ];
 
+  // Format the user responses into a single prompt string for the language model
   const QuestionAndAnswer = questions.map((q, idx) => `${q} ${UserAnswers[idx]}`).join('\n');
 
+  // Make a request to OpenAI's GPT model with system and user prompt
   const ChatResults = await openai.chat.completions.create({
     model: 'gpt-4o',
     messages: [
@@ -172,5 +187,6 @@ Please return a JSON array of exactly 5 objects. Each object must have the keys 
     ],
   });
 
+  // Return only the assistant's reply (JSON array) from the model response
   return ChatResults.choices[0].message.content;
 }

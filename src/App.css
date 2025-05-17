@@ -1,3 +1,6 @@
+/* ===============================
+   WelcomePage Component Styles
+   =============================== */
 .welcome-wrapper {
   min-height: 100vh;
   background-color: coral;
@@ -59,6 +62,9 @@
 */
 
 
+/* ===============================
+   App-Level Styles
+   =============================== */
 .App {
   text-align: center;
 }
@@ -98,6 +104,9 @@
   }
 }
 
+/* ===============================
+   AboutUs Component Styles
+   =============================== */
 /* About Us page styling */
 .about-us-container {
   width: 100%;
@@ -120,6 +129,9 @@
   color: white;
 }
 
+/* ===============================
+   BasicQuestions Component Styles
+   =============================== */
 /*
   Basic Questions page styling begins here
 */
@@ -194,12 +206,18 @@
 }
 
 
+/* ===============================
+   Shared Components - Completion Popup
+   =============================== */
 /* Completion popup */
 .completion-popup {
   text-align: center;
   margin-top: 2rem;
 }
 
+/* ===============================
+   Shared Components - Results Display
+   =============================== */
 /* Toggle Results button */
 .toggle-results-btn {
   background-color: LightSalmon !important;
@@ -238,6 +256,9 @@
   Basic Questions page styling ends here
 */
 
+/* ===============================
+   ProgressBar Component Styles
+   =============================== */
 /* ProgressBar styling begins here */
 .progress-container {
   position: sticky;
@@ -271,6 +292,9 @@
 ProgressBar styles end here 
  */
 
+/* ===============================
+   DetailedQuestions Component Styles
+   =============================== */
 /* DetailedQuestions page styling */
 .detailed-questions-container {
   background-color:  #006D77 ;
@@ -356,6 +380,9 @@ ProgressBar styles end here
   font-size: 1.5rem;
 }
 
+/* ===============================
+   Header & Navigation Button Styles
+   =============================== */
 /* ---- Custom classes for App.tsx (moved from inline styles) ---- */
 .btn-back {
   font-size: 1rem;
@@ -406,6 +433,9 @@ ProgressBar styles end here
   color: orange;
 }
 
+/* ===============================
+   Home Page Styles
+   =============================== */
 .home-header {
   background-image: url('./chickenBackground1.png');
   background-size: 100%;

@@ -3,6 +3,7 @@ import { Button, Form, Modal, Table } from 'react-bootstrap';
 import { generateDetailedCareer } from './ChatGPT';
 import loadingGif from '../loadingScreen.gif';
 
+// Array of detailed career-oriented questions presented one at a time
 // List of detailed questions
 const questions = [
   "Describe a time when you solved a problem creatively. What was the outcome?",
@@ -20,6 +21,8 @@ const questions = [
 // Export the count of detailed questions for external use
 export const DETAILED_QUESTION_COUNT = questions.length;
 
+// DetailedQuestions component handles a multi-step open-ended questionnaire.
+// It tracks answers, updates progress, manages navigation, and renders AI-generated career results.
 interface DetailedQuestionsProps {
   onProgressUpdate: (progress: number) => void;
 }
@@ -30,16 +33,24 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
     Referencing the TOME: https://frontend-fun.github.io/react-hooks-typescript-tome/4-state/forms.html#multiline-textarea
   */
   
+  // Holds user answers for each question
   const [answers, setAnswers] = useState<string[]>(Array(questions.length).fill(''));
+  // Tracks the current question index being displayed
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
 
+  // Indicates whether the app is fetching results from the backend
   const [loading, setLoading] = useState<boolean>(false);
+  // Stores the stringified result returned by OpenAI
   const [careerResult, setCareerResult] = useState<string>(''); 
+  // Controls visibility of the results card
   const [showResults, setShowResults] = useState<boolean>(false);
+  // Parsed career result array for display in a table
   const [careerData, setCareerData] = useState<any[]>([]);
+  // Controls whether the "All Questions Answered" popup is shown
   const [showPopup, setShowPopup] = useState<boolean>(false);
     
 
+  // Calls the backend to generate career suggestions based on answers
   async function handleGetAnswer() {
     setLoading(true);
     const result = await generateDetailedCareer(answers);
@@ -48,7 +59,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
     setShowResults(true);
   }  
 
-  // 5. Add a useEffect hook to calculate progress whenever an answer changes:
+  // Updates the progress bar as answers are filled in
   useEffect(() => {
     const totalQuestions = questions.length;
     const answeredQuestions = answers.filter(answer => answer !== '').length;
@@ -57,6 +68,8 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
   }, [answers, onProgressUpdate]);
 
 
+  // Parses and cleans the career result from OpenAI
+  // Ensures the response is valid JSON, strips formatting if needed, sorts results
   useEffect(() => {
     if (careerResult) {
       try {
@@ -93,6 +106,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
     }
   }, [careerResult]);
 
+  // Auto-show results section if valid data exists
   useEffect(() => {
     if (careerResult) setShowResults(true);
   }, [careerResult]);
@@ -105,6 +119,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
 
       {/* Centered container, left-aligned content */}
       <div className="detailed-questions-inner">
+          {/* Textarea form where user enters answers to each question */}
           <Form>
             <Form.Group className="question-group">
               <Form.Label className="question-label">
@@ -122,6 +137,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
                   setAnswers(updated);
                 }}
                 onKeyDown={(e) => {
+                  // Allows pressing Enter to go to next question, or submit on last answer
                   if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
                     // If not last question, move to next
@@ -138,6 +154,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
             </Form.Group>
           </Form>
 
+          {/* Modal popup shown when all questions are completed */}
           <div className="completion-popup">
             <Modal show={showPopup} onHide={() => setShowPopup(false)} centered>
               <Modal.Header closeButton>
@@ -154,6 +171,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
             </Modal>
           </div>
 
+          {/* Navigation buttons to move between questions or submit */}
           <div className="nav-buttons-detailed">
             <Button disabled={currentQuestion === 0} onClick={() => setCurrentQuestion(q => q - 1)}>
               Previous
@@ -173,6 +191,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
               </>
             )}
           </div>
+          {/* Toggle button to show/hide results */}
           {careerResult && (
             <div className="toggle-button-container">
               <Button
@@ -183,6 +202,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
               </Button>
             </div>
           )}
+          {/* Table that displays AI-generated career suggestions */}
           {showResults && careerResult && (
             <div className="results-card-detailed">
               <h4>Career Suggestions:</h4>
@@ -212,6 +232,7 @@ const DetailedQuestions = ({ onProgressUpdate }: DetailedQuestionsProps): JSX.El
           )}
       </div>
 
+      {/* Loading spinner shown while waiting for OpenAI response */}
       <Modal show={loading} centered backdrop="static" keyboard={false}>
         <Modal.Body className="loading-modal-body-detailed">
           <img src={loadingGif} alt="Loading..." className="loading-spinner-detailed" />

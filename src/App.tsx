@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// Import React and useState for building components and managing state
+// Import CSS styling, images, and external component modules
 //import logo from './logo.svg';
 import './App.css';
 import { Button} from 'react-bootstrap';
@@ -31,7 +33,7 @@ import { DETAILED_QUESTION_COUNT } from './components/DetailedQuestions';
       */
 
 
-
+// Initialize keyData by checking local storage for saved API key
 let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData);
@@ -39,49 +41,61 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
+// Main App component - this is the core of the application
 function App() {
+  // State variables used to control navigation and application flow
+  // Declare a state variable to hold the API key
   const [key, setKey] = useState<string>(keyData); // API key
+  // Controls which page (basic questions, detailed questions, about, or welcome) is shown
   const [showBasicQuestions, setShowBasicQuestions] = useState(false); // determines whether or not you are on this given page
   const [showDetailedQuestions, setShowDetailedQuestions] = useState(false); // determines whether or not you are on this given page
   const [showAbout, setShowAbout] = useState(false);
-  const [quizProgress, setQuizProgress] = useState<number>(0);
-  const [keySubmitted, setKeySubmitted] = useState<boolean>(false);
+  const [quizProgress, setQuizProgress] = useState<number>(0); // Track quiz progress as a percentage or count
+  const [keySubmitted, setKeySubmitted] = useState<boolean>(false); // Flag to check if the user has submitted their API key
   const [showWelcome, setShowWelcome] = useState(true);
 
+  // Store the API key and proceed to the main application
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
     setKeySubmitted(true);
     setShowWelcome(false);
   }
 
+  // Handle changes to the input where user enters API key
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value); // API key 
   }
 
+  // Navigation handler to show Basic Questions view
   function goToBasicQuestions() {
     setShowBasicQuestions(true); // changes to true when you click on Basic Ques. button
   }
 
+  // Navigation handler to show Detailed Questions view
   function goToDetailedQuestions() {
     setShowDetailedQuestions(true); // changes to true when you click on Detailed Ques. button
   }
 
+  // Navigation handler to switch from Detailed to Basic Questions
   function switchToBasicQuestions() {
     setShowDetailedQuestions(false);
     setShowBasicQuestions(true);
   }
 
+  // Navigation handler to switch from Basic to Detailed Questions
   function switchToDetailedQuestions() {
     setShowBasicQuestions(false);
     setShowDetailedQuestions(true);
   }
 
+  // Navigation handler to show About Us page
   function goToAboutUs() {
     setShowBasicQuestions(false);
     setShowDetailedQuestions(false);
     setShowAbout(true);
   }
 
+  // Navigation handler to return to Home screen
   function goBackHome() {
     setShowBasicQuestions(false);
     setShowDetailedQuestions(false);
@@ -96,14 +110,18 @@ function App() {
     */
   }
 
+  // If welcome screen is active, render WelcomePage component
   if (showWelcome) {
     return <WelcomePage onSubmit={handleSubmit} onKeyChange={changeKey} />;
   }
 
+  // Main application render - displays top bar and selected view
   return (
+    // This is the main wrapper div for the whole app layout
     <div className="App">
-      {/* Always visible top header */}
+      {/* Top navigation/header bar, always visible */}
       <div className="top-header">
+        {/* App title and logo */}
         {/*<h2 style={{ margin: 0 }}>Q&A App</h2>*/}
         <div className="logo-container">
         <img
@@ -116,6 +134,7 @@ function App() {
           <h2 className="logo-title">Peck-Your-Path</h2>
         </div>
 
+        {/* Navigation buttons: Back, About Us, Home, Switch */}
         <div className="button-group">
         <Button
           variant="light"
@@ -178,7 +197,9 @@ function App() {
 
       </div>
 
-      {/* Home Page */}
+      {/* Home screen view with intro and question selection */}
+      {/* The landing page layout when not taking a quiz or viewing About Us */}
+      {/* Includes logo, welcome message, and question selection boxes */}
       {!showBasicQuestions && !showDetailedQuestions && !showAbout ? (
         <>
           <header
@@ -201,7 +222,7 @@ function App() {
 
             {/* Box around Basic and Detailed Questions */}
             <div className="question-boxes">
-              {/* Box around Basic Questions */}
+              {/* Basic Questions box with description and button */}
               <div className="box-basic">
                 <h2 className="box-title">Basic Questions</h2>
                 <p className="box-desc">Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
@@ -219,7 +240,7 @@ function App() {
 
               </div>
 
-              {/* Box around Detailed Questions */}
+              {/* Detailed Questions box with description and button */}
               <div className="box-detailed">
                 <h2 className="box-title">Detailed Questions</h2>
                 <p className="box-desc">Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
@@ -240,16 +261,19 @@ function App() {
           </header>
         </>
       ) : showBasicQuestions ? (
+        // Render Basic Questions view with progress bar
         <>
           <ProgressBar progress={quizProgress} totalQuestions={BASIC_QUESTION_COUNT} /> {/* Progress bar added */}
           <BasicQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to BasicQuestions */}
         </>
       ) : showDetailedQuestions ? (
+        // Render Detailed Questions view with progress bar
         <>
           <ProgressBar progress={quizProgress} totalQuestions={DETAILED_QUESTION_COUNT} /> {/* Progress bar added */}
           <DetailedQuestions onProgressUpdate={setQuizProgress} /> {/* Pass handler to DetailedQuestions */}
         </>
       ) : showAbout ? (
+        // Render About Us page
         <AboutUs />
       ) : null}
     </div>

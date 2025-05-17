@@ -8,7 +8,6 @@ import ProgressBar from './components/ProgressBar';
 import AboutUs from './components/AboutUs';
 //import ChatGPT from './components/ChatGPT';
 import ChickenLogo from './ChickenLogo.png';
-import ChickenBackground from './chickenBackground1.png'
 import WelcomePage from './components/WelcomePage';
 
 import { BASIC_QUESTION_COUNT } from './components/BasicQuestions';
@@ -104,29 +103,20 @@ function App() {
   return (
     <div className="App">
       {/* Always visible top header */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "1rem 2rem",
-          backgroundColor: "white",
-          color: "black",
-        }}
-      >
+      <div className="top-header">
         {/*<h2 style={{ margin: 0 }}>Q&A App</h2>*/}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div className="logo-container">
         <img
           src={ChickenLogo}
           alt="Hen Logo"
-          style={{ height: "68px", width: "68px", objectFit: "contain" }}
+          className="logo-img"
         />
 
 
-          <h2 style={{ margin: 0, fontWeight: 'bold', fontSize: '1.75rem', color: "coral" }}>Peck-Your-Path</h2>
+          <h2 className="logo-title">Peck-Your-Path</h2>
         </div>
 
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div className="button-group">
         <Button
           variant="light"
           onClick={() => {
@@ -135,12 +125,12 @@ function App() {
             setShowDetailedQuestions(false);
             setShowAbout(false);
           }}
+          className="btn-back"
           style={{
-            fontSize: '1rem',
-            padding: '0.4rem 1rem',
-            color: 'white',
-            backgroundColor: 'coral',
+            opacity: keySubmitted ? 1 : 0.5,
+            cursor: keySubmitted ? "pointer" : "not-allowed"
           }}
+          disabled={!keySubmitted}
         >
           Back to API Page
         </Button>
@@ -149,12 +139,7 @@ function App() {
           <Button
             variant="light"
             onClick={goToAboutUs}
-            style={{
-              fontSize: "1rem",
-              padding: "0.4rem 1rem",
-              color: "white",
-              backgroundColor: "purple",
-            }}
+            className="btn-about"
           >
             About Us
           </Button>
@@ -165,12 +150,7 @@ function App() {
             <Button
               variant="light"
               onClick={goBackHome}
-              style={{
-                fontSize: '1rem',
-                padding: '0.4rem 1rem',
-                color: 'white',
-                backgroundColor: 'black',
-              }}
+              className="btn-home"
             >
               Home
             </Button>
@@ -178,12 +158,7 @@ function App() {
               <Button
                 variant="light"
                 onClick={switchToBasicQuestions}
-                style={{
-                  fontSize: '1rem',
-                  padding: '0.4rem 1rem',
-                  color: 'white',
-                  backgroundColor: 'teal',
-                }}
+                className="btn-basic"
               >
                 Switch to Basic
               </Button>
@@ -192,12 +167,7 @@ function App() {
               <Button
                 variant="light"
                 onClick={switchToDetailedQuestions}
-                style={{
-                  fontSize: '1rem',
-                  padding: '0.4rem 1rem',
-                  color: 'white',
-                  backgroundColor: 'orange',
-                }}
+                className="btn-detailed"
               >
                 Switch to Detailed
               </Button>
@@ -212,50 +182,17 @@ function App() {
       {!showBasicQuestions && !showDetailedQuestions && !showAbout ? (
         <>
           <header
-            className="App-header"
-            style={{
-              backgroundImage: `url(${ChickenBackground})`,
-              backgroundSize: "100%",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundBlendMode: "normal",
-              minHeight: "100vh",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              paddingTop: "4rem",
-            }}
+            className="home-header"
           >
             {/* Optional author section */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                padding: "1rem",
-                position: "absolute",
-                top: 0,
-                left: 0,
-                color: "black",
-              }}
-            >
+            <div className="author-section">
               {/* <div>David Cardenas</div>
               <div>Rahul Davu</div>
               <div>Ayman Tayeb</div> */}
             </div>
 
             {/* Welcome Title */}
-            <div
-              style={{
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
-                padding: "2rem",
-                borderRadius: "12px",
-                marginBottom: "2rem",
-                textAlign: "center",
-                width: "90%",
-                maxWidth: "600px",
-              }}
-            >
+            <div className="welcome-title">
               <h1 style={{ color: "white", fontWeight: "bold", textDecoration: "underline" }}>
                 Welcome to the Peck Your Path!
               </h1>
@@ -263,37 +200,15 @@ function App() {
 
 
             {/* Box around Basic and Detailed Questions */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "4rem",
-                color: "white",
-                width: "100%",
-              }}
-            >
+            <div className="question-boxes">
               {/* Box around Basic Questions */}
-              <div
-                style={{
-                  width: "45%",
-                  textAlign: "center",
-                  //border: "3px solid white",
-                  borderRadius: "10px",
-                  padding: "2rem",
-                  //backgroundColor: "teal"
-                  backgroundColor: "rgba(0, 128, 128, 1)"
-                  //backgroundColor: "rgba(255,255,255,0.05)",
-                  
-                }}
-              >
-                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem", color: "white" }}>Basic Questions</h2>
-                <p style={{ fontSize: "1.25rem" }}>Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
+              <div className="box-basic">
+                <h2 className="box-title">Basic Questions</h2>
+                <p className="box-desc">Start with a quick quiz to discover your general career interests based on your personality and preferences. Perfect if you're looking for a fast overview!</p>
                 <Button 
                   onClick={goToBasicQuestions} 
+                  className="btn-go-basic"
                   style={{ 
-                    backgroundColor: "white", 
-                    border: "none", 
-                    color: "teal",
                     opacity: keySubmitted ? 1 : 0.5,
                     cursor: keySubmitted ? "pointer" : "not-allowed"
                   }}
@@ -305,26 +220,13 @@ function App() {
               </div>
 
               {/* Box around Detailed Questions */}
-              <div
-                style={{
-                  width: "45%",
-                  textAlign: "center",
-                  //border: "3px solid white",
-                  borderRadius: "10px",
-                  padding: "2rem",
-                  //backgroundColor: "orange"
-                  backgroundColor: "rgba(255, 165, 0, 1)"
-                  //backgroundColor: "rgba(255,255,255,0.05)",
-                }}
-              >
-                <h2 style={{ fontFamily: "Arial", fontSize: "2.5rem" }}>Detailed Questions</h2>
-                <p style={{ fontSize: "1.25rem" }}>Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
+              <div className="box-detailed">
+                <h2 className="box-title">Detailed Questions</h2>
+                <p className="box-desc">Take a more in-depth quiz that dives into your values, skills, and goals to provide a more tailored and insightful career path suggestion.</p>
                 <Button 
                   onClick={goToDetailedQuestions} 
+                  className="btn-go-detailed"
                   style={{ 
-                    backgroundColor: "white", 
-                    border: "none", 
-                    color: "orange",
                     opacity: keySubmitted ? 1 : 0.5,
                     cursor: keySubmitted ? "pointer" : "not-allowed"
                   }}
